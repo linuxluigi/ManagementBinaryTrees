@@ -1,5 +1,7 @@
 package com.linuxluigi.edu.list;
 
+import javax.swing.*;
+
 /**
  * Created by fubu on 01.02.17.
  */
@@ -7,6 +9,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     private Node head;
     private int treeDepth = 0;
     private int size = 0;
+    private JButton[] jButtons;
 
     private class Node {
         public T data;
@@ -120,7 +123,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     }
 
     public int size() {
-        return 0;
+        return this.size;
     }
 
     public void printAll() {

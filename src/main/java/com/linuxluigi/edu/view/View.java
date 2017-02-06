@@ -1,8 +1,10 @@
 package com.linuxluigi.edu.view;
 
+import com.linuxluigi.edu.data.NodeData;
+import com.linuxluigi.edu.list.BinaryLinkedList;
+import com.linuxluigi.edu.list.Listlabel;
+
 import javax.swing.*;
-import javax.swing.event.MenuKeyEvent;
-import javax.swing.event.MenuKeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -11,11 +13,9 @@ import java.awt.event.KeyEvent;
  * Created by fubu on 03.02.17.
  */
 public class View extends JFrame {
-
-    // creating a panel
-    JPanel jPanel = new JPanel();
-
-    JButton button1;
+    Listlabel<NodeData> nodeList = new BinaryLinkedList<NodeData>();
+    NodePanel nodePanel = new NodePanel();
+    // nodeData = (NodeData) nodeList.get(0);
 
     public View() {
         this.setTitle("Management Binary Trees");
@@ -25,26 +25,9 @@ public class View extends JFrame {
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // creating a panel
-        this.jPanel = new JPanel();
-
-        // label
-        JLabel label1 = new JLabel("Something intristing");
-        this.jPanel.add(label1);
-
-        // button
-        this.button1 = new JButton("send");
-        //button1.setBorderPainted(false);
-        //button1.setContentAreaFilled(false);
-
-        ListenForButton listenForButton = new ListenForButton();
-        this.button1.addActionListener(listenForButton);
-
-        this.jPanel.add(this.button1);
-
         createMenuBar();
 
-        this.add(jPanel);
+        this.add(nodePanel.getJPanel(nodeList));
         this.setVisible(true);
 
     }
@@ -100,19 +83,23 @@ public class View extends JFrame {
         setJMenuBar(menubar);
     }
 
-    // Implement Listeners
 
-    private class ListenForButton implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
 
-            if (e.getSource() == button1) {
-                int x = (int) button1.getLocation().getX();
-                x = x + 50;
-                int y = (int) button1.getLocation().getY();
-                y = y + 50;
-                button1.setLocation(x, y);
-            }
-
-        }
+    private void updateView() {
+        getContentPane().removeAll();
+        getContentPane().invalidate();
+        getContentPane().add(nodePanel.getJPanel(nodeList));
+        validate();
+        repaint();
     }
+
+    public void setBinaryTree(Listlabel<NodeData> nodeList) {
+        this.nodeList = nodeList;
+        updateView();
+    }
+
+    public void addNodeListener(ActionListener listenerForNodeButton){
+        nodePanel.addNodeListener(listenerForNodeButton);
+    }
+
 }
