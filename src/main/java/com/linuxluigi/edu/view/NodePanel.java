@@ -5,7 +5,6 @@ import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -27,29 +26,17 @@ public class NodePanel {
         jPanel.removeAll();
         jButtons = new JButton[nodeList.size()];
 
-        //ListenForButton listenForButton = new ListenForButton();
-
         for (int i = 0; i < nodeList.size(); i++) {
             NodeData nodeData = nodeList.get(i);
             this.jButtons[i] = new JButton(nodeData.getContent());
+            this.jButtons[i].setName(Integer.toString(i));
             this.jPanel.add(this.jButtons[i]);
-            //this.jButtons[i].addActionListener(listenForButton);
         }
     }
 
-    public void addNodeListener(ActionListener listenerForNodeButton){
+    public void addNodeListener(ActionListener listenerForNodeButton) {
         for (int i = 0; i < nodeList.size(); i++) {
             jButtons[i].addActionListener(listenerForNodeButton);
-        }
-    }
-
-    private class ListenForButton implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < nodeList.size(); i++) {
-                if (e.getSource() == jButtons[i]) {
-                    System.out.println(i);
-                }
-            }
         }
     }
 }

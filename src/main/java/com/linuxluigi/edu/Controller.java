@@ -5,6 +5,7 @@ import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
 import com.linuxluigi.edu.view.View;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,10 +20,13 @@ public class Controller {
         this.view = view;
         this.nodeList = new BinaryLinkedList<NodeData>();
 
-        this.view.addNodeListener(new NodeListener());
-
         initDefaultTree();
         view.setBinaryTree(nodeList);
+
+        this.view.addNodeListener(new NodeListener());
+        this.view.addMenuLoadListener(new MenuLoadListener());
+        this.view.addMenuSaveListener(new MenuSaveListener());
+        this.view.addMenuExitListener(new MenuExitListener());
     }
 
     private void initDefaultTree() {
@@ -51,11 +55,28 @@ public class Controller {
     //INNER CLASS
 
     class NodeListener implements ActionListener {
-
         public void actionPerformed(ActionEvent arg0){
-            System.out.println("sdabbsjifbsdjf");
+            JButton jButton = (JButton) arg0.getSource();
+            System.out.println(jButton.getName());
         }
+    }
 
+    class MenuLoadListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            System.out.println("Loading++");
+        }
+    }
+
+    class MenuSaveListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            System.out.println("Saving++");
+        }
+    }
+
+    class MenuExitListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            System.exit(0);
+        }
     }
 
 }
