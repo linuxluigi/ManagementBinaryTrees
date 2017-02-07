@@ -14,7 +14,8 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        View view = new View();
+        View view = new View(660, 550);
+        view.setLocationRelativeTo(null);
         Controller controller = new Controller(view);
     }
 }

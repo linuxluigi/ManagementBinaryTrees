@@ -5,7 +5,7 @@ import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
@@ -14,27 +14,25 @@ import java.awt.event.KeyEvent;
  */
 public class View extends JFrame {
     private Listlabel<NodeData> nodeList = new BinaryLinkedList<NodeData>();
-    private NodePanel nodePanel = new NodePanel();
+    private NodePanel nodePanel;
 
-    private JPanel jPanel = new JPanel();
+    JScrollPane jScrollPane;
 
     private JMenuBar menubar;
 
     // nodeData = (NodeData) nodeList.get(0);
 
-    public View() {
+    public View(int with, int height) {
         this.setTitle("Management Binary Trees");
 
-        this.setSize(350, 250);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setSize(with, height);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         createMenuBar();
 
-        this.add(jPanel);
         this.setVisible(true);
-
     }
 
     private void createMenuBar() {
@@ -79,12 +77,19 @@ public class View extends JFrame {
 
 
     private void updateView() {
-        jPanel.removeAll();
-
         getContentPane().removeAll();
         getContentPane().invalidate();
 
-        getContentPane().add(nodePanel.getJPanel(nodeList));
+        this.nodePanel = new NodePanel();
+        JPanel jPanel = this.nodePanel.getJPanel(nodeList);
+
+        int x = nodeList.getWith();
+        int y = nodeList.getHigh();
+
+        jPanel.setPreferredSize(new Dimension( nodeList.getWith(),nodeList.getHigh()));
+        jScrollPane = new JScrollPane(jPanel);
+        jPanel.setAutoscrolls(true);
+        add(jScrollPane);
 
         validate();
         repaint();

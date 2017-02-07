@@ -5,7 +5,6 @@ import com.linuxluigi.edu.data.NodeData;
 import com.linuxluigi.edu.data.ViewPosition;
 import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
-import com.linuxluigi.edu.list.SinglyLinkedList;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +20,7 @@ public class NodePanel extends JPanel {
     private Listlabel<NodeData> nodeList = new BinaryLinkedList<NodeData>();
     public JButton[] jButtons;
     public JLabel[] jLabels;
-    private ImageIcon nodeIcon = nodeIcon = new ImageIcon(this.getClass().getResource("/Node.png"));
+    private ImageIcon nodeIcon = new ImageIcon(this.getClass().getResource("/Node.png"));
 
     public NodePanel() {
         //this.jPanel = new JPanel();
@@ -34,7 +33,7 @@ public class NodePanel extends JPanel {
         return this;
     }
 
-    private void addButton(int id){
+    private void addButton(int id) {
         NodeData nodeData = nodeList.get(id);
 
         ViewPosition viewPosition = nodeList.getViewPosition(id);
@@ -51,7 +50,7 @@ public class NodePanel extends JPanel {
         // set text font
         this.jButtons[id].setVerticalTextPosition(SwingConstants.CENTER);
         this.jButtons[id].setHorizontalTextPosition(SwingConstants.CENTER);
-        this.jButtons[id].setFont(new Font("Arial", Font.BOLD, 40));
+        this.jButtons[id].setFont(new Font("Arial", Font.BOLD, 20));
         this.jButtons[id].setForeground(Color.BLACK);
 
         // set location
@@ -105,7 +104,9 @@ public class NodePanel extends JPanel {
             g2.draw(new Line2D.Float(tempLine.getX1(), tempLine.getY1(), tempLine.getX2(), tempLine.getY2()));
 
         }
-    };
+    }
+
+    ;
 
     public void addNodeListener(ActionListener listenerForNodeButton) {
         for (int i = 0; i < nodeList.getSize(); i++) {

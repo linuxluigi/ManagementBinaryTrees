@@ -85,11 +85,19 @@ public class SinglyLinkedList<T> implements Listlabel<T>  {
         return null;
     }
 
-    public void sort() {
+    public void sort(OrderBy orderBy) {
 
     }
 
     public ViewPosition getViewPosition(int index) {
         return null;
+    }
+
+    public int getWith() {
+        return 0;
+    }
+
+    public int getHigh() {
+        return 0;
     }
 }

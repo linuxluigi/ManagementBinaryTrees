@@ -1,7 +1,10 @@
 package com.linuxluigi.edu.list;
 
 import com.linuxluigi.edu.data.DrawnLines;
+import com.linuxluigi.edu.data.NodeData;
 import com.linuxluigi.edu.data.ViewPosition;
+
+import java.util.Arrays;
 
 /**
  * Created by fubu on 01.02.17.
@@ -20,6 +23,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         public Node prev;
         public Node nextLeft;
         public Node nextRight;
+        public int treeDepth;
         public ViewPosition viewPosition;
     }
 
@@ -77,6 +81,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         }
 
         if (index == 0 && head == null) {
+            newNode.prev = null;
             head = newNode;
         } else {
             tempCurrent = getNode(index);
@@ -139,16 +144,81 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     public void remove(int index) {
         Node getNode = this.getNode(index);
 
-        if (index == 0) {
-            Node tempNode = this.head.nextRight;
-            this.head = this.head.nextLeft;
+        PrevNode prevNode = new PrevNode();
+
+        if (getNode.nextLeft == null && getNode.nextRight == null) {
+            // no next node
+
+            if (getNode.prev == null) {
+                // head node
+                this.head = null;
+            } else {
+                if (getNode.prev.nextLeft == getNode) {
+                    getNode.prev.nextLeft = null;
+                } else {
+                    getNode.prev.nextRight = null;
+                }
+            }
+
+            setId();
+
+        } else if (getNode.nextLeft != null && getNode.nextRight != null){
+            // 2 next  nodes
+            int prevId;
+            Node tempNextNode = getNode.nextRight;
+
+            if (getNode.prev == null) {
+                // head
+                prevId = getNode.nextLeft.ID;
+
+                head = getNode.nextLeft;
+                head.prev = null;
+
+            } else {
+                prevId = getNode.prev.ID;
+                if (getNode.prev.nextLeft == getNode) {
+                    getNode.prev.nextLeft = getNode.nextLeft;
+                    getNode.prev.nextLeft.prev = getNode.prev;
+                } else {
+                    getNode.prev.nextRight = getNode.nextLeft;
+                    getNode.prev.nextRight.prev = getNode.prev;
+                }
+            }
+
+            add(prevId, tempNextNode);
+            setId();
+
+        } else {
+            // single next node
+            Node tempNode;
+
+            if (getNode.nextLeft != null) {
+                tempNode = getNode.nextLeft;
+            } else {
+                tempNode = getNode.nextRight;
+            }
+
+            if (getNode.prev == null) {
+                // head
+                head = tempNode;
+                head.prev = null;
+
+            } else {
+                if (getNode.prev.nextLeft == getNode) {
+                    getNode.prev.nextLeft = tempNode;
+                } else {
+                    getNode.prev.nextRight = tempNode;
+                }
+            }
+
+            setId();
         }
 
-        setId();
     }
 
     public void clearAll() {
         this.head = null;
+        this.drawnLines.clearAll();
         this.size = 0;
         this.treeDepth = 0;
     }
@@ -238,7 +308,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
         Integer idCounter = 0;
 
-        Node tempCurrent = head;
+        Node tempCurrent = this.head;
 
         int currentTreeDepth = 0;
         Node tempPrev = null;
@@ -255,6 +325,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
                     if (idCounter == 0) {
                         tempCurrent.ID = idCounter;
                         idCounter++;
+                        tempCurrent.treeDepth = currentTreeDepth;
                     }
 
                     if (tempCurrent.nextLeft != null) {
@@ -319,6 +390,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
                     tempCurrent.ID = idCounter;
                     idCounter++;
+                    tempCurrent.treeDepth = currentTreeDepth;
 
                     if (tempCurrent.nextLeft != null) {
                         // go down left
@@ -358,132 +430,40 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     private void setPosition() {
         int maxWith = (int) Math.pow(2, this.treeDepth) * iconSize;
 
-        Node tempCurrent = head;
-
-        int currentTreeDepth = 0;
-        Node tempPrev = null;
-
-        boolean treeEnd = this.isEmpty();
-
-        PrevNode prevNode = new PrevNode();
-
         this.drawnLines.clearAll();
 
-        while (treeEnd == false) {
+        for (int i = 0; i < this.size; i++) {
+            Node getNode = getNode(i);
 
-            int blockSize = maxWith / (int) Math.pow(2, currentTreeDepth);
-            int blockStartY = (this.iconSize * 3 / 2) * currentTreeDepth;
+            int blockSize = maxWith / (int) Math.pow(2, getNode.treeDepth);
+            int blockStartY = (this.iconSize * 3 / 2) * getNode.treeDepth;
             int blockStartX;
 
-            switch (prevNode.getPrevNode(tempCurrent, tempPrev)) {
+            if (getNode.prev == null) {
+                //head
+                blockStartX = maxWith / 2 - (iconSize / 2);
+                getNode.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
+            } else {
 
-                case NULL:
-                    blockStartX = maxWith / 2 - (iconSize / 2);
+                if (getNode == getNode.prev.nextLeft) {
+                    // location for Button
+                    blockStartX = getNode.prev.viewPosition.getMiddelX() - (blockSize / 2) - (iconSize / 2);
+                    getNode.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
+                } else {
+                    // location for Button
+                    blockStartX = getNode.prev.viewPosition.getMiddelX() + (blockSize / 2) - (iconSize / 2);
+                    getNode.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
+                }
 
-                    tempCurrent.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
-
-                    if (tempCurrent.nextLeft != null) {
-                        // go down left
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.nextLeft;
-                        currentTreeDepth++;
-                    } else if (tempCurrent.nextRight != null) {
-                        // go down right
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.nextRight;
-                        currentTreeDepth++;
-                    } else {
-                        // end
-                        treeEnd = true;
-                    }
-
-                    break;
-
-                case UP_LEFT:
-                    if (tempCurrent.prev == null) {
-                        // starting node
-                        if (tempCurrent.nextRight != null) {
-                            // go down right
-                            tempPrev = tempCurrent;
-                            tempCurrent = tempCurrent.nextRight;
-                            currentTreeDepth++;
-                        } else {
-                            // end
-                            treeEnd = true;
-                        }
-                    } else {
-                        if (tempCurrent.nextRight != null) {
-                            // go down right
-                            tempPrev = tempCurrent;
-                            tempCurrent = tempCurrent.nextRight;
-                            currentTreeDepth++;
-                        } else {
-                            // go up
-                            tempPrev = tempCurrent;
-                            tempCurrent = tempCurrent.prev;
-                            currentTreeDepth--;
-                        }
-                    }
-                    break;
-
-                case UP_RIGHT:
-                    if (tempCurrent.prev == null) {
-                        // starting node
-                        // end
-                        treeEnd = true;
-                    } else {
-                        // go up
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.prev;
-                        currentTreeDepth--;
-                    }
-                    break;
-
-                default:
-                    // for DOWN_LEFT && DOWN_RIGHT
-
-                    // Location for Buttons
-                    if(prevNode.getPrevNode(tempCurrent, tempPrev) == PrevNodeDirection.DOWN_LEFT) {
-                        blockStartX = tempPrev.viewPosition.getMiddelX() - (blockSize / 2) - (iconSize / 2);
-                    } else {
-                        blockStartX = tempPrev.viewPosition.getMiddelX() + (blockSize / 2) - (iconSize / 2);
-                    }
-                    tempCurrent.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
-
+                if (getNode.prev != null) {
                     // location for DrawnLines
-                    int x1 = tempPrev.viewPosition.getMiddelX();
-                    int y1 = tempPrev.viewPosition.getY2();
-                    int x2 = tempCurrent.viewPosition.getMiddelX();
-                    int y2 = tempCurrent.viewPosition.getY();
+                    int x1 = getNode.prev.viewPosition.getMiddelX();
+                    int y1 = getNode.prev.viewPosition.getY2();
+                    int x2 = getNode.viewPosition.getMiddelX();
+                    int y2 = getNode.viewPosition.getY();
 
                     this.drawnLines.add(new DrawnLines(x1, x2, y1, y2));
-
-                    if (tempCurrent.nextLeft != null) {
-                        // go down left
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.nextLeft;
-                        currentTreeDepth++;
-                    } else if (tempCurrent.nextRight != null) {
-                        // go down right
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.nextRight;
-                        currentTreeDepth++;
-                    } else if (tempCurrent.prev == null) {
-                        // end
-                        treeEnd = true;
-                    } else {
-                        // go up
-                        tempPrev = tempCurrent;
-                        tempCurrent = tempCurrent.prev;
-                        currentTreeDepth--;
-                    }
-                    break;
-
-            }
-
-            // Set max tree depth
-            if (currentTreeDepth > this.treeDepth) {
-                this.treeDepth = currentTreeDepth;
+                }
             }
 
         }
@@ -496,7 +476,29 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
      * 2.3 remove the node from the current node
      * 3. repeat till there is no node left
      */
-    public void sort() {
+    public void sort(OrderBy orderBy) {
+        String[] sortArray = new String[this.size];
+
+        for (int i = 0; i < this.size; i++) {
+            NodeData temp = (NodeData) getNode(i).data;
+            sortArray[i] = temp.getContent();
+        }
+
+        Arrays.sort(sortArray);
+
+        if (orderBy == OrderBy.DESC) {
+            String[] sortArrayDesc = new String[this.size];
+            for (int i = 0; i < this.size; i++) {
+                sortArrayDesc[this.size-i-1] = sortArray[i];
+            }
+            sortArray = sortArrayDesc;
+        }
+
+        clearAll();
+
+        for (int i = 0; i < sortArray.length; i++) {
+            add((T) new NodeData(sortArray[i]));
+        }
 
     }
 
@@ -506,5 +508,13 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
     public ViewPosition getViewPosition(int index) {
         return getNode(index).viewPosition;
+    }
+
+    public int getWith() {
+        return (int) Math.pow(2, this.treeDepth) * iconSize;
+    }
+
+    public int getHigh() {
+        return treeDepth * iconSize * 2;
     }
 }

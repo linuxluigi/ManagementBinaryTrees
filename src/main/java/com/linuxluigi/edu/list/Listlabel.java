@@ -24,7 +24,11 @@ public interface Listlabel<T> {
 
     public void set(int index, T data);
 
-    public void sort();
+    public void sort(OrderBy orderBy);
+
+    public int getWith();
+
+    public int getHigh();
 
     public ViewPosition getViewPosition(int index);
 
