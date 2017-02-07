@@ -42,6 +42,7 @@ public class Controller {
         this.nodeList.add(new NodeData("J"));
         this.nodeList.add(new NodeData("K"));
         this.nodeList.add(new NodeData("L"));
+        this.nodeList.remove(0);
     }
 
     void loadBinaryTree(){

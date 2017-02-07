@@ -137,18 +137,14 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     }
 
     public void remove(int index) {
-        Node tempCurrent = getNode(index);
+        Node getNode = this.getNode(index);
 
-        if (tempCurrent.prev != null && (tempCurrent.prev.nextLeft == null || tempCurrent.prev.nextRight == null)) {
-            tempCurrent.prev.nextLeft = tempCurrent.nextLeft;
-            tempCurrent.prev.nextRight = tempCurrent.nextRight;
-        } else {
-            tempCurrent.prev = tempCurrent.nextLeft;
-            add(tempCurrent.prev.ID, tempCurrent.nextRight);
+        if (index == 0) {
+            Node tempNode = this.head.nextRight;
+            this.head = this.head.nextLeft;
         }
 
         setId();
-
     }
 
     public void clearAll() {
@@ -334,6 +330,9 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
                         tempPrev = tempCurrent;
                         tempCurrent = tempCurrent.nextRight;
                         currentTreeDepth++;
+                    } else if (tempCurrent.prev == null) {
+                        // end
+                        treeEnd = true;
                     } else {
                         // go up
                         tempPrev = tempCurrent;
@@ -469,6 +468,9 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
                         tempPrev = tempCurrent;
                         tempCurrent = tempCurrent.nextRight;
                         currentTreeDepth++;
+                    } else if (tempCurrent.prev == null) {
+                        // end
+                        treeEnd = true;
                     } else {
                         // go up
                         tempPrev = tempCurrent;
