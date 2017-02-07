@@ -1,5 +1,7 @@
 package com.linuxluigi.edu.list;
 
+import com.linuxluigi.edu.data.DrawnLines;
+
 /**
  * Created by fubu on 01.02.17.
  */
@@ -13,10 +15,6 @@ public interface Listlabel<T> {
 
     public void clearAll();
 
-    public int size();
-
-    public void printAll();
-
     public boolean isEmpty();
 
     public T get(int index);
@@ -24,4 +22,6 @@ public interface Listlabel<T> {
     public int getSize();
 
     public void set(int index, T data);
+
+    public Listlabel<DrawnLines> getDrawnLines();
 }

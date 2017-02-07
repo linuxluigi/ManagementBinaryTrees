@@ -1,6 +1,7 @@
 package com.linuxluigi.edu.list;
 
-import javax.swing.*;
+import com.linuxluigi.edu.data.DrawnLines;
+import com.linuxluigi.edu.data.ViewPosition;
 
 /**
  * Created by fubu on 01.02.17.
@@ -9,7 +10,8 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     private Node head;
     private int treeDepth = 0;
     private int size = 0;
-    private JButton[] jButtons;
+
+    private Listlabel<DrawnLines> drawnLines = new SinglyLinkedList<DrawnLines>();
 
     private class Node {
         public T data;
@@ -17,6 +19,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         public Node prev;
         public Node nextLeft;
         public Node nextRight;
+        public ViewPosition viewPosition;
     }
 
 
@@ -98,7 +101,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             }
         }
 
-        setId();
+        setIdPosition();
     }
 
     public void remove(int index) {
@@ -112,7 +115,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             add(tempCurrent.prev.ID, tempCurrent.nextRight);
         }
 
-        setId();
+        setIdPosition();
 
     }
 
@@ -120,34 +123,6 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         this.head = null;
         this.size = 0;
         this.treeDepth = 0;
-    }
-
-    public int size() {
-        return this.size;
-    }
-
-    public void printAll() {
-        // todo remove
-        int maxTreeWithNodes = (int) Math.pow(2, this.treeDepth);
-        int maxTreeWithChar = 3 * maxTreeWithNodes + maxTreeWithNodes - 1;
-        String output = "";
-
-        for (int i = 0; i < this.treeDepth; i++) {
-            int tempWithNodes = (int) Math.pow(2, i);
-            int tempNodeWithChar = (3 * tempWithNodes + tempWithNodes - 1) / tempWithNodes;
-            for (int j = 0; j < tempWithNodes; j++) {
-                int startChar = tempNodeWithChar / 2 - 1;
-                for (int k = 1; k < startChar; k++) {
-                    output = output + " ";
-                }
-                output = output + getNode(i * j).ID.toString();
-                for (int k = 1; k < startChar; k++) {
-                    output = output + " ";
-                }
-            }
-            output = output + "\n";
-        }
-        System.out.println(output);
     }
 
     public boolean isEmpty() {
@@ -229,7 +204,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         getNode(index).data = data;
     }
 
-    private void setId() {
+    private void setIdPosition() {
         this.treeDepth = 0;
 
         Integer idCounter = 0;
@@ -349,4 +324,9 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         this.size = idCounter;
 
     }
+
+    public Listlabel<DrawnLines> getDrawnLines (){
+        return this.drawnLines;
+    }
+
 }

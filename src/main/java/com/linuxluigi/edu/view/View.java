@@ -26,7 +26,7 @@ public class View extends JFrame {
         this.setTitle("Management Binary Trees");
 
         this.setSize(350, 250);
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
