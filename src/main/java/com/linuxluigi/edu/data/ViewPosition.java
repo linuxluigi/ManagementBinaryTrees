@@ -1,39 +1,38 @@
 package com.linuxluigi.edu.data;
 
+import javax.swing.*;
+
 /**
  * Created by fubu on 07.02.17.
  */
 public class ViewPosition {
     private int x;
     private int y;
-    private final int IconSize = 80;
+    private int iconSize;
 
-    public ViewPosition(int x, int y) {
+    public ViewPosition(int x, int y, int IconSize) {
         this.x = x;
         this.y = y;
+        this.iconSize = IconSize;
     }
 
     public int getX() {
-        return x;
-    }
-
-    public int getX2() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x + this.IconSize;
+        return this.x;
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
-    public void setY2(int y) {
-        this.y = y + this.IconSize;
+    public int getMiddelX() {
+        return this.x + this.iconSize / 2;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public int getY2() {
+        return this.y + this.iconSize;
+    }
+
+    public int getIconSize(){
+        return this.iconSize;
     }
 }

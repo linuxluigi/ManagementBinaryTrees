@@ -2,6 +2,7 @@ package com.linuxluigi.edu.view;
 
 import com.linuxluigi.edu.data.DrawnLines;
 import com.linuxluigi.edu.data.NodeData;
+import com.linuxluigi.edu.data.ViewPosition;
 import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
 import com.linuxluigi.edu.list.SinglyLinkedList;
@@ -33,13 +34,12 @@ public class NodePanel extends JPanel {
         return this;
     }
 
-    private void addButton(int id, int x, int y){
+    private void addButton(int id){
         NodeData nodeData = nodeList.get(id);
 
-        this.jButtons[id] = new JButton(nodeData.getContent());
+        ViewPosition viewPosition = nodeList.getViewPosition(id);
 
-        //location
-        this.jButtons[id].setLocation(x,y);
+        this.jButtons[id] = new JButton(nodeData.getContent());
 
         // icon
         this.jButtons[id].setIcon(nodeIcon);
@@ -55,7 +55,7 @@ public class NodePanel extends JPanel {
         this.jButtons[id].setForeground(Color.BLACK);
 
         // set location
-        this.jButtons[id].setBounds(x, y, 80, 80); // ( x, y, breite, höhe)
+        this.jButtons[id].setBounds(viewPosition.getX(), viewPosition.getY(), viewPosition.getIconSize(), viewPosition.getIconSize()); // ( x, y, with, high)
 
         // set id as button name
         this.jButtons[id].setName(Integer.toString(id));
@@ -67,11 +67,11 @@ public class NodePanel extends JPanel {
         this.jLabels[id] = new JLabel(Integer.toString(id));
 
         // set location
-        x = x+69;
-        y = y+2;
+        int labelWith = viewPosition.getX() + 69;
+        int labelHigh = viewPosition.getY() + 2;
         this.jLabels[id].setAlignmentX(Component.CENTER_ALIGNMENT);
         this.jLabels[id].setAlignmentY(Component.CENTER_ALIGNMENT);
-        this.jLabels[id].setBounds(x, y, 10, 10);
+        this.jLabels[id].setBounds(labelWith, labelHigh, 10, 10);
 
         // set text font
         this.jLabels[id].setFont(new Font("Arial", Font.PLAIN, 8));
@@ -89,9 +89,7 @@ public class NodePanel extends JPanel {
         this.jLabels = new JLabel[nodeList.getSize()];
 
         for (int i = 0; i < nodeList.getSize(); i++) {
-            int x = i * 80;
-            int y = 0;
-            addButton(i, x, y);
+            addButton(i);
         }
     }
 

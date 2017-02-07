@@ -1,6 +1,7 @@
 package com.linuxluigi.edu.list;
 
 import com.linuxluigi.edu.data.DrawnLines;
+import com.linuxluigi.edu.data.ViewPosition;
 
 /**
  * Created by fubu on 06.02.17.
@@ -81,6 +82,14 @@ public class SinglyLinkedList<T> implements Listlabel<T>  {
     }
 
     public Listlabel<DrawnLines> getDrawnLines() {
+        return null;
+    }
+
+    public void sort() {
+
+    }
+
+    public ViewPosition getViewPosition(int index) {
         return null;
     }
 }

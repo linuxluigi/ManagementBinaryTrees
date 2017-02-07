@@ -10,6 +10,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     private Node head;
     private int treeDepth = 0;
     private int size = 0;
+    private final int iconSize = 80;
 
     private Listlabel<DrawnLines> drawnLines = new SinglyLinkedList<DrawnLines>();
 
@@ -22,6 +23,37 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         public ViewPosition viewPosition;
     }
 
+    private class PrevNode {
+        PrevNodeDirection getPrevNode(Node currentNode, Node prevNode) {
+
+            // starting node
+            if (prevNode == null) {
+                return PrevNodeDirection.NULL;
+            }
+
+            // down left node
+            else if (prevNode.nextLeft == currentNode) {
+                return PrevNodeDirection.DOWN_LEFT;
+            }
+
+            // down right node
+            else if (prevNode.nextRight == currentNode) {
+                return PrevNodeDirection.DOWN_RIGHT;
+            }
+
+            // up left node
+            else if (currentNode.nextLeft == prevNode) {
+                return PrevNodeDirection.UP_LEFT;
+            }
+
+            // up right node
+            else if (currentNode.nextRight == prevNode) {
+                return PrevNodeDirection.UP_RIGHT;
+            } else {
+                throw new IllegalArgumentException();
+            }
+        }
+    }
 
     public void add(T data) {
         add(0, data);
@@ -101,7 +133,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             }
         }
 
-        setIdPosition();
+        setId();
     }
 
     public void remove(int index) {
@@ -115,7 +147,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             add(tempCurrent.prev.ID, tempCurrent.nextRight);
         }
 
-        setIdPosition();
+        setId();
 
     }
 
@@ -132,6 +164,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             return true;
         }
     }
+
 
     private Node getNode(int index) {
         if (index >= this.size || index < 0) {
@@ -204,7 +237,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         getNode(index).data = data;
     }
 
-    private void setIdPosition() {
+    private void setId() {
         this.treeDepth = 0;
 
         Integer idCounter = 0;
@@ -214,107 +247,104 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         int currentTreeDepth = 0;
         Node tempPrev = null;
 
-        boolean treeEnd;
-        if (head != null) {
-            treeEnd = false;
-        } else {
-            treeEnd = true;
-        }
+        boolean treeEnd = this.isEmpty();
+
+        PrevNode prevNode = new PrevNode();
 
         while (treeEnd == false) {
 
-            if (tempPrev == null) {
+            switch (prevNode.getPrevNode(tempCurrent, tempPrev)) {
 
-                if (tempCurrent.nextLeft != null) {
-                    tempCurrent.ID = idCounter;
-                    idCounter++;
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.nextLeft;
-                    currentTreeDepth++;
+                case NULL:
+                    if (idCounter == 0) {
+                        tempCurrent.ID = idCounter;
+                        idCounter++;
+                    }
 
-                } else if (tempCurrent.nextRight != null) {
-                    tempCurrent.ID = idCounter;
-                    idCounter++;
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.nextRight;
-                    currentTreeDepth++;
-
-                } else {
-                    tempCurrent.ID = idCounter;
-                    idCounter++;
-                    treeEnd = true;
-                    break;
-                }
-
-            } else if (tempCurrent.prev == null) {
-                if (tempPrev == tempCurrent.nextRight) {
-                    treeEnd = true;
-                    break;
-                } else {
-                    if (tempCurrent.nextRight != null) {
+                    if (tempCurrent.nextLeft != null) {
+                        // go down left
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextLeft;
+                        currentTreeDepth++;
+                    } else if (tempCurrent.nextRight != null) {
+                        // go down right
                         tempPrev = tempCurrent;
                         tempCurrent = tempCurrent.nextRight;
                         currentTreeDepth++;
                     } else {
+                        // end
                         treeEnd = true;
-                        break;
                     }
-                }
 
-            } else if (tempPrev.nextLeft == tempCurrent || tempPrev.nextRight == tempCurrent) {
+                    break;
 
-                if (tempCurrent.nextLeft != null) {
-                    tempCurrent.ID = idCounter;
-                    idCounter++;
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.nextLeft;
-                    currentTreeDepth++;
-
-                } else if (tempCurrent.nextRight != null) {
-                    if (tempPrev.nextLeft == null) {
-                        tempCurrent.ID = idCounter;
-                        idCounter++;
-                    }
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.nextRight;
-                    currentTreeDepth++;
-
-                } else {
-                    tempCurrent.ID = idCounter;
-                    idCounter++;
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.prev;
-                    currentTreeDepth--;
-                }
-
-            } else if (tempPrev == tempCurrent.nextLeft) {
-
-                if (tempCurrent.nextRight != null) {
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.nextRight;
-                    currentTreeDepth++;
-                } else {
+                case UP_LEFT:
                     if (tempCurrent.prev == null) {
-                        treeEnd = true;
-                        break;
+                        // starting node
+                        if (tempCurrent.nextRight != null) {
+                            // go down right
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.nextRight;
+                            currentTreeDepth++;
+                        } else {
+                            // end
+                            treeEnd = true;
+                        }
                     } else {
+                        if (tempCurrent.nextRight != null) {
+                            // go down right
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.nextRight;
+                            currentTreeDepth++;
+                        } else {
+                            // go up
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.prev;
+                            currentTreeDepth--;
+                        }
+                    }
+                    break;
+
+                case UP_RIGHT:
+                    if (tempCurrent.prev == null) {
+                        // starting node
+                        // end
+                        treeEnd = true;
+                    } else {
+                        // go up
                         tempPrev = tempCurrent;
                         tempCurrent = tempCurrent.prev;
                         currentTreeDepth--;
                     }
-                }
-
-            } else if (tempPrev == tempCurrent.nextRight) {
-                if (tempCurrent.prev != null) {
-                    tempPrev = tempCurrent;
-                    tempCurrent = tempCurrent.prev;
-                    currentTreeDepth--;
-                } else {
-                    treeEnd = true;
                     break;
-                }
+
+                default:
+                    // for DOWN_LEFT && DOWN_RIGHT
+
+                    tempCurrent.ID = idCounter;
+                    idCounter++;
+
+                    if (tempCurrent.nextLeft != null) {
+                        // go down left
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextLeft;
+                        currentTreeDepth++;
+                    } else if (tempCurrent.nextRight != null) {
+                        // go down right
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextRight;
+                        currentTreeDepth++;
+                    } else {
+                        // go up
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.prev;
+                        currentTreeDepth--;
+                    }
+                    break;
+
             }
 
+            // Set max tree depth
             if (currentTreeDepth > this.treeDepth) {
                 this.treeDepth = currentTreeDepth;
             }
@@ -323,10 +353,156 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
         this.size = idCounter;
 
+        setPosition();
     }
 
-    public Listlabel<DrawnLines> getDrawnLines (){
+    private void setPosition() {
+        int maxWith = (int) Math.pow(2, this.treeDepth) * iconSize;
+
+        Node tempCurrent = head;
+
+        int currentTreeDepth = 0;
+        Node tempPrev = null;
+
+        boolean treeEnd = this.isEmpty();
+
+        PrevNode prevNode = new PrevNode();
+
+        this.drawnLines.clearAll();
+
+        while (treeEnd == false) {
+
+            int blockSize = maxWith / (int) Math.pow(2, currentTreeDepth);
+            int blockStartY = (this.iconSize * 3 / 2) * currentTreeDepth;
+            int blockStartX;
+
+            switch (prevNode.getPrevNode(tempCurrent, tempPrev)) {
+
+                case NULL:
+                    blockStartX = maxWith / 2 - (iconSize / 2);
+
+                    tempCurrent.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
+
+                    if (tempCurrent.nextLeft != null) {
+                        // go down left
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextLeft;
+                        currentTreeDepth++;
+                    } else if (tempCurrent.nextRight != null) {
+                        // go down right
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextRight;
+                        currentTreeDepth++;
+                    } else {
+                        // end
+                        treeEnd = true;
+                    }
+
+                    break;
+
+                case UP_LEFT:
+                    if (tempCurrent.prev == null) {
+                        // starting node
+                        if (tempCurrent.nextRight != null) {
+                            // go down right
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.nextRight;
+                            currentTreeDepth++;
+                        } else {
+                            // end
+                            treeEnd = true;
+                        }
+                    } else {
+                        if (tempCurrent.nextRight != null) {
+                            // go down right
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.nextRight;
+                            currentTreeDepth++;
+                        } else {
+                            // go up
+                            tempPrev = tempCurrent;
+                            tempCurrent = tempCurrent.prev;
+                            currentTreeDepth--;
+                        }
+                    }
+                    break;
+
+                case UP_RIGHT:
+                    if (tempCurrent.prev == null) {
+                        // starting node
+                        // end
+                        treeEnd = true;
+                    } else {
+                        // go up
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.prev;
+                        currentTreeDepth--;
+                    }
+                    break;
+
+                default:
+                    // for DOWN_LEFT && DOWN_RIGHT
+
+                    // Location for Buttons
+                    if(prevNode.getPrevNode(tempCurrent, tempPrev) == PrevNodeDirection.DOWN_LEFT) {
+                        blockStartX = tempPrev.viewPosition.getMiddelX() - (blockSize / 2) - (iconSize / 2);
+                    } else {
+                        blockStartX = tempPrev.viewPosition.getMiddelX() + (blockSize / 2) - (iconSize / 2);
+                    }
+                    tempCurrent.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
+
+                    // location for DrawnLines
+                    int x1 = tempPrev.viewPosition.getMiddelX();
+                    int y1 = tempPrev.viewPosition.getY2();
+                    int x2 = tempCurrent.viewPosition.getMiddelX();
+                    int y2 = tempCurrent.viewPosition.getY();
+
+                    this.drawnLines.add(new DrawnLines(x1, x2, y1, y2));
+
+                    if (tempCurrent.nextLeft != null) {
+                        // go down left
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextLeft;
+                        currentTreeDepth++;
+                    } else if (tempCurrent.nextRight != null) {
+                        // go down right
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.nextRight;
+                        currentTreeDepth++;
+                    } else {
+                        // go up
+                        tempPrev = tempCurrent;
+                        tempCurrent = tempCurrent.prev;
+                        currentTreeDepth--;
+                    }
+                    break;
+
+            }
+
+            // Set max tree depth
+            if (currentTreeDepth > this.treeDepth) {
+                this.treeDepth = currentTreeDepth;
+            }
+
+        }
+    }
+
+    /**
+     * 1. create new list
+     * 2.1 search for the highes node
+     * 2.2 add this node to the new list
+     * 2.3 remove the node from the current node
+     * 3. repeat till there is no node left
+     */
+    public void sort() {
+
+    }
+
+    public Listlabel<DrawnLines> getDrawnLines() {
         return this.drawnLines;
     }
 
+    public ViewPosition getViewPosition(int index) {
+        return getNode(index).viewPosition;
+    }
 }
