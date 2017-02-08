@@ -1,11 +1,6 @@
 package com.linuxluigi.edu;
 
-import com.linuxluigi.edu.data.NodeData;
-import com.linuxluigi.edu.list.BinaryLinkedList;
-import com.linuxluigi.edu.list.Listlabel;
 import com.linuxluigi.edu.view.View;
-
-import java.io.IOException;
 
 
 /**

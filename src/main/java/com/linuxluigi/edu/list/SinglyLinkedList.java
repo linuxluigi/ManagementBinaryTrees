@@ -6,7 +6,7 @@ import com.linuxluigi.edu.data.ViewPosition;
 /**
  * Created by fubu on 06.02.17.
  */
-public class SinglyLinkedList<T> implements Listlabel<T>  {
+public class SinglyLinkedList<T> implements Listlabel<T> {
     private Node head;
     private int size = 0;
 

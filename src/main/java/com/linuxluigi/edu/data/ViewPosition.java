@@ -1,7 +1,5 @@
 package com.linuxluigi.edu.data;
 
-import javax.swing.*;
-
 /**
  * Created by fubu on 07.02.17.
  */
@@ -32,7 +30,7 @@ public class ViewPosition {
         return this.y + this.iconSize;
     }
 
-    public int getIconSize(){
+    public int getIconSize() {
         return this.iconSize;
     }
 }

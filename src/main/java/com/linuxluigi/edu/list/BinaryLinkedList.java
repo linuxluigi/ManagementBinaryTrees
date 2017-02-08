@@ -516,7 +516,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     public void setBinaryTreeFromList(String[][] binaryTreeArray) {
         clearAll();
 
-        add((T) new NodeData (binaryTreeArray[0][1]));
+        add((T) new NodeData(binaryTreeArray[0][1]));
 
 
         for (int i = 1; i < binaryTreeArray.length; i++) {
