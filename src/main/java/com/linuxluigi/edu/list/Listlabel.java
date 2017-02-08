@@ -30,6 +30,10 @@ public interface Listlabel<T> {
 
     public int getHigh();
 
+    public void setBinaryTreeFromList(String[][] binaryTreeArray);
+
+    public String[][] getBinaryList();
+
     public ViewPosition getViewPosition(int index);
 
     public Listlabel<DrawnLines> getDrawnLines();

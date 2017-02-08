@@ -162,7 +162,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
             setId();
 
-        } else if (getNode.nextLeft != null && getNode.nextRight != null){
+        } else if (getNode.nextLeft != null && getNode.nextRight != null) {
             // 2 next  nodes
             int prevId;
             Node tempNextNode = getNode.nextRight;
@@ -469,13 +469,6 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         }
     }
 
-    /**
-     * 1. create new list
-     * 2.1 search for the highes node
-     * 2.2 add this node to the new list
-     * 2.3 remove the node from the current node
-     * 3. repeat till there is no node left
-     */
     public void sort(OrderBy orderBy) {
         String[] sortArray = new String[this.size];
 
@@ -489,7 +482,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         if (orderBy == OrderBy.DESC) {
             String[] sortArrayDesc = new String[this.size];
             for (int i = 0; i < this.size; i++) {
-                sortArrayDesc[this.size-i-1] = sortArray[i];
+                sortArrayDesc[this.size - i - 1] = sortArray[i];
             }
             sortArray = sortArrayDesc;
         }
@@ -516,5 +509,75 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
     public int getHigh() {
         return treeDepth * iconSize * 2;
+    }
+
+    public void setBinaryTreeFromList(String[][] binaryTreeArray) {
+        clearAll();
+
+        add((T) new NodeData (binaryTreeArray[0][1]));
+
+
+        for (int i = 1; i < binaryTreeArray.length; i++) {
+
+            Node tempCurrent = head;
+
+            Node newNode = new Node();
+            newNode.data = (T) new NodeData(binaryTreeArray[i][1]);
+            newNode.nextLeft = null;
+            newNode.nextRight = null;
+
+            for (int j = 0; j < binaryTreeArray[i][0].length(); j++) {
+
+                if (binaryTreeArray[i][0].charAt(j) == '0') {
+
+                    if (j == binaryTreeArray[i][0].length() - 1) {
+                        newNode.prev = tempCurrent;
+                        tempCurrent.nextLeft = newNode;
+                    } else {
+                        tempCurrent = tempCurrent.nextLeft;
+                    }
+
+                } else {
+
+                    if (j == binaryTreeArray[i][0].length() - 1) {
+                        newNode.prev = tempCurrent;
+                        tempCurrent.nextRight = newNode;
+                    } else {
+                        tempCurrent = tempCurrent.nextRight;
+                    }
+
+                }
+            }
+        }
+
+        setId();
+    }
+
+    public String[][] getBinaryList() {
+        String[][] binaryTreeArray = new String[this.size][2];
+
+        for (int i = 0; i < this.size; i++) {
+            Node getNode = getNode(i);
+            NodeData nodeData = (NodeData) getNode.data;
+            binaryTreeArray[i][1] = nodeData.getContent();
+
+            binaryTreeArray[i][0] = "";
+
+            PrevNode prevNode = new PrevNode();
+
+            while (getNode.prev != null) {
+                switch (prevNode.getPrevNode(getNode, getNode.prev)) {
+                    case DOWN_LEFT:
+                        binaryTreeArray[i][0] = "0" + binaryTreeArray[i][0];
+                        break;
+                    case DOWN_RIGHT:
+                        binaryTreeArray[i][0] = "1" + binaryTreeArray[i][0];
+                        break;
+                }
+                getNode = getNode.prev;
+            }
+        }
+
+        return binaryTreeArray;
     }
 }

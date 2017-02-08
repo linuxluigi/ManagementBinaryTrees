@@ -1,5 +1,6 @@
 package com.linuxluigi.edu;
 
+import com.linuxluigi.edu.data.Load;
 import com.linuxluigi.edu.data.NodeData;
 import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
@@ -7,9 +8,12 @@ import com.linuxluigi.edu.list.OrderBy;
 import com.linuxluigi.edu.view.View;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.lang.reflect.Field;
 
 /**
  * Created by fubu on 06.02.17.
@@ -28,6 +32,8 @@ public class Controller {
         this.view.addNodeListener(new NodeListener());
         this.view.addMenuLoadListener(new MenuLoadListener());
         this.view.addMenuSaveListener(new MenuSaveListener());
+        this.view.addSortAcsListener(new MenuSortAcsListener());
+        this.view.addSortDecsListener(new MenuSortDecsListener());
         this.view.addMenuExitListener(new MenuExitListener());
     }
 
@@ -73,6 +79,8 @@ public class Controller {
         view.addNodeListener(new NodeListener());
         view.addMenuLoadListener(new MenuLoadListener());
         view.addMenuSaveListener(new MenuSaveListener());
+        this.view.addSortAcsListener(new MenuSortAcsListener());
+        this.view.addSortDecsListener(new MenuSortDecsListener());
         view.addMenuExitListener(new MenuExitListener());
     }
 
@@ -92,13 +100,56 @@ public class Controller {
 
     class MenuLoadListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
-            System.out.println("Loading++");
+            JFileChooser chooser = new JFileChooser();
+
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Json", "json", "JSON");
+            chooser.setFileFilter(filter);
+
+            chooser.setSelectedFile(new File("~/BinaryTree.json"));
+
+            int chooseFile = chooser.showOpenDialog(null);
+
+            if (chooseFile == JFileChooser.APPROVE_OPTION) {
+                Load load = new Load(chooser.getSelectedFile());
+                nodeList.setBinaryTreeFromList(load.getBinaryListArray());
+            }
+
+            updateView();
         }
     }
 
     class MenuSaveListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0){
-            System.out.println("Saving++");
+
+            JFileChooser chooser = new JFileChooser();
+
+            FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                    "Json", "json", "JSON");
+            chooser.setFileFilter(filter);
+
+            chooser.setSelectedFile(new File("~/BinaryTree.json"));
+
+            int chooseFile = chooser.showSaveDialog(null);
+
+            if (chooseFile == JFileChooser.APPROVE_OPTION) {
+                Save save = new Save(chooser.getSelectedFile(), nodeList);
+            }
+
+        }
+    }
+
+    class MenuSortAcsListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            nodeList.sort(OrderBy.ASC);
+            updateView();
+        }
+    }
+
+    class MenuSortDecsListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0){
+            nodeList.sort(OrderBy.DESC);
+            updateView();
         }
     }
 

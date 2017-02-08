@@ -100,4 +100,12 @@ public class SinglyLinkedList<T> implements Listlabel<T>  {
     public int getHigh() {
         return 0;
     }
+
+    public void setBinaryTreeFromList(String[][] binaryTreeArray) {
+
+    }
+
+    public String[][] getBinaryList() {
+        return new String[0][];
+    }
 }

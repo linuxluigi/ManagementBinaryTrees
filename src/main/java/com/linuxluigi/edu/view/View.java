@@ -20,13 +20,10 @@ public class View extends JFrame {
 
     private JMenuBar menubar;
 
-    // nodeData = (NodeData) nodeList.get(0);
-
     public View(int with, int height) {
         this.setTitle("Management Binary Trees");
 
         this.setSize(with, height);
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -42,6 +39,8 @@ public class View extends JFrame {
         ImageIcon iconSave = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_save_16_0_000000_none.png"));
         ImageIcon iconLoad = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_upload_16_0_000000_none.png"));
         ImageIcon iconFile = new ImageIcon(this.getClass().getResource("/icomoon-free_2014-12-23_menu_16_0_000000_none.png"));
+        ImageIcon iconSortAcs = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_sort-amount-asc_16_0_000000_none.png"));
+        ImageIcon iconSortDesc = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_sort-amount-desc_16_0_000000_none.png"));
 
         JMenu file = new JMenu("File");
         file.setIcon(iconFile);
@@ -59,21 +58,35 @@ public class View extends JFrame {
         eMenuItemSave.setMnemonic(KeyEvent.VK_E);
         eMenuItemSave.setToolTipText("Save a Binary Tree from Disk");
 
+        // Sort Acs Button
+        JMenuItem eMenuSortAcs = new JMenuItem("Sort ACS");
+        eMenuSortAcs.setIcon(iconSortAcs);
+        eMenuSortAcs.setMnemonic(KeyEvent.VK_E);
+        eMenuSortAcs.setToolTipText("Sort Binary Tree ACS");
+
+        // Sort Desc Button
+        JMenuItem eMenuSortDesc = new JMenuItem("Sort DECS");
+        eMenuSortDesc.setIcon(iconSortDesc);
+        eMenuSortDesc.setMnemonic(KeyEvent.VK_E);
+        eMenuSortDesc.setToolTipText("Sort Binary Tree DECS");
+
         // Exit Button
         JMenuItem eMenuItemExit = new JMenuItem("Exit");
         eMenuItemExit.setIcon(iconExit);
         eMenuItemExit.setMnemonic(KeyEvent.VK_E);
         eMenuItemExit.setToolTipText("Exit application");
 
+        // add buttons
         file.add(eMenuItemLoad);
         file.add(eMenuItemSave);
+        file.add(eMenuSortAcs);
+        file.add(eMenuSortDesc);
         file.add(eMenuItemExit);
 
         this.menubar.add(file);
 
         setJMenuBar(this.menubar);
     }
-
 
 
     private void updateView() {
@@ -86,7 +99,7 @@ public class View extends JFrame {
         int x = nodeList.getWith();
         int y = nodeList.getHigh();
 
-        jPanel.setPreferredSize(new Dimension( nodeList.getWith(),nodeList.getHigh()));
+        jPanel.setPreferredSize(new Dimension(nodeList.getWith(), nodeList.getHigh()));
         jScrollPane = new JScrollPane(jPanel);
         jPanel.setAutoscrolls(true);
         add(jScrollPane);
@@ -100,20 +113,28 @@ public class View extends JFrame {
         updateView();
     }
 
-    public void addNodeListener(ActionListener listenerForNodeButton){
+    public void addNodeListener(ActionListener listenerForNodeButton) {
         nodePanel.addNodeListener(listenerForNodeButton);
     }
 
-    public void addMenuLoadListener(ActionListener listenerForMenuLoad){
+    public void addMenuLoadListener(ActionListener listenerForMenuLoad) {
         menubar.getMenu(0).getItem(0).addActionListener(listenerForMenuLoad);
     }
 
-    public void addMenuSaveListener(ActionListener listenerForMenuSave){
+    public void addMenuSaveListener(ActionListener listenerForMenuSave) {
         menubar.getMenu(0).getItem(1).addActionListener(listenerForMenuSave);
     }
 
-    public void addMenuExitListener(ActionListener listenerForMenuExit){
-        menubar.getMenu(0).getItem(2).addActionListener(listenerForMenuExit);
+    public void addSortAcsListener(ActionListener listenerForMenuSave) {
+        menubar.getMenu(0).getItem(2).addActionListener(listenerForMenuSave);
+    }
+
+    public void addSortDecsListener(ActionListener listenerForMenuSave) {
+        menubar.getMenu(0).getItem(3).addActionListener(listenerForMenuSave);
+    }
+
+    public void addMenuExitListener(ActionListener listenerForMenuExit) {
+        menubar.getMenu(0).getItem(4).addActionListener(listenerForMenuExit);
     }
 
 }
