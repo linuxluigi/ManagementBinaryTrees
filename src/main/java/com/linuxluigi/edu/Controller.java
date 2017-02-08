@@ -5,15 +5,14 @@ import com.linuxluigi.edu.data.NodeData;
 import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
 import com.linuxluigi.edu.list.OrderBy;
+import com.linuxluigi.edu.view.DialogWindow;
 import com.linuxluigi.edu.view.View;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import java.io.File;
-import java.lang.reflect.Field;
 
 /**
  * Created by fubu on 06.02.17.
@@ -21,6 +20,8 @@ import java.lang.reflect.Field;
 public class Controller {
     private Listlabel<NodeData> nodeList;
     private View view;
+
+    private DialogWindow dialogWindow;
 
     public Controller(View view) {
         this.view = view;
@@ -30,6 +31,7 @@ public class Controller {
         view.setBinaryTree(nodeList);
 
         this.view.addNodeListener(new NodeListener());
+        this.view.addMenuNewListener(new MenuNewListener());
         this.view.addMenuLoadListener(new MenuLoadListener());
         this.view.addMenuSaveListener(new MenuSaveListener());
         this.view.addSortAcsListener(new MenuSortAcsListener());
@@ -47,7 +49,7 @@ public class Controller {
         this.nodeList.add(new NodeData("F"));
         this.nodeList.add(new NodeData("G"));
         this.nodeList.add(new NodeData("K"));
-        this.nodeList.add(new NodeData("I"));
+        this.nodeList.add(new NodeData("I33"));
         this.nodeList.add(new NodeData("J"));
         this.nodeList.add(new NodeData("K"));
         this.nodeList.add(new NodeData("L"));
@@ -55,51 +57,58 @@ public class Controller {
         this.nodeList.sort(OrderBy.DESC);
     }
 
-    void loadBinaryTree(){
-        System.out.println("loading");
-    }
-
-    void saveBinaryTree(){
-
-    }
-
-    void updateView(){
+    void updateView() {
         int sizeWith = view.getSize().width;
         int sizeHeight = view.getSize().height;
         int locationX = view.getX();
         int locationY = view.getY();
 
-        view.setVisible(false);
+        this.view.setVisible(false);
 
-        view = new View(sizeWith, sizeHeight);
-        view.setLocation(locationX, locationY);
+        this.view = new View(sizeWith, sizeHeight);
+        this.view.setLocation(locationX, locationY);
 
-        view.setBinaryTree(nodeList);
+        this.view.setBinaryTree(nodeList);
 
-        view.addNodeListener(new NodeListener());
-        view.addMenuLoadListener(new MenuLoadListener());
-        view.addMenuSaveListener(new MenuSaveListener());
+        this.view.addNodeListener(new NodeListener());
+        this.view.addMenuNewListener(new MenuNewListener());
+        this.view.addMenuLoadListener(new MenuLoadListener());
+        this.view.addMenuSaveListener(new MenuSaveListener());
         this.view.addSortAcsListener(new MenuSortAcsListener());
         this.view.addSortDecsListener(new MenuSortDecsListener());
-        view.addMenuExitListener(new MenuExitListener());
+        this.view.addMenuExitListener(new MenuExitListener());
     }
 
     //INNER CLASS
 
     class NodeListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
             JButton jButton = (JButton) arg0.getSource();
-            System.out.println(jButton.getName());
-            nodeList.add(new NodeData("L"));
-            nodeList.add(new NodeData("L"));
-            nodeList.add(new NodeData("L"));
+
+            int nodeId = Integer.parseInt(jButton.getName());
+
+            NodeData nodeData = nodeList.get(nodeId);
+
+            dialogWindow = new DialogWindow(nodeId, nodeData.getContent());
+
+            // add action listener for dialog
+            dialogWindow.addRenameListener(new DialogRenameListener());
+            dialogWindow.addAddListener(new DialogAddListener());
+            dialogWindow.addRemoveListener(new DialogRemoveListener());
+        }
+    }
+
+    class MenuNewListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            nodeList.clearAll();
+            nodeList.add(new NodeData("WWW"));
 
             updateView();
         }
     }
 
     class MenuLoadListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
             JFileChooser chooser = new JFileChooser();
 
             FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -120,7 +129,7 @@ public class Controller {
     }
 
     class MenuSaveListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
 
             JFileChooser chooser = new JFileChooser();
 
@@ -140,22 +149,55 @@ public class Controller {
     }
 
     class MenuSortAcsListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
             nodeList.sort(OrderBy.ASC);
             updateView();
         }
     }
 
     class MenuSortDecsListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
             nodeList.sort(OrderBy.DESC);
             updateView();
         }
     }
 
     class MenuExitListener implements ActionListener {
-        public void actionPerformed(ActionEvent arg0){
+        public void actionPerformed(ActionEvent arg0) {
             System.exit(0);
+        }
+    }
+
+    // Dialog Window
+    class DialogRenameListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            NodeData nodeData = new NodeData(dialogWindow.getText());
+
+            nodeList.set(dialogWindow.getNodeId(), nodeData);
+
+            dialogWindow.setVisible(false);
+            updateView();
+        }
+    }
+
+    class DialogAddListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            nodeList.add(dialogWindow.getNodeId(), new NodeData(dialogWindow.getText()));
+
+            dialogWindow.setVisible(false);
+
+            updateView();
+        }
+    }
+
+    // Dialog Window
+    class DialogRemoveListener implements ActionListener {
+        public void actionPerformed(ActionEvent arg0) {
+            nodeList.remove(dialogWindow.getNodeId());
+
+            dialogWindow.setVisible(false);
+
+            updateView();
         }
     }
 

@@ -206,8 +206,10 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
             } else {
                 if (getNode.prev.nextLeft == getNode) {
                     getNode.prev.nextLeft = tempNode;
+                    tempNode.prev = getNode.prev;
                 } else {
                     getNode.prev.nextRight = tempNode;
+                    tempNode.prev = getNode.prev;
                 }
             }
 

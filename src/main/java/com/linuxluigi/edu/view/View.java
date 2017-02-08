@@ -35,16 +35,23 @@ public class View extends JFrame {
     private void createMenuBar() {
         this.menubar = new JMenuBar();
 
-        ImageIcon iconExit = new ImageIcon(this.getClass().getResource("/icomoon-free_2014-12-23_exit_16_0_000000_none.png"));
+        ImageIcon iconFile = new ImageIcon(this.getClass().getResource("/icomoon-free_2014-12-23_menu_16_0_000000_none.png"));
+        ImageIcon iconNew = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_file-o_16_0_000000_none.png"));
         ImageIcon iconSave = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_save_16_0_000000_none.png"));
         ImageIcon iconLoad = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_upload_16_0_000000_none.png"));
-        ImageIcon iconFile = new ImageIcon(this.getClass().getResource("/icomoon-free_2014-12-23_menu_16_0_000000_none.png"));
         ImageIcon iconSortAcs = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_sort-amount-asc_16_0_000000_none.png"));
         ImageIcon iconSortDesc = new ImageIcon(this.getClass().getResource("/font-awesome_4-7-0_sort-amount-desc_16_0_000000_none.png"));
+        ImageIcon iconExit = new ImageIcon(this.getClass().getResource("/icomoon-free_2014-12-23_exit_16_0_000000_none.png"));
 
         JMenu file = new JMenu("File");
         file.setIcon(iconFile);
         file.setMnemonic(KeyEvent.VK_F);
+
+        // New Tree Button
+        JMenuItem eMenuItemNew = new JMenuItem("New Tree");
+        eMenuItemNew.setIcon(iconNew);
+        eMenuItemNew.setMnemonic(KeyEvent.VK_E);
+        eMenuItemNew.setToolTipText("Create a new Binary Tree");
 
         // Loading Button
         JMenuItem eMenuItemLoad = new JMenuItem("Load File");
@@ -77,6 +84,7 @@ public class View extends JFrame {
         eMenuItemExit.setToolTipText("Exit application");
 
         // add buttons
+        file.add(eMenuItemNew);
         file.add(eMenuItemLoad);
         file.add(eMenuItemSave);
         file.add(eMenuSortAcs);
@@ -117,24 +125,28 @@ public class View extends JFrame {
         nodePanel.addNodeListener(listenerForNodeButton);
     }
 
+    public void addMenuNewListener(ActionListener listenerForMenuNew) {
+        menubar.getMenu(0).getItem(0).addActionListener(listenerForMenuNew);
+    }
+
     public void addMenuLoadListener(ActionListener listenerForMenuLoad) {
-        menubar.getMenu(0).getItem(0).addActionListener(listenerForMenuLoad);
+        menubar.getMenu(0).getItem(1).addActionListener(listenerForMenuLoad);
     }
 
     public void addMenuSaveListener(ActionListener listenerForMenuSave) {
-        menubar.getMenu(0).getItem(1).addActionListener(listenerForMenuSave);
-    }
-
-    public void addSortAcsListener(ActionListener listenerForMenuSave) {
         menubar.getMenu(0).getItem(2).addActionListener(listenerForMenuSave);
     }
 
-    public void addSortDecsListener(ActionListener listenerForMenuSave) {
+    public void addSortAcsListener(ActionListener listenerForMenuSave) {
         menubar.getMenu(0).getItem(3).addActionListener(listenerForMenuSave);
     }
 
+    public void addSortDecsListener(ActionListener listenerForMenuSave) {
+        menubar.getMenu(0).getItem(4).addActionListener(listenerForMenuSave);
+    }
+
     public void addMenuExitListener(ActionListener listenerForMenuExit) {
-        menubar.getMenu(0).getItem(4).addActionListener(listenerForMenuExit);
+        menubar.getMenu(0).getItem(5).addActionListener(listenerForMenuExit);
     }
 
 }

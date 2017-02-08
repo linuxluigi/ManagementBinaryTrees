@@ -50,7 +50,7 @@ public class NodePanel extends JPanel {
         // set text font
         this.jButtons[id].setVerticalTextPosition(SwingConstants.CENTER);
         this.jButtons[id].setHorizontalTextPosition(SwingConstants.CENTER);
-        this.jButtons[id].setFont(new Font("Arial", Font.BOLD, 20));
+        this.jButtons[id].setFont(new Font("Arial", Font.PLAIN, 15));
         this.jButtons[id].setForeground(Color.BLACK);
 
         // set location
