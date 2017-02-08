@@ -50,9 +50,3 @@ save.json
 # Build files
 #/target
 .idea/compiler.xml
-docs/
-src/main/resources/font-awesome_4-7-0_file-o_16_0_000000_none.png
-src/main/resources/font-awesome_4-7-0_sort-amount-asc_16_0_000000_none.png
-src/main/resources/font-awesome_4-7-0_sort-amount-desc_16_0_000000_none.png
-src/test/
-target/
