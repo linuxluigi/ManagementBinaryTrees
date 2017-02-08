@@ -48,5 +48,5 @@ save.json
 /venv
 
 # Build files
-#/target
+/target
 .idea/compiler.xml
