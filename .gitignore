@@ -49,4 +49,7 @@ save.json
 
 # Build files
 /target
+/docs/build
+!/docs/build/human.txt
+
 .idea/compiler.xml
