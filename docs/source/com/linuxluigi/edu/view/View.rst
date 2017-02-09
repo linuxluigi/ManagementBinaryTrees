@@ -53,11 +53,19 @@ addMenuExitListener
 .. java:method:: public void addMenuExitListener(ActionListener listenerForMenuExit)
    :outertype: View
 
+   Erstellt den Actionlistener für: Exit
+
+   :param listenerForMenuExit: ActionListener
+
 addMenuLoadListener
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: public void addMenuLoadListener(ActionListener listenerForMenuLoad)
    :outertype: View
+
+   Erstellt den Actionlistener für: Menu - Binärbaum von Json laden
+
+   :param listenerForMenuLoad: ActionListener
 
 addMenuNewListener
 ^^^^^^^^^^^^^^^^^^
@@ -65,11 +73,19 @@ addMenuNewListener
 .. java:method:: public void addMenuNewListener(ActionListener listenerForMenuNew)
    :outertype: View
 
+   Erstellt den Actionlistener für: Menu - Neuen Binärbaum anlegen
+
+   :param listenerForMenuNew: ActionListener
+
 addMenuSaveListener
 ^^^^^^^^^^^^^^^^^^^
 
 .. java:method:: public void addMenuSaveListener(ActionListener listenerForMenuSave)
    :outertype: View
+
+   Erstellt den Actionlistener für: Menu - Binärbaum in Json speichern
+
+   :param listenerForMenuSave: ActionListener
 
 addNodeListener
 ^^^^^^^^^^^^^^^
@@ -77,33 +93,37 @@ addNodeListener
 .. java:method:: public void addNodeListener(ActionListener listenerForNodeButton)
    :outertype: View
 
+   Erstellt den Actionlistener für: Alle Knoten im Binärbaum.
+
+   :param listenerForNodeButton: ActionListener
+
 addSortAcsListener
 ^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public void addSortAcsListener(ActionListener listenerForMenuSave)
+.. java:method:: public void addSortAcsListener(ActionListener listenerForSortAcs)
    :outertype: View
+
+   Erstellt den Actionlistener für: Menu - Binärbaum nach ACS sortieren
+
+   :param listenerForSortAcs: ActionListener
 
 addSortDecsListener
 ^^^^^^^^^^^^^^^^^^^
 
-.. java:method:: public void addSortDecsListener(ActionListener listenerForMenuSave)
+.. java:method:: public void addSortDecsListener(ActionListener listenerForSortDecs)
    :outertype: View
 
-createMenuBar
-^^^^^^^^^^^^^
+   Erstellt den Actionlistener für: Menu - Binärbaum nach DECS sortieren
 
-.. java:method:: public void createMenuBar()
-   :outertype: View
-
-   Erstellt eine JMenuBar
-
-   ..
-
-   * File
+   :param listenerForSortDecs: ActionListener
 
 setBinaryTree
 ^^^^^^^^^^^^^
 
 .. java:method:: public void setBinaryTree(Listlabel<NodeData> nodeList)
    :outertype: View
+
+   Den Binärbaum updaten und anschließend wird diese View neu gezeichnet.
+
+   :param nodeList: Binärbaum im Listenformat
 

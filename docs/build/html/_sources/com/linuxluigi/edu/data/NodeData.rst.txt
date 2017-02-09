@@ -6,6 +6,8 @@ NodeData
 
 .. java:type:: public class NodeData
 
+   Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
+
 Constructors
 ------------
 NodeData
@@ -13,6 +15,8 @@ NodeData
 
 .. java:constructor:: public NodeData(String content)
    :outertype: NodeData
+
+   Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
 
 Methods
 -------
@@ -27,6 +31,10 @@ setContent
 
 .. java:method:: public void setContent(String content)
    :outertype: NodeData
+
+   Speichern eines String mit der Maximalen länge von 3, wenn der String länger ist, wird er automatisch auf 3 gekürtzt.
+
+   :param content: String der gesichert werden soll.
 
 toString
 ^^^^^^^^

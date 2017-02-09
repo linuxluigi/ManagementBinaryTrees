@@ -6,31 +6,7 @@ DrawnLines
 
 .. java:type:: public class DrawnLines
 
-Fields
-------
-x1
-^^
-
-.. java:field::  int x1
-   :outertype: DrawnLines
-
-x2
-^^
-
-.. java:field::  int x2
-   :outertype: DrawnLines
-
-y1
-^^
-
-.. java:field::  int y1
-   :outertype: DrawnLines
-
-y2
-^^
-
-.. java:field::  int y2
-   :outertype: DrawnLines
+   Daten für das Zeichnen von Linien zwischen den Knoten
 
 Constructors
 ------------
@@ -39,6 +15,13 @@ DrawnLines
 
 .. java:constructor:: public DrawnLines(int x1, int x2, int y1, int y2)
    :outertype: DrawnLines
+
+   Konstruktor: Daten für das Zeichnen von Linien zwischen den Knoten
+
+   :param x1: Start auf X-Achse
+   :param x2: Ende auf X-Achse
+   :param y1: Start auf Y-Achse
+   :param y2: Ende auf Y-Achse
 
 Methods
 -------

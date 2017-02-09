@@ -18,28 +18,123 @@
             
   <div class="section" id="dialogwindow">
 <h1>DialogWindow</h1>
+<dl class="type">
+<dt id="com.linuxluigi.edu.view.DialogWindow">
+public class <code class="descname">DialogWindow</code> extends JFrame</dt>
+<dd><p>Dialog Fenster welches erscheint nachdem ein Knoten gedrückt worden ist. Welches folgenede Optionen liefert.</p>
+<ul class="simple">
+<li>Knoten hinzufügen</li>
+<li>Knoten ändern</li>
+<li>Knoten löschen</li>
+</ul>
+</dd></dl>
+
 <div class="section" id="constructors">
 <h2>Constructors</h2>
 <div class="section" id="id1">
 <h3>DialogWindow</h3>
+<dl class="constructor">
+<dt id="com.linuxluigi.edu.view.DialogWindow.DialogWindow(int, String)">
+public <code class="descname">DialogWindow</code><span class="sig-paren">(</span>int<em> nodeId</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/lang/String.html]</span><em> nodeContent</em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods</h2>
 <div class="section" id="addaddlistener">
 <h3>addAddListener</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.DialogWindow.addAddListener(ActionListener)">
+public void <code class="descname">addAddListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html]</span><em> listenerForAddButton</em><span class="sig-paren">)</span></dt>
+<dd><p>Button Knoten hinzufügen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>listenerForAddButton</strong> &#8211; ActionListener</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="addremovelistener">
 <h3>addRemoveListener</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.DialogWindow.addRemoveListener(ActionListener)">
+public void <code class="descname">addRemoveListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html]</span><em> listenerForRemoveButton</em><span class="sig-paren">)</span></dt>
+<dd><p>Button Knoten löschen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>listenerForRemoveButton</strong> &#8211; ActionListener</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="addrenamelistener">
 <h3>addRenameListener</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.DialogWindow.addRenameListener(ActionListener)">
+public void <code class="descname">addRenameListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html]</span><em> listenerForRenameButton</em><span class="sig-paren">)</span></dt>
+<dd><p>Button Knoten ändern</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>listenerForRenameButton</strong> &#8211; ActionListener</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="getnodeid">
 <h3>getNodeId</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.DialogWindow.getNodeId()">
+public int <code class="descname">getNodeId</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Gibt die Knoten ID des DialogWindow zurück</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body">Knoten ID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="gettext">
 <h3>getText</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.DialogWindow.getText()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/lang/String.html]</span> <code class="descname">getText</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Gibt das Textfeld des DialogWindows zurück</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body">Textfeld des Dialogfenster als String</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 </div>
