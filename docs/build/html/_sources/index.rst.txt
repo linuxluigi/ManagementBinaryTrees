@@ -3,20 +3,43 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ManagementBinaryTrees's documentation!
-=================================================
+ManagementBinaryTrees's Handbuch!
+=================================
+
+Einleitung
+==========
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 2
+
+    intro
+
+Bedienung
+=========
+
+.. toctree::
+    :maxdepth: 2
+
+    interface
 
 Klassenbeschreibung
 ===================
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   packages
+    aboutIndex
+    packages
+
+Sonstiges
+=========
+
+.. toctree::
+    :maxdepth: 2
+
+    license
+    doc
+    help
 
 
 

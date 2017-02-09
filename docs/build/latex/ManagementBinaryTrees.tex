@@ -28,7 +28,6 @@
 \usepackage{hypcap}% it must be loaded after hyperref.
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
-\addto\captionsngerman{\renewcommand{\contentsname}{Contents:}}
 
 \addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
 \addto\captionsngerman{\renewcommand{\tablename}{Tab.}}
@@ -56,14 +55,216 @@
 
 
 
+\chapter{Einleitung}
+\label{\detokenize{index:einleitung}}\label{\detokenize{index:managementbinarytrees-s-handbuch}}
+
+\section{Über das Programm}
+\label{\detokenize{intro:uber-das-programm}}\label{\detokenize{intro::doc}}
+Das Programm ``ManagementBinaryTrees'' ist ein grafisches Programm, welches dazu dient Knoten in einem
+Binärbaum ein zu fügen, zu verändern und zu entfernen.
+
+Außerdem bietet es die Möglichkeit die Binärbaume
+in eine Json Datei zu speichern und laden und zu sortieren.
+
+Nach dem Start wird ein generierter Binärbaum angezeigt, der nach belieben bearbeite oder ausgetauscht
+werden kann.
+
+In den Menü welches sich unter den Button ``File'' verbirgt, ist es möglich Binärbaume zu laden, speicher,
+neu an zu legen, zu sortieren und das Programm zu schließen.
+
+Das Projekt wurde mit JUnit 4 tests getestete und die test Klassen befinden sich bei den Quellcode dabei.
+\begin{itemize}
+\item {} 
+Quellcode: \url{https://github.com/linuxluigi/ManagementBinaryTrees}
+
+\item {} 
+Online Dokumentation: \url{https://github.com/linuxluigi/ManagementBinaryTrees/blob/master/docs/source/index.rst}
+
+\end{itemize}
+
+\index{Git}
+\index{Quellcode}
+\index{Online Dokumentation}
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_01}.png}
+
+
+\section{Kompilieren}
+\label{\detokenize{intro:kompilieren}}
+\index{Kompilieren}
+\index{Build}
+\index{Build Artifacts}
+\index{Maven}
+Das Projekt wurde via Maven 2 konstruiert und kann mit ein Konsolen Befehl in einer Jar Datei Kompiliert werden, dafür
+muss aber zuerst Maven 2 installiert werden, unter Ubuntu / Debian muss folgendes eingeben werden.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{} sudo apt\PYGZhy{}get install maven2
+\end{sphinxVerbatim}
+
+Jetzt wurde Maven 2 installiert und nun kann das Projekt die abhänigkeiten installiert werden, test ausgeführt und
+zur einer ausführbaren Jar ausgeben.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{} mvn clean install
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_02}.png}
+
+
+\section{Abhänigkeiten}
+\label{\detokenize{intro:abhanigkeiten}}
+\index{Abhänigkeiten}
+Das Projekt wurde als Maven 2 Modul geschrieben und verwendet folgende Maven Module.
+
+Maven Projekt Website: \url{https://maven.apache.org/}
+
+
+\subsection{Google GSON}
+\label{\detokenize{intro:google-gson}}
+\index{Google GSON}
+Gson ist eine Java Bibliothek die es ermöglicht Klassen und Variablen als Json Datei aus zu geben oder
+ein String als Klasse oder Variable zu konvertieren.
+
+\begin{DUlineblock}{0em}
+\item[] Name: google-gson
+\item[] Hersteller: Google Inc.
+\item[] Version: 2.7
+\item[] Link: \url{https://github.com/google/gson}
+\end{DUlineblock}
+
+
+\subsection{JUnit}
+\label{\detokenize{intro:junit}}
+\index{JUnit}
+Junit ist ein unit testing Framework für Java von Erich Gamma und Kent Beck.
+
+\begin{DUlineblock}{0em}
+\item[] Name: JUnit
+\item[] Hersteller: Erich Gamma und Kent Beck
+\item[] Version: 4.12
+\item[] Link: \url{http://junit.org/junit4/}
+\end{DUlineblock}
+
+
+\chapter{Bedienung}
+\label{\detokenize{index:bedienung}}
+
+\section{User Interface}
+\label{\detokenize{interface::doc}}\label{\detokenize{interface:user-interface}}
+
+\subsection{Bedienung}
+\label{\detokenize{interface:bedienung}}
+Nach dem Start des Programmes wird ein Beispiel Binärbaum erstellt, wobei jeder Knoten ein Button ist.
+Diese Button dienen dazu die Knoten zu bearbeiten, neue ein zu fügen und zu löschen
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_03}.png}
+
+Nachdem ein Button gedrück worden ist erscheint ein extra Fenster welches die Optionen besitzt ``ADD'',
+``RENAME'' und ``REMOVE''. Wohinter sich die Aktionen ``ADD'' \textgreater{}\textgreater{} Hinzufügen, ``RENAME'' \textgreater{}\textgreater{} ``Name Ändern'' und ``REMOVE'' \textgreater{}\textgreater{}
+Knoten entfernen verbergen.
+
+Das Textfeld gibt den Aktuellen inhalt des Knotens wieder. Wenn dieses geändert wird und auf ``RENAME'' geklickt wird,
+ändert sich der Inhalt von den Knoten und wenn auf ``ADD'' geklickt wird, wird ein neuer Knoten mit den Wert der in dem
+Textfeld enthalten ist hinzugefügt.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_04}.png}
+
+
+\subsection{Knoten hinzufügen}
+\label{\detokenize{interface:knoten-hinzufugen}}
+Nachdem auf ein Knoten geklickt worden ist, ist es möglich in den Dialog Fenster, welches erscheint.
+Den neuen Knoten ein 3 Stelligen Wert zu zu Ordnen und ihn nach dem angeklickten Knoten ein zu fügen.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_05}.png}
+
+In diesen Beispiel erscheint nun unten Links der neue Knoten.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_06}.png}
+
+
+\subsection{Binärbaum Sortieren}
+\label{\detokenize{interface:binarbaum-sortieren}}
+Um ein Binärbaum zu sortieren muss auf geklickt werden auf ``FILE'' \textgreater{}\textgreater{} ``Sort ACS'' oder ``Sort DECS''
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_07}.png}
+
+In diesen Beispiel sieht der Baum danach so aus:
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_08}.png}
+
+
+\subsection{Datei Laden und Sichern}
+\label{\detokenize{interface:datei-laden-und-sichern}}
+\index{Json Laden und Sichern}
+Um ein Binärbaum zu sichern oder laden muss auf geklickt werden auf ``FILE'' \textgreater{}\textgreater{} ``Load File'' oder ``Save File''
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_09}.png}
+
+Und in den folgenden Fenster die gewünschte Json Datei auswählen.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_10}.png}
+
+Hier ist eine Beispiel Json Datei.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}L\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}00\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}000\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}001\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}01\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}J\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}010\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}F\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}011\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}D\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}10\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}I33\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}100\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}C\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}101\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}AA\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}11\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G22\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}110\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}A\PYGZdq{}}\PYG{p}{]}
+\PYG{p}{]}
+\end{sphinxVerbatim}
+
+Konvertiert in ein Binärbaum sieht es folgend aus:
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_11}.png}
+
+
 \chapter{Klassenbeschreibung}
-\label{\detokenize{index:welcome-to-managementbinarytrees-s-documentation}}\label{\detokenize{index:klassenbeschreibung}}
+\label{\detokenize{index:klassenbeschreibung}}
+
+\section{Indexierung der Knoten}
+\label{\detokenize{aboutIndex::doc}}\label{\detokenize{aboutIndex:indexierung-der-knoten}}
+Das System für die Indexierung lautet:
+\begin{enumerate}
+\item {} 
+Versuche nach links unten zu gehen.
+
+\item {} 
+Geht es nicht mehr nach links unten versuche nach rechts unten zu gehen.
+
+\item {} 
+Komme ich von Links unten, versuche ich nach rechts unten zu gehen.
+
+\item {} 
+Geht es nicht mehr nach rechts unten, gehe nach oben.
+
+\item {} 
+Wenn ich von ein Knoten rechts unten komme, gehe nach oben.
+
+\item {} 
+Wenn ich nicht mehr nach oben gehen kann, bin ich fertig.
+
+\end{enumerate}
+
+\noindent\sphinxincludegraphics{{BinaryTree}.png}
+
 
 \section{ManagementBinaryTress}
-\label{\detokenize{packages:managementbinarytress}}\label{\detokenize{packages::doc}}
+\label{\detokenize{packages::doc}}\label{\detokenize{packages:managementbinarytress}}
 
 \subsection{com.linuxluigi.edu}
-\label{\detokenize{com/linuxluigi/edu/package-index:package-com.linuxluigi.edu}}\label{\detokenize{com/linuxluigi/edu/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/package-index:com-linuxluigi-edu}}\index{com.linuxluigi.edu (package)}
+\label{\detokenize{com/linuxluigi/edu/package-index:com-linuxluigi-edu}}\label{\detokenize{com/linuxluigi/edu/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/package-index:package-com.linuxluigi.edu}}\index{com.linuxluigi.edu (package)}
 
 \subsubsection{Controller}
 \label{\detokenize{com/linuxluigi/edu/Controller::doc}}\label{\detokenize{com/linuxluigi/edu/Controller:controller}}\index{Controller (Java class)}
@@ -267,7 +468,7 @@ löschen eines Knotens
 
 
 \subsubsection{Controller.DialogRenameListener}
-\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:controller-dialogrenamelistener}}\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener::doc}}\index{DialogRenameListener (Java class)}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:controller-dialogrenamelistener}}\index{DialogRenameListener (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:com.linuxluigi.edu.Controller.DialogRenameListener}}\pysigline{ class \sphinxbfcode{DialogRenameListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
@@ -573,7 +774,7 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 \label{\detokenize{com/linuxluigi/edu/data/package-index:com-linuxluigi-edu-data}}\label{\detokenize{com/linuxluigi/edu/data/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/data/package-index:package-com.linuxluigi.edu.data}}\index{com.linuxluigi.edu.data (package)}
 
 \subsubsection{DrawnLines}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:drawnlines}}\label{\detokenize{com/linuxluigi/edu/data/DrawnLines::doc}}\index{DrawnLines (Java class)}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines::doc}}\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:drawnlines}}\index{DrawnLines (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}}\pysigline{public class \sphinxbfcode{DrawnLines}}
@@ -841,7 +1042,7 @@ Endwert der Y-Achse
 
 
 \subsection{com.linuxluigi.edu.list}
-\label{\detokenize{com/linuxluigi/edu/list/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/list/package-index:com-linuxluigi-edu-list}}\label{\detokenize{com/linuxluigi/edu/list/package-index:package-com.linuxluigi.edu.list}}\index{com.linuxluigi.edu.list (package)}
+\label{\detokenize{com/linuxluigi/edu/list/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/list/package-index:package-com.linuxluigi.edu.list}}\label{\detokenize{com/linuxluigi/edu/list/package-index:com-linuxluigi-edu-list}}\index{com.linuxluigi.edu.list (package)}
 
 \subsubsection{BinaryLinkedList}
 \label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList::doc}}\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:binarylinkedlist}}\index{BinaryLinkedList (Java class)}
@@ -1137,7 +1338,7 @@ Sortiert den Baum nach ASC order DECS
 
 
 \subsubsection{Listlabel}
-\label{\detokenize{com/linuxluigi/edu/list/Listlabel::doc}}\label{\detokenize{com/linuxluigi/edu/list/Listlabel:listlabel}}\index{Listlabel (Java interface)}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:listlabel}}\label{\detokenize{com/linuxluigi/edu/list/Listlabel::doc}}\index{Listlabel (Java interface)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}}\pysigline{public interface \sphinxbfcode{Listlabel}\textless{}T\textgreater{}}
@@ -1802,7 +2003,7 @@ Sortiert den Baum nach ASC order DECS
 
 
 \subsection{com.linuxluigi.edu.view}
-\label{\detokenize{com/linuxluigi/edu/view/package-index:package-com.linuxluigi.edu.view}}\label{\detokenize{com/linuxluigi/edu/view/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/view/package-index:com-linuxluigi-edu-view}}\index{com.linuxluigi.edu.view (package)}
+\label{\detokenize{com/linuxluigi/edu/view/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/view/package-index:package-com.linuxluigi.edu.view}}\label{\detokenize{com/linuxluigi/edu/view/package-index:com-linuxluigi-edu-view}}\index{com.linuxluigi.edu.view (package)}
 
 \subsubsection{DialogWindow}
 \label{\detokenize{com/linuxluigi/edu/view/DialogWindow::doc}}\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:dialogwindow}}\index{DialogWindow (Java class)}
@@ -2040,7 +2241,7 @@ Zeichnet alle Linien
 
 
 \subsubsection{View}
-\label{\detokenize{com/linuxluigi/edu/view/View::doc}}\label{\detokenize{com/linuxluigi/edu/view/View:view}}\index{View (Java class)}
+\label{\detokenize{com/linuxluigi/edu/view/View:view}}\label{\detokenize{com/linuxluigi/edu/view/View::doc}}\index{View (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View}}\pysigline{public class \sphinxbfcode{View} extends JFrame}
@@ -2251,6 +2452,35 @@ Den Binärbaum updaten und anschließend wird diese View neu gezeichnet.
 
 \end{fulllineitems}
 
+
+
+\chapter{Sonstiges}
+\label{\detokenize{index:sonstiges}}
+
+\section{Lizenz}
+\label{\detokenize{license::doc}}\label{\detokenize{license:lizenz}}
+\index{Lizenz}
+MIT License
+
+Copyright (c) 2017 Steffen Exler
+
+Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationen (die ``Software'') erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, inklusive und ohne Ausnahme mit dem Recht, sie zu verwenden, zu kopieren, zu verändern, zusammenzufügen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen diese Software überlassen wird, diese Rechte zu verschaffen, unter den folgenden Bedingungen:
+
+Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk sind in allen Kopien oder Teilkopien der Software beizulegen.
+
+DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTELLT, EINSCHLIEßLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT. IN KEINEM FALL SIND DIE AUTOREN ODER COPYRIGHTINHABER FÜR JEGLICHEN SCHADEN ODER SONSTIGE ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER ERFÜLLUNG EINES VERTRAGES, EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.
+
+
+\section{Kontakt}
+\label{\detokenize{license:kontakt}}
+\index{Kontakt}
+Fragen? Kontaktieren sie \href{mailto:Steffen.Exler@gmail.com}{Steffen.Exler@gmail.com}
+
+
+\section{Hilfe}
+\label{\detokenize{help::doc}}\label{\detokenize{help:hilfe}}
+\index{Support}
+Wenn Sie hilfe brauchen email \href{mailto:Steffen.Exler@gmail.com}{Steffen.Exler@gmail.com}
 
 
 \chapter{Indices and tables}
