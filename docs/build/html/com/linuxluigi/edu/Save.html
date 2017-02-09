@@ -99,6 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="Controller-MenuSortAcsListener.html">Controller.MenuSortAcsListener</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Controller-MenuSortDecsListener.html">Controller.MenuSortDecsListener</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Controller-NodeListener.html">Controller.NodeListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Load.html">Load</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Main.html">Main</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Save</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
@@ -161,10 +162,34 @@
             
   <div class="section" id="save">
 <h1>Save<a class="headerlink" href="#save" title="Link zu dieser Überschrift">¶</a></h1>
+<dl class="type">
+<dt id="com.linuxluigi.edu.Save">
+public class <code class="descname">Save</code><a class="headerlink" href="#com.linuxluigi.edu.Save" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Speichert den Binärbaum in eine Json Datei</p>
+</dd></dl>
+
 <div class="section" id="constructors">
 <h2>Constructors<a class="headerlink" href="#constructors" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="id1">
 <h3>Save<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="constructor">
+<dt id="com.linuxluigi.edu.Save.Save(File, Listlabel)">
+public <code class="descname">Save</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html" title="java.io.File">File</a><em> file</em>, <a class="reference internal" href="list/Listlabel.html#com.linuxluigi.edu.list.Listlabel" title="com.linuxluigi.edu.list.Listlabel">Listlabel</a>&lt;<a class="reference internal" href="data/NodeData.html#com.linuxluigi.edu.data.NodeData" title="com.linuxluigi.edu.data.NodeData">NodeData</a>&gt;<em> nodeList</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.Save.Save(File, Listlabel)" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimensionalen String Array konvertiert, um speicherplatz effektiv zu sichern.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file</strong> &#8211; zu speichernde Json Datei</li>
+<li><strong>nodeList</strong> &#8211; den zu Speicherenden Binärbaum</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 </div>

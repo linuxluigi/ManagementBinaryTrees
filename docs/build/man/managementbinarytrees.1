@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "MANAGEMENTBINARYTREES" "1" "Feb. 08, 2017" "0.1.0" "ManagementBinaryTrees"
+.TH "MANAGEMENTBINARYTREES" "1" "Feb. 09, 2017" "0.1.0" "ManagementBinaryTrees"
 .SH NAME
 managementbinarytrees \- ManagementBinaryTrees Documentation
 .
@@ -30,6 +30,889 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
+.SH MANAGEMENTBINARYTRESS
+.SS com.linuxluigi.edu
+.SS Controller
+.INDENT 0.0
+.TP
+.B public class Controller
+Der Controller der für die Steuerung der Software verantworlicch ist Enthalten sind:
+.INDENT 7.0
+.IP \(bu 2
+Verwaltung der View
+.IP \(bu 2
+Verwaltung des Dialog Fenster zum ändern, hinzufügen und löschen eines Knoten
+.IP \(bu 2
+Verwalten des Binärbaumes
+.IP \(bu 2
+Action Listener
+.UNINDENT
+.UNINDENT
+.SS Constructors
+.SS Controller
+.INDENT 0.0
+.TP
+.B public Controller(View\fI view\fP)
+Konstruktor des Controllers
+.INDENT 7.0
+.IP \(bu 2
+.INDENT 2.0
+.IP 1. 3
+Erstellt ein Demo Binärbaum
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 2. 3
+Übergibt die Binärbaum informationen der View
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 3. 3
+Fügt die Actionen Listener für jeden Button hinzu
+.UNINDENT
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBview\fP \-\- Die View für das haupt Fenster
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS updateView
+.INDENT 0.0
+.TP
+.B  void updateView()
+Führt ein update der View aus
+.INDENT 7.0
+.IP \(bu 2
+.INDENT 2.0
+.IP 1. 3
+Binärbaum der View übergeben
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 2. 3
+Actionlistener einfügen
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS updateViewInNewWindow
+.INDENT 0.0
+.TP
+.B  void updateViewInNewWindow()
+Führt ein update der View in ein neues Fenster aus und schließt das vorherige
+.INDENT 7.0
+.IP \(bu 2
+.INDENT 2.0
+.IP 1. 3
+Position der alten View sichern
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 2. 3
+Alte View unsichbar schalten
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 3. 3
+Neue View an gleicher Stelle und gleicher Dimension der alten View erstellen
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 4. 3
+Binärbaum der View übergeben
+.UNINDENT
+.IP \(bu 2
+.INDENT 2.0
+.IP 5. 3
+Actionlistener einfügen
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Controller.DialogAddListener
+.INDENT 0.0
+.TP
+.B  class DialogAddListener implements \fI\%ActionListener\fP
+Actionelistener für Dialog Window:
+.INDENT 7.0
+.IP \(bu 2
+Hinzufügen von neuen Knoten
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.DialogRemoveListener
+.INDENT 0.0
+.TP
+.B  class DialogRemoveListener implements \fI\%ActionListener\fP
+Actionelistener für Dialog Window:
+.INDENT 7.0
+.IP \(bu 2
+löschen eines Knotens
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.DialogRenameListener
+.INDENT 0.0
+.TP
+.B  class DialogRenameListener implements \fI\%ActionListener\fP
+Actionelistener für Dialog Window:
+.INDENT 7.0
+.IP \(bu 2
+ändern eines vorhandenen Knoten
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuExitListener
+.INDENT 0.0
+.TP
+.B  class MenuExitListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: Exit
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuLoadListener
+.INDENT 0.0
+.TP
+.B  class MenuLoadListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: Binärbaum aus Json Datei laden
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuNewListener
+.INDENT 0.0
+.TP
+.B  class MenuNewListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: neuen Baum anlegen
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuSaveListener
+.INDENT 0.0
+.TP
+.B  class MenuSaveListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: Binärbaum in Json Datei speicher
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuSortAcsListener
+.INDENT 0.0
+.TP
+.B  class MenuSortAcsListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: Binärbaum nach ACS sortieren
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.MenuSortDecsListener
+.INDENT 0.0
+.TP
+.B  class MenuSortDecsListener implements \fI\%ActionListener\fP
+Actionelistener für Menü Button: Binärbaum nach DECS sortieren
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Controller.NodeListener
+.INDENT 0.0
+.TP
+.B  class NodeListener implements \fI\%ActionListener\fP
+Actionelistener für alle Binärbaum Knoten
+.UNINDENT
+.SS Methods
+.SS actionPerformed
+.INDENT 0.0
+.TP
+.B public void actionPerformed(\fI\%ActionEvent\fP\fI arg0\fP)
+.UNINDENT
+.SS Load
+.INDENT 0.0
+.TP
+.B public class Load
+Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+.UNINDENT
+.SS Constructors
+.SS Load
+.INDENT 0.0
+.TP
+.B public Load(\fI\%File\fP\fI file\fP)
+Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBfile\fP \-\- Datei die geladen werden soll
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS getBinaryListArray
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP[][] getBinaryListArray()
+.UNINDENT
+.SS Main
+.INDENT 0.0
+.TP
+.B public class Main
+Main Klasse zum starten des Programmes. Es wird eine erste View angelegt und dem Controller übergeben. Die View wird mit eine passende Größe für den ersten automatisch generierten Binär Baum erstellt.
+.UNINDENT
+.SS Methods
+.SS main
+.INDENT 0.0
+.TP
+.B public static void main(\fI\%String\fP[]\fI args\fP)
+Main Methode
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBargs\fP \-\- 
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Save
+.INDENT 0.0
+.TP
+.B public class Save
+Speichert den Binärbaum in eine Json Datei
+.UNINDENT
+.SS Constructors
+.SS Save
+.INDENT 0.0
+.TP
+.B public Save(\fI\%File\fP\fI file\fP, Listlabel<NodeData>\fI nodeList\fP)
+Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimensionalen String Array konvertiert, um speicherplatz effektiv zu sichern.
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBfile\fP \-\- zu speichernde Json Datei
+.IP \(bu 2
+\fBnodeList\fP \-\- den zu Speicherenden Binärbaum
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS com.linuxluigi.edu.data
+.SS DrawnLines
+.INDENT 0.0
+.TP
+.B public class DrawnLines
+.UNINDENT
+.SS Fields
+.SS x1
+.INDENT 0.0
+.TP
+.B  int x1
+.UNINDENT
+.SS x2
+.INDENT 0.0
+.TP
+.B  int x2
+.UNINDENT
+.SS y1
+.INDENT 0.0
+.TP
+.B  int y1
+.UNINDENT
+.SS y2
+.INDENT 0.0
+.TP
+.B  int y2
+.UNINDENT
+.SS Constructors
+.SS DrawnLines
+.INDENT 0.0
+.TP
+.B public DrawnLines(int\fI x1\fP, int\fI x2\fP, int\fI y1\fP, int\fI y2\fP)
+.UNINDENT
+.SS Methods
+.SS getX1
+.INDENT 0.0
+.TP
+.B public int getX1()
+.UNINDENT
+.SS getX2
+.INDENT 0.0
+.TP
+.B public int getX2()
+.UNINDENT
+.SS getY1
+.INDENT 0.0
+.TP
+.B public int getY1()
+.UNINDENT
+.SS getY2
+.INDENT 0.0
+.TP
+.B public int getY2()
+.UNINDENT
+.SS NodeData
+.INDENT 0.0
+.TP
+.B public class NodeData
+.UNINDENT
+.SS Constructors
+.SS NodeData
+.INDENT 0.0
+.TP
+.B public NodeData(\fI\%String\fP\fI content\fP)
+.UNINDENT
+.SS Methods
+.SS getContent
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP getContent()
+.UNINDENT
+.SS setContent
+.INDENT 0.0
+.TP
+.B public void setContent(\fI\%String\fP\fI content\fP)
+.UNINDENT
+.SS toString
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP toString()
+.UNINDENT
+.SS ViewPosition
+.INDENT 0.0
+.TP
+.B public class ViewPosition
+.UNINDENT
+.SS Constructors
+.SS ViewPosition
+.INDENT 0.0
+.TP
+.B public ViewPosition(int\fI x\fP, int\fI y\fP, int\fI IconSize\fP)
+.UNINDENT
+.SS Methods
+.SS getIconSize
+.INDENT 0.0
+.TP
+.B public int getIconSize()
+.UNINDENT
+.SS getMiddelX
+.INDENT 0.0
+.TP
+.B public int getMiddelX()
+.UNINDENT
+.SS getX
+.INDENT 0.0
+.TP
+.B public int getX()
+.UNINDENT
+.SS getY
+.INDENT 0.0
+.TP
+.B public int getY()
+.UNINDENT
+.SS getY2
+.INDENT 0.0
+.TP
+.B public int getY2()
+.UNINDENT
+.SS com.linuxluigi.edu.list
+.SS BinaryLinkedList
+.INDENT 0.0
+.TP
+.B public class BinaryLinkedList<T> implements Listlabel<T>
+Created by fubu on 01.02.17.
+.UNINDENT
+.SS Methods
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(T\fI data\fP)
+.UNINDENT
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS clearAll
+.INDENT 0.0
+.TP
+.B public void clearAll()
+.UNINDENT
+.SS get
+.INDENT 0.0
+.TP
+.B public T get(int\fI index\fP)
+.UNINDENT
+.SS getBinaryList
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP[][] getBinaryList()
+.UNINDENT
+.SS getDrawnLines
+.INDENT 0.0
+.TP
+.B public Listlabel<DrawnLines> getDrawnLines()
+.UNINDENT
+.SS getHigh
+.INDENT 0.0
+.TP
+.B public int getHigh()
+.UNINDENT
+.SS getSize
+.INDENT 0.0
+.TP
+.B public int getSize()
+.UNINDENT
+.SS getViewPosition
+.INDENT 0.0
+.TP
+.B public ViewPosition getViewPosition(int\fI index\fP)
+.UNINDENT
+.SS getWith
+.INDENT 0.0
+.TP
+.B public int getWith()
+.UNINDENT
+.SS isEmpty
+.INDENT 0.0
+.TP
+.B public boolean isEmpty()
+.UNINDENT
+.SS remove
+.INDENT 0.0
+.TP
+.B public void remove(int\fI index\fP)
+.UNINDENT
+.SS set
+.INDENT 0.0
+.TP
+.B public void set(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS setBinaryTreeFromList
+.INDENT 0.0
+.TP
+.B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+.UNINDENT
+.SS sort
+.INDENT 0.0
+.TP
+.B public void sort(OrderBy\fI orderBy\fP)
+.UNINDENT
+.SS Listlabel
+.INDENT 0.0
+.TP
+.B public interface Listlabel<T>
+Created by fubu on 01.02.17.
+.UNINDENT
+.SS Methods
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(T\fI data\fP)
+.UNINDENT
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS clearAll
+.INDENT 0.0
+.TP
+.B public void clearAll()
+.UNINDENT
+.SS get
+.INDENT 0.0
+.TP
+.B public T get(int\fI index\fP)
+.UNINDENT
+.SS getBinaryList
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP[][] getBinaryList()
+.UNINDENT
+.SS getDrawnLines
+.INDENT 0.0
+.TP
+.B public Listlabel<DrawnLines> getDrawnLines()
+.UNINDENT
+.SS getHigh
+.INDENT 0.0
+.TP
+.B public int getHigh()
+.UNINDENT
+.SS getSize
+.INDENT 0.0
+.TP
+.B public int getSize()
+.UNINDENT
+.SS getViewPosition
+.INDENT 0.0
+.TP
+.B public ViewPosition getViewPosition(int\fI index\fP)
+.UNINDENT
+.SS getWith
+.INDENT 0.0
+.TP
+.B public int getWith()
+.UNINDENT
+.SS isEmpty
+.INDENT 0.0
+.TP
+.B public boolean isEmpty()
+.UNINDENT
+.SS remove
+.INDENT 0.0
+.TP
+.B public void remove(int\fI index\fP)
+.UNINDENT
+.SS set
+.INDENT 0.0
+.TP
+.B public void set(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS setBinaryTreeFromList
+.INDENT 0.0
+.TP
+.B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+.UNINDENT
+.SS sort
+.INDENT 0.0
+.TP
+.B public void sort(OrderBy\fI orderBy\fP)
+.UNINDENT
+.SS OrderBy
+.INDENT 0.0
+.TP
+.B public enum OrderBy
+Created by fubu on 07.02.17.
+.UNINDENT
+.SS Enum Constants
+.SS ASC
+.INDENT 0.0
+.TP
+.B public static final OrderBy ASC
+.UNINDENT
+.SS DESC
+.INDENT 0.0
+.TP
+.B public static final OrderBy DESC
+.UNINDENT
+.SS PrevNodeDirection
+.INDENT 0.0
+.TP
+.B public enum PrevNodeDirection
+Created by fubu on 07.02.17.
+.UNINDENT
+.SS Enum Constants
+.SS DOWN_LEFT
+.INDENT 0.0
+.TP
+.B public static final PrevNodeDirection DOWN_LEFT
+.UNINDENT
+.SS DOWN_RIGHT
+.INDENT 0.0
+.TP
+.B public static final PrevNodeDirection DOWN_RIGHT
+.UNINDENT
+.SS NULL
+.INDENT 0.0
+.TP
+.B public static final PrevNodeDirection NULL
+.UNINDENT
+.SS UP_LEFT
+.INDENT 0.0
+.TP
+.B public static final PrevNodeDirection UP_LEFT
+.UNINDENT
+.SS UP_RIGHT
+.INDENT 0.0
+.TP
+.B public static final PrevNodeDirection UP_RIGHT
+.UNINDENT
+.SS SinglyLinkedList
+.INDENT 0.0
+.TP
+.B public class SinglyLinkedList<T> implements Listlabel<T>
+Created by fubu on 06.02.17.
+.UNINDENT
+.SS Methods
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(T\fI data\fP)
+.UNINDENT
+.SS add
+.INDENT 0.0
+.TP
+.B public void add(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS clearAll
+.INDENT 0.0
+.TP
+.B public void clearAll()
+.UNINDENT
+.SS get
+.INDENT 0.0
+.TP
+.B public T get(int\fI index\fP)
+.UNINDENT
+.SS getBinaryList
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP[][] getBinaryList()
+.UNINDENT
+.SS getDrawnLines
+.INDENT 0.0
+.TP
+.B public Listlabel<DrawnLines> getDrawnLines()
+.UNINDENT
+.SS getHigh
+.INDENT 0.0
+.TP
+.B public int getHigh()
+.UNINDENT
+.SS getSize
+.INDENT 0.0
+.TP
+.B public int getSize()
+.UNINDENT
+.SS getViewPosition
+.INDENT 0.0
+.TP
+.B public ViewPosition getViewPosition(int\fI index\fP)
+.UNINDENT
+.SS getWith
+.INDENT 0.0
+.TP
+.B public int getWith()
+.UNINDENT
+.SS isEmpty
+.INDENT 0.0
+.TP
+.B public boolean isEmpty()
+.UNINDENT
+.SS remove
+.INDENT 0.0
+.TP
+.B public void remove(int\fI index\fP)
+.UNINDENT
+.SS set
+.INDENT 0.0
+.TP
+.B public void set(int\fI index\fP, T\fI data\fP)
+.UNINDENT
+.SS setBinaryTreeFromList
+.INDENT 0.0
+.TP
+.B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+.UNINDENT
+.SS sort
+.INDENT 0.0
+.TP
+.B public void sort(OrderBy\fI orderBy\fP)
+.UNINDENT
+.SS com.linuxluigi.edu.view
+.SS DialogWindow
+.INDENT 0.0
+.TP
+.B public class DialogWindow extends JFrame
+.UNINDENT
+.SS Constructors
+.SS DialogWindow
+.INDENT 0.0
+.TP
+.B public DialogWindow(int\fI nodeId\fP, \fI\%String\fP\fI nodeContent\fP)
+.UNINDENT
+.SS Methods
+.SS addAddListener
+.INDENT 0.0
+.TP
+.B public void addAddListener(\fI\%ActionListener\fP\fI listenerForAddButton\fP)
+.UNINDENT
+.SS addRemoveListener
+.INDENT 0.0
+.TP
+.B public void addRemoveListener(\fI\%ActionListener\fP\fI listenerForRemoveButton\fP)
+.UNINDENT
+.SS addRenameListener
+.INDENT 0.0
+.TP
+.B public void addRenameListener(\fI\%ActionListener\fP\fI listenerForRenameButton\fP)
+.UNINDENT
+.SS getNodeId
+.INDENT 0.0
+.TP
+.B public int getNodeId()
+.UNINDENT
+.SS getText
+.INDENT 0.0
+.TP
+.B public \fI\%String\fP getText()
+.UNINDENT
+.SS NodePanel
+.INDENT 0.0
+.TP
+.B public class NodePanel extends JPanel
+.UNINDENT
+.SS Fields
+.SS jButtons
+.INDENT 0.0
+.TP
+.B public JButton[] jButtons
+.UNINDENT
+.SS jLabels
+.INDENT 0.0
+.TP
+.B public JLabel[] jLabels
+.UNINDENT
+.SS Constructors
+.SS NodePanel
+.INDENT 0.0
+.TP
+.B public NodePanel()
+.UNINDENT
+.SS Methods
+.SS addNodeListener
+.INDENT 0.0
+.TP
+.B public void addNodeListener(\fI\%ActionListener\fP\fI listenerForNodeButton\fP)
+.UNINDENT
+.SS getJPanel
+.INDENT 0.0
+.TP
+.B public JPanel getJPanel(Listlabel<NodeData>\fI nodeList\fP)
+.UNINDENT
+.SS paintComponent
+.INDENT 0.0
+.TP
+.B protected void paintComponent(Graphics\fI g\fP)
+.UNINDENT
+.SS View
+.INDENT 0.0
+.TP
+.B public class View extends JFrame
+Main View, innerhalb dieser View wird das Hauptmenü und Knoten Zeichnung dargestellt.
+.UNINDENT
+.SS Fields
+.SS jScrollPane
+.INDENT 0.0
+.TP
+.B  JScrollPane jScrollPane
+.UNINDENT
+.SS Constructors
+.SS View
+.INDENT 0.0
+.TP
+.B public View(int\fI with\fP, int\fI height\fP)
+Konstruktor der View
+.INDENT 7.0
+.IP \(bu 2
+Setz den Titel der View
+.IP \(bu 2
+Erstellt die Menü Bar
+.IP \(bu 2
+Schaltet sich selbst sichtbar
+.UNINDENT
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBwith\fP \-\- Breite des View Fensters in Pixel
+.IP \(bu 2
+\fBheight\fP \-\- Höhe des View Fensters in Pixel
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.SS Methods
+.SS addMenuExitListener
+.INDENT 0.0
+.TP
+.B public void addMenuExitListener(\fI\%ActionListener\fP\fI listenerForMenuExit\fP)
+.UNINDENT
+.SS addMenuLoadListener
+.INDENT 0.0
+.TP
+.B public void addMenuLoadListener(\fI\%ActionListener\fP\fI listenerForMenuLoad\fP)
+.UNINDENT
+.SS addMenuNewListener
+.INDENT 0.0
+.TP
+.B public void addMenuNewListener(\fI\%ActionListener\fP\fI listenerForMenuNew\fP)
+.UNINDENT
+.SS addMenuSaveListener
+.INDENT 0.0
+.TP
+.B public void addMenuSaveListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
+.UNINDENT
+.SS addNodeListener
+.INDENT 0.0
+.TP
+.B public void addNodeListener(\fI\%ActionListener\fP\fI listenerForNodeButton\fP)
+.UNINDENT
+.SS addSortAcsListener
+.INDENT 0.0
+.TP
+.B public void addSortAcsListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
+.UNINDENT
+.SS addSortDecsListener
+.INDENT 0.0
+.TP
+.B public void addSortDecsListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
+.UNINDENT
+.SS createMenuBar
+.INDENT 0.0
+.TP
+.B public void createMenuBar()
+Erstellt eine JMenuBar
+.INDENT 7.0
+.IP \(bu 2
+File
+.UNINDENT
+.UNINDENT
+.SS setBinaryTree
+.INDENT 0.0
+.TP
+.B public void setBinaryTree(Listlabel<NodeData>\fI nodeList\fP)
+.UNINDENT
 .INDENT 0.0
 .IP \(bu 2
 genindex

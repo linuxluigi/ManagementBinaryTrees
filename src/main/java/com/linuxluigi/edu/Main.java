@@ -14,12 +14,23 @@ import com.linuxluigi.edu.view.View;
 
 
 /**
- * Created by fubu on 01.02.17.
+ * Main Klasse zum starten des Programmes.
+ * Es wird eine erste View angelegt und dem Controller übergeben.
+ * Die View wird mit eine passende Größe für den ersten automatisch generierten Binär Baum erstellt.
  */
 public class Main {
 
+    /**
+     * Main Methode
+     * @param args
+     */
     public static void main(String[] args) {
-        View view = new View(660, 550);
+        // default with & height for the first view
+        final int defaultWith = 660;
+        final int defaultHeight = 550;
+
+        // create a view and the controller
+        View view = new View(defaultWith, defaultHeight);
         view.setLocationRelativeTo(null);
         Controller controller = new Controller(view);
     }

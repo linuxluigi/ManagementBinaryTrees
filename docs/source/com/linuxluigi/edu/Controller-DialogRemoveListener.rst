@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,12 @@ Controller.DialogRemoveListener
 
 .. java:type::  class DialogRemoveListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für Dialog Window:
+
+   ..
+
+   * löschen eines Knotens
 
 Methods
 -------

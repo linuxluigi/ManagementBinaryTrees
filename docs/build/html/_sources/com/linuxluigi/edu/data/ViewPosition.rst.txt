@@ -6,8 +6,6 @@ ViewPosition
 
 .. java:type:: public class ViewPosition
 
-   Created by fubu on 07.02.17.
-
 Constructors
 ------------
 ViewPosition

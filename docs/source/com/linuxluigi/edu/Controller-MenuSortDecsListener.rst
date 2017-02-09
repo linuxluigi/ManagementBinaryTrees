@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,8 @@ Controller.MenuSortDecsListener
 
 .. java:type::  class MenuSortDecsListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für Menü Button: Binärbaum nach DECS sortieren
 
 Methods
 -------

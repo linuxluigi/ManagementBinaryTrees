@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,12 @@ Controller.DialogAddListener
 
 .. java:type::  class DialogAddListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für Dialog Window:
+
+   ..
+
+   * Hinzufügen von neuen Knoten
 
 Methods
 -------

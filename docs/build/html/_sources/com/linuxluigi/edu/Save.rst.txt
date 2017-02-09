@@ -22,7 +22,7 @@ Save
 
 .. java:type:: public class Save
 
-   Created by fubu on 07.02.17.
+   Speichert den Binärbaum in eine Json Datei
 
 Constructors
 ------------
@@ -31,4 +31,9 @@ Save
 
 .. java:constructor:: public Save(File file, Listlabel<NodeData> nodeList)
    :outertype: Save
+
+   Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimensionalen String Array konvertiert, um speicherplatz effektiv zu sichern.
+
+   :param file: zu speichernde Json Datei
+   :param nodeList: den zu Speicherenden Binärbaum
 

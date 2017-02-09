@@ -6,8 +6,6 @@ NodeData
 
 .. java:type:: public class NodeData
 
-   Created by fubu on 01.02.17.
-
 Constructors
 ------------
 NodeData

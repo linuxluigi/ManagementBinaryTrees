@@ -14,7 +14,6 @@ javasphinx-apidoc -o source/ --title=$TITEL $SOURCE -u
 # convert source to build files
 make html
 make epub
-make epub3
 make man
 make latex
 make latexpdf

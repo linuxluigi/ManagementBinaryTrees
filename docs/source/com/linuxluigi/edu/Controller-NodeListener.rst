@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,8 @@ Controller.NodeListener
 
 .. java:type::  class NodeListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für alle Binärbaum Knoten
 
 Methods
 -------

@@ -20,10 +20,21 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Speichert den Binärbaum in eine Json Datei
+ */
 public class Save {
     private File file;
     private Listlabel<NodeData> nodeList;
 
+    /**
+     * Speichert den Binärbaum in eine Json Datei
+     * Dabei wird der Binärbaum in 2 Dimensionalen String Array konvertiert,
+     * um speicherplatz effektiv zu sichern.
+     *
+     * @param file     zu speichernde Json Datei
+     * @param nodeList den zu Speicherenden Binärbaum
+     */
     public Save(File file, Listlabel<NodeData> nodeList) {
         this.file = file;
 

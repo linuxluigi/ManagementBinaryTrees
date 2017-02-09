@@ -16,7 +16,7 @@ View
 
 .. java:type:: public class View extends JFrame
 
-   Created by fubu on 03.02.17.
+   Main View, innerhalb dieser View wird das Hauptmenü und Knoten Zeichnung dargestellt.
 
 Fields
 ------
@@ -33,6 +33,17 @@ View
 
 .. java:constructor:: public View(int with, int height)
    :outertype: View
+
+   Konstruktor der View
+
+   ..
+
+   * Setz den Titel der View
+   * Erstellt die Menü Bar
+   * Schaltet sich selbst sichtbar
+
+   :param with: Breite des View Fensters in Pixel
+   :param height: Höhe des View Fensters in Pixel
 
 Methods
 -------
@@ -77,6 +88,18 @@ addSortDecsListener
 
 .. java:method:: public void addSortDecsListener(ActionListener listenerForMenuSave)
    :outertype: View
+
+createMenuBar
+^^^^^^^^^^^^^
+
+.. java:method:: public void createMenuBar()
+   :outertype: View
+
+   Erstellt eine JMenuBar
+
+   ..
+
+   * File
 
 setBinaryTree
 ^^^^^^^^^^^^^

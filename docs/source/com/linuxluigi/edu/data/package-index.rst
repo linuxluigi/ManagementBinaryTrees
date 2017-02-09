@@ -7,7 +7,6 @@ com.linuxluigi.edu.data
    :maxdepth: 1
 
    DrawnLines
-   Load
    NodeData
    ViewPosition
 

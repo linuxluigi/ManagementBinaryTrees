@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,8 @@ Controller.MenuSaveListener
 
 .. java:type::  class MenuSaveListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für Menü Button: Binärbaum in Json Datei speicher
 
 Methods
 -------

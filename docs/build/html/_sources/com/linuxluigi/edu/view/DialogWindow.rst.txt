@@ -8,8 +8,6 @@ DialogWindow
 
 .. java:type:: public class DialogWindow extends JFrame
 
-   Created by fubu on 08.02.17.
-
 Constructors
 ------------
 DialogWindow

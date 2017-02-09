@@ -6,8 +6,6 @@ DrawnLines
 
 .. java:type:: public class DrawnLines
 
-   Created by fubu on 06.02.17.
-
 Fields
 ------
 x1

@@ -41,7 +41,7 @@
 
 
 \title{ManagementBinaryTrees Documentation}
-\date{Feb. 08, 2017}
+\date{Feb. 09, 2017}
 \release{0.1.0}
 \author{Steffen Exler}
 \newcommand{\sphinxlogo}{}
@@ -56,8 +56,1578 @@
 
 
 
+\chapter{Klassenbeschreibung}
+\label{\detokenize{index:welcome-to-managementbinarytrees-s-documentation}}\label{\detokenize{index:klassenbeschreibung}}
+
+\section{ManagementBinaryTress}
+\label{\detokenize{packages::doc}}\label{\detokenize{packages:managementbinarytress}}
+
+\subsection{com.linuxluigi.edu}
+\label{\detokenize{com/linuxluigi/edu/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/package-index:package-com.linuxluigi.edu}}\label{\detokenize{com/linuxluigi/edu/package-index:com-linuxluigi-edu}}\index{com.linuxluigi.edu (package)}
+
+\subsubsection{Controller}
+\label{\detokenize{com/linuxluigi/edu/Controller::doc}}\label{\detokenize{com/linuxluigi/edu/Controller:controller}}\index{Controller (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller:com.linuxluigi.edu.Controller}}\pysigline{public class \sphinxbfcode{Controller}}
+Der Controller der für die Steuerung der Software verantworlicch ist Enthalten sind:
+\begin{itemize}
+\item {} 
+Verwaltung der View
+
+\item {} 
+Verwaltung des Dialog Fenster zum ändern, hinzufügen und löschen eines Knoten
+
+\item {} 
+Verwalten des Binärbaumes
+
+\item {} 
+Action Listener
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/Controller:constructors}}
+
+\subparagraph{Controller}
+\label{\detokenize{com/linuxluigi/edu/Controller:id1}}\index{Controller(View) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller:com.linuxluigi.edu.Controller.Controller(View)}}\pysiglinewithargsret{public \sphinxbfcode{Controller}}{{\hyperref[\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View}]{\sphinxcrossref{View}}}\sphinxstyleemphasis{ view}}{}
+Konstruktor des Controllers
+\begin{itemize}
+\item {} \begin{enumerate}
+\item {} 
+Erstellt ein Demo Binärbaum
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{1}
+\item {} 
+Übergibt die Binärbaum informationen der View
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{2}
+\item {} 
+Fügt die Actionen Listener für jeden Button hinzu
+
+\end{enumerate}
+
+\end{itemize}
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{view} -- Die View für das haupt Fenster
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller:methods}}
+
+\subparagraph{updateView}
+\label{\detokenize{com/linuxluigi/edu/Controller:updateview}}\index{updateView() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller:com.linuxluigi.edu.Controller.updateView()}}\pysiglinewithargsret{ void \sphinxbfcode{updateView}}{}{}
+Führt ein update der View aus
+\begin{itemize}
+\item {} \begin{enumerate}
+\item {} 
+Binärbaum der View übergeben
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{1}
+\item {} 
+Actionlistener einfügen
+
+\end{enumerate}
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\subparagraph{updateViewInNewWindow}
+\label{\detokenize{com/linuxluigi/edu/Controller:updateviewinnewwindow}}\index{updateViewInNewWindow() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller:com.linuxluigi.edu.Controller.updateViewInNewWindow()}}\pysiglinewithargsret{ void \sphinxbfcode{updateViewInNewWindow}}{}{}
+Führt ein update der View in ein neues Fenster aus und schließt das vorherige
+\begin{itemize}
+\item {} \begin{enumerate}
+\item {} 
+Position der alten View sichern
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{1}
+\item {} 
+Alte View unsichbar schalten
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{2}
+\item {} 
+Neue View an gleicher Stelle und gleicher Dimension der alten View erstellen
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{3}
+\item {} 
+Binärbaum der View übergeben
+
+\end{enumerate}
+
+\item {} \begin{enumerate}
+\setcounter{enumi}{4}
+\item {} 
+Actionlistener einfügen
+
+\end{enumerate}
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.DialogAddListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener:controller-dialogaddlistener}}\index{DialogAddListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener:com.linuxluigi.edu.Controller.DialogAddListener}}\pysigline{ class \sphinxbfcode{DialogAddListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Dialog Window:
+\begin{itemize}
+\item {} 
+Hinzufügen von neuen Knoten
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogAddListener:com.linuxluigi.edu.Controller.DialogAddListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.DialogRemoveListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener:controller-dialogremovelistener}}\index{DialogRemoveListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener:com.linuxluigi.edu.Controller.DialogRemoveListener}}\pysigline{ class \sphinxbfcode{DialogRemoveListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Dialog Window:
+\begin{itemize}
+\item {} 
+löschen eines Knotens
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogRemoveListener:com.linuxluigi.edu.Controller.DialogRemoveListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.DialogRenameListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:controller-dialogrenamelistener}}\index{DialogRenameListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:com.linuxluigi.edu.Controller.DialogRenameListener}}\pysigline{ class \sphinxbfcode{DialogRenameListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Dialog Window:
+\begin{itemize}
+\item {} 
+ändern eines vorhandenen Knoten
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-DialogRenameListener:com.linuxluigi.edu.Controller.DialogRenameListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuExitListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener:controller-menuexitlistener}}\index{MenuExitListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener:com.linuxluigi.edu.Controller.MenuExitListener}}\pysigline{ class \sphinxbfcode{MenuExitListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: Exit
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuExitListener:com.linuxluigi.edu.Controller.MenuExitListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuLoadListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener:controller-menuloadlistener}}\index{MenuLoadListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener:com.linuxluigi.edu.Controller.MenuLoadListener}}\pysigline{ class \sphinxbfcode{MenuLoadListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: Binärbaum aus Json Datei laden
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuLoadListener:com.linuxluigi.edu.Controller.MenuLoadListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuNewListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener:controller-menunewlistener}}\index{MenuNewListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener:com.linuxluigi.edu.Controller.MenuNewListener}}\pysigline{ class \sphinxbfcode{MenuNewListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: neuen Baum anlegen
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuNewListener:com.linuxluigi.edu.Controller.MenuNewListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuSaveListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener:controller-menusavelistener}}\index{MenuSaveListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener:com.linuxluigi.edu.Controller.MenuSaveListener}}\pysigline{ class \sphinxbfcode{MenuSaveListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: Binärbaum in Json Datei speicher
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSaveListener:com.linuxluigi.edu.Controller.MenuSaveListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuSortAcsListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener:controller-menusortacslistener}}\index{MenuSortAcsListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener:com.linuxluigi.edu.Controller.MenuSortAcsListener}}\pysigline{ class \sphinxbfcode{MenuSortAcsListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: Binärbaum nach ACS sortieren
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortAcsListener:com.linuxluigi.edu.Controller.MenuSortAcsListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.MenuSortDecsListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener:controller-menusortdecslistener}}\index{MenuSortDecsListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener:com.linuxluigi.edu.Controller.MenuSortDecsListener}}\pysigline{ class \sphinxbfcode{MenuSortDecsListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für Menü Button: Binärbaum nach DECS sortieren
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-MenuSortDecsListener:com.linuxluigi.edu.Controller.MenuSortDecsListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Controller.NodeListener}
+\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener::doc}}\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener:controller-nodelistener}}\index{NodeListener (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener:com.linuxluigi.edu.Controller.NodeListener}}\pysigline{ class \sphinxbfcode{NodeListener} implements \href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}}
+Actionelistener für alle Binärbaum Knoten
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener:methods}}
+
+\subparagraph{actionPerformed}
+\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener:actionperformed}}\index{actionPerformed(ActionEvent) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Controller-NodeListener:com.linuxluigi.edu.Controller.NodeListener.actionPerformed(ActionEvent)}}\pysiglinewithargsret{public void \sphinxbfcode{actionPerformed}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionEvent.html}{ActionEvent}\sphinxstyleemphasis{ arg0}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Load}
+\label{\detokenize{com/linuxluigi/edu/Load::doc}}\label{\detokenize{com/linuxluigi/edu/Load:load}}\index{Load (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Load:com.linuxluigi.edu.Load}}\pysigline{public class \sphinxbfcode{Load}}
+Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/Load:constructors}}
+
+\subparagraph{Load}
+\label{\detokenize{com/linuxluigi/edu/Load:id1}}\index{Load(File) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Load:com.linuxluigi.edu.Load.Load(File)}}\pysiglinewithargsret{public \sphinxbfcode{Load}}{\href{http://docs.oracle.com/javase/8/docs/api/java/io/File.html}{File}\sphinxstyleemphasis{ file}}{}
+Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{file} -- Datei die geladen werden soll
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Load:methods}}
+
+\subparagraph{getBinaryListArray}
+\label{\detokenize{com/linuxluigi/edu/Load:getbinarylistarray}}\index{getBinaryListArray() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Load:com.linuxluigi.edu.Load.getBinaryListArray()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryListArray}}{}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Main}
+\label{\detokenize{com/linuxluigi/edu/Main::doc}}\label{\detokenize{com/linuxluigi/edu/Main:main}}\index{Main (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Main:com.linuxluigi.edu.Main}}\pysigline{public class \sphinxbfcode{Main}}
+Main Klasse zum starten des Programmes. Es wird eine erste View angelegt und dem Controller übergeben. Die View wird mit eine passende Größe für den ersten automatisch generierten Binär Baum erstellt.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/Main:methods}}
+
+\subparagraph{main}
+\label{\detokenize{com/linuxluigi/edu/Main:id1}}\index{main(String{[}{]}) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Main:com.linuxluigi.edu.Main.main(String__)}}\pysiglinewithargsret{public static void \sphinxbfcode{main}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}\sphinxstyleemphasis{ args}}{}
+Main Methode
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{args} -- 
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsubsection{Save}
+\label{\detokenize{com/linuxluigi/edu/Save::doc}}\label{\detokenize{com/linuxluigi/edu/Save:save}}\index{Save (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Save:com.linuxluigi.edu.Save}}\pysigline{public class \sphinxbfcode{Save}}
+Speichert den Binärbaum in eine Json Datei
+
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/Save:constructors}}
+
+\subparagraph{Save}
+\label{\detokenize{com/linuxluigi/edu/Save:id1}}\index{Save(File, Listlabel) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/Save:com.linuxluigi.edu.Save.Save(File, Listlabel)}}\pysiglinewithargsret{public \sphinxbfcode{Save}}{\href{http://docs.oracle.com/javase/8/docs/api/java/io/File.html}{File}\sphinxstyleemphasis{ file}, {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}]{\sphinxcrossref{NodeData}}}\textgreater{}\sphinxstyleemphasis{ nodeList}}{}
+Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimensionalen String Array konvertiert, um speicherplatz effektiv zu sichern.
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{file} -- zu speichernde Json Datei
+
+\item {} 
+\sphinxstyleliteralstrong{nodeList} -- den zu Speicherenden Binärbaum
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\subsection{com.linuxluigi.edu.data}
+\label{\detokenize{com/linuxluigi/edu/data/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/data/package-index:com-linuxluigi-edu-data}}\label{\detokenize{com/linuxluigi/edu/data/package-index:package-com.linuxluigi.edu.data}}\index{com.linuxluigi.edu.data (package)}
+
+\subsubsection{DrawnLines}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines::doc}}\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:drawnlines}}\index{DrawnLines (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}}\pysigline{public class \sphinxbfcode{DrawnLines}}
+\end{fulllineitems}
+
+
+
+\paragraph{Fields}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:fields}}
+
+\subparagraph{x1}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:x1}}\index{x1 (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.x1}}\pysigline{ int \sphinxbfcode{x1}}
+\end{fulllineitems}
+
+
+
+\subparagraph{x2}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:x2}}\index{x2 (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.x2}}\pysigline{ int \sphinxbfcode{x2}}
+\end{fulllineitems}
+
+
+
+\subparagraph{y1}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:y1}}\index{y1 (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.y1}}\pysigline{ int \sphinxbfcode{y1}}
+\end{fulllineitems}
+
+
+
+\subparagraph{y2}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:y2}}\index{y2 (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.y2}}\pysigline{ int \sphinxbfcode{y2}}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:constructors}}
+
+\subparagraph{DrawnLines}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:id1}}\index{DrawnLines(int, int, int, int) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.DrawnLines(int, int, int, int)}}\pysiglinewithargsret{public \sphinxbfcode{DrawnLines}}{int\sphinxstyleemphasis{ x1}, int\sphinxstyleemphasis{ x2}, int\sphinxstyleemphasis{ y1}, int\sphinxstyleemphasis{ y2}}{}
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:methods}}
+
+\subparagraph{getX1}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:getx1}}\index{getX1() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.getX1()}}\pysiglinewithargsret{public int \sphinxbfcode{getX1}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getX2}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:getx2}}\index{getX2() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.getX2()}}\pysiglinewithargsret{public int \sphinxbfcode{getX2}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getY1}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:gety1}}\index{getY1() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.getY1()}}\pysiglinewithargsret{public int \sphinxbfcode{getY1}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getY2}
+\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:gety2}}\index{getY2() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.getY2()}}\pysiglinewithargsret{public int \sphinxbfcode{getY2}}{}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{NodeData}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData::doc}}\label{\detokenize{com/linuxluigi/edu/data/NodeData:nodedata}}\index{NodeData (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}}\pysigline{public class \sphinxbfcode{NodeData}}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:constructors}}
+
+\subparagraph{NodeData}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:id1}}\index{NodeData(String) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.NodeData(String)}}\pysiglinewithargsret{public \sphinxbfcode{NodeData}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ content}}{}
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:methods}}
+
+\subparagraph{getContent}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:getcontent}}\index{getContent() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.getContent()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{getContent}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{setContent}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:setcontent}}\index{setContent(String) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.setContent(String)}}\pysiglinewithargsret{public void \sphinxbfcode{setContent}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ content}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{toString}
+\label{\detokenize{com/linuxluigi/edu/data/NodeData:tostring}}\index{toString() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.toString()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{toString}}{}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{ViewPosition}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition::doc}}\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:viewposition}}\index{ViewPosition (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}}\pysigline{public class \sphinxbfcode{ViewPosition}}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:constructors}}
+
+\subparagraph{ViewPosition}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:id1}}\index{ViewPosition(int, int, int) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.ViewPosition(int, int, int)}}\pysiglinewithargsret{public \sphinxbfcode{ViewPosition}}{int\sphinxstyleemphasis{ x}, int\sphinxstyleemphasis{ y}, int\sphinxstyleemphasis{ IconSize}}{}
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:methods}}
+
+\subparagraph{getIconSize}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:geticonsize}}\index{getIconSize() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getIconSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getIconSize}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getMiddelX}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:getmiddelx}}\index{getMiddelX() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getMiddelX()}}\pysiglinewithargsret{public int \sphinxbfcode{getMiddelX}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getX}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:getx}}\index{getX() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getX()}}\pysiglinewithargsret{public int \sphinxbfcode{getX}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getY}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:gety}}\index{getY() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getY()}}\pysiglinewithargsret{public int \sphinxbfcode{getY}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getY2}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:gety2}}\index{getY2() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getY2()}}\pysiglinewithargsret{public int \sphinxbfcode{getY2}}{}{}
+\end{fulllineitems}
+
+
+
+\subsection{com.linuxluigi.edu.list}
+\label{\detokenize{com/linuxluigi/edu/list/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/list/package-index:com-linuxluigi-edu-list}}\label{\detokenize{com/linuxluigi/edu/list/package-index:package-com.linuxluigi.edu.list}}\index{com.linuxluigi.edu.list (package)}
+
+\subsubsection{BinaryLinkedList}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList::doc}}\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:binarylinkedlist}}\index{BinaryLinkedList (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList}}\pysigline{public class \sphinxbfcode{BinaryLinkedList}\textless{}T\textgreater{} implements {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}T\textgreater{}}
+Created by fubu on 01.02.17.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:methods}}
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:add}}\index{add(T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:id1}}\index{add(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{clearAll}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:clearall}}\index{clearAll() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{get}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:get}}\index{get(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getBinaryList}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:getbinarylist}}\index{getBinaryList() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getDrawnLines}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:getdrawnlines}}\index{getDrawnLines() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getHigh}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:gethigh}}\index{getHigh() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getSize}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:getsize}}\index{getSize() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getViewPosition}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:getviewposition}}\index{getViewPosition(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getWith}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:getwith}}\index{getWith() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{isEmpty}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:isempty}}\index{isEmpty() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{remove}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:remove}}\index{remove(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{set}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:set}}\index{set(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{setBinaryTreeFromList}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:setbinarytreefromlist}}\index{setBinaryTreeFromList(String{[}{]}{[}{]}) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{sort}
+\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:sort}}\index{sort(OrderBy) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{Listlabel}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel::doc}}\label{\detokenize{com/linuxluigi/edu/list/Listlabel:listlabel}}\index{Listlabel (Java interface)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}}\pysigline{public interface \sphinxbfcode{Listlabel}\textless{}T\textgreater{}}
+Created by fubu on 01.02.17.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:methods}}
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:add}}\index{add(T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:id1}}\index{add(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{clearAll}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:clearall}}\index{clearAll() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{get}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:get}}\index{get(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getBinaryList}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:getbinarylist}}\index{getBinaryList() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getDrawnLines}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:getdrawnlines}}\index{getDrawnLines() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getHigh}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:gethigh}}\index{getHigh() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getSize}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:getsize}}\index{getSize() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getViewPosition}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:getviewposition}}\index{getViewPosition(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getWith}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:getwith}}\index{getWith() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{isEmpty}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:isempty}}\index{isEmpty() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{remove}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:remove}}\index{remove(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{set}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:set}}\index{set(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{setBinaryTreeFromList}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:setbinarytreefromlist}}\index{setBinaryTreeFromList(String{[}{]}{[}{]}) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{sort}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:sort}}\index{sort(OrderBy) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{OrderBy}
+\label{\detokenize{com/linuxluigi/edu/list/OrderBy::doc}}\label{\detokenize{com/linuxluigi/edu/list/OrderBy:orderby}}\index{OrderBy (Java enum)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}}\pysigline{public enum \sphinxbfcode{OrderBy}}
+Created by fubu on 07.02.17.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Enum Constants}
+\label{\detokenize{com/linuxluigi/edu/list/OrderBy:enum-constants}}
+
+\subparagraph{ASC}
+\label{\detokenize{com/linuxluigi/edu/list/OrderBy:asc}}\index{ASC (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy.ASC}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}} \sphinxbfcode{ASC}}
+\end{fulllineitems}
+
+
+
+\subparagraph{DESC}
+\label{\detokenize{com/linuxluigi/edu/list/OrderBy:desc}}\index{DESC (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy.DESC}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}} \sphinxbfcode{DESC}}
+\end{fulllineitems}
+
+
+
+\subsubsection{PrevNodeDirection}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection::doc}}\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:prevnodedirection}}\index{PrevNodeDirection (Java enum)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}}\pysigline{public enum \sphinxbfcode{PrevNodeDirection}}
+Created by fubu on 07.02.17.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Enum Constants}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:enum-constants}}
+
+\subparagraph{DOWN\_LEFT}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:down-left}}\index{DOWN\_LEFT (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection.DOWN_LEFT}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}]{\sphinxcrossref{PrevNodeDirection}}} \sphinxbfcode{DOWN\_LEFT}}
+\end{fulllineitems}
+
+
+
+\subparagraph{DOWN\_RIGHT}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:down-right}}\index{DOWN\_RIGHT (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection.DOWN_RIGHT}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}]{\sphinxcrossref{PrevNodeDirection}}} \sphinxbfcode{DOWN\_RIGHT}}
+\end{fulllineitems}
+
+
+
+\subparagraph{NULL}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:null}}\index{NULL (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection.NULL}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}]{\sphinxcrossref{PrevNodeDirection}}} \sphinxbfcode{NULL}}
+\end{fulllineitems}
+
+
+
+\subparagraph{UP\_LEFT}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:up-left}}\index{UP\_LEFT (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection.UP_LEFT}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}]{\sphinxcrossref{PrevNodeDirection}}} \sphinxbfcode{UP\_LEFT}}
+\end{fulllineitems}
+
+
+
+\subparagraph{UP\_RIGHT}
+\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:up-right}}\index{UP\_RIGHT (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection.UP_RIGHT}}\pysigline{public static final {\hyperref[\detokenize{com/linuxluigi/edu/list/PrevNodeDirection:com.linuxluigi.edu.list.PrevNodeDirection}]{\sphinxcrossref{PrevNodeDirection}}} \sphinxbfcode{UP\_RIGHT}}
+\end{fulllineitems}
+
+
+
+\subsubsection{SinglyLinkedList}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList::doc}}\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:singlylinkedlist}}\index{SinglyLinkedList (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList}}\pysigline{public class \sphinxbfcode{SinglyLinkedList}\textless{}T\textgreater{} implements {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}T\textgreater{}}
+Created by fubu on 06.02.17.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:methods}}
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:add}}\index{add(T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{add}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:id1}}\index{add(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{clearAll}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:clearall}}\index{clearAll() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{get}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:get}}\index{get(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getBinaryList}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:getbinarylist}}\index{getBinaryList() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getDrawnLines}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:getdrawnlines}}\index{getDrawnLines() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getHigh}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:gethigh}}\index{getHigh() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getSize}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:getsize}}\index{getSize() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getViewPosition}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:getviewposition}}\index{getViewPosition(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getWith}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:getwith}}\index{getWith() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{isEmpty}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:isempty}}\index{isEmpty() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{remove}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:remove}}\index{remove(int) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{set}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:set}}\index{set(int, T) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{setBinaryTreeFromList}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:setbinarytreefromlist}}\index{setBinaryTreeFromList(String{[}{]}{[}{]}) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{sort}
+\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:sort}}\index{sort(OrderBy) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+\end{fulllineitems}
+
+
+
+\subsection{com.linuxluigi.edu.view}
+\label{\detokenize{com/linuxluigi/edu/view/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/view/package-index:package-com.linuxluigi.edu.view}}\label{\detokenize{com/linuxluigi/edu/view/package-index:com-linuxluigi-edu-view}}\index{com.linuxluigi.edu.view (package)}
+
+\subsubsection{DialogWindow}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow::doc}}\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:dialogwindow}}\index{DialogWindow (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow}}\pysigline{public class \sphinxbfcode{DialogWindow} extends JFrame}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:constructors}}
+
+\subparagraph{DialogWindow}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:id1}}\index{DialogWindow(int, String) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.DialogWindow(int, String)}}\pysiglinewithargsret{public \sphinxbfcode{DialogWindow}}{int\sphinxstyleemphasis{ nodeId}, \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ nodeContent}}{}
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:methods}}
+
+\subparagraph{addAddListener}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:addaddlistener}}\index{addAddListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addAddListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addAddListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForAddButton}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addRemoveListener}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:addremovelistener}}\index{addRemoveListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addRemoveListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addRemoveListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForRemoveButton}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addRenameListener}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:addrenamelistener}}\index{addRenameListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addRenameListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addRenameListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForRenameButton}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getNodeId}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:getnodeid}}\index{getNodeId() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.getNodeId()}}\pysiglinewithargsret{public int \sphinxbfcode{getNodeId}}{}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getText}
+\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:gettext}}\index{getText() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.getText()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{getText}}{}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{NodePanel}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel::doc}}\label{\detokenize{com/linuxluigi/edu/view/NodePanel:nodepanel}}\index{NodePanel (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel}}\pysigline{public class \sphinxbfcode{NodePanel} extends JPanel}
+\end{fulllineitems}
+
+
+
+\paragraph{Fields}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:fields}}
+
+\subparagraph{jButtons}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:jbuttons}}\index{jButtons (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.jButtons}}\pysigline{public JButton{[}{]} \sphinxbfcode{jButtons}}
+\end{fulllineitems}
+
+
+
+\subparagraph{jLabels}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:jlabels}}\index{jLabels (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.jLabels}}\pysigline{public JLabel{[}{]} \sphinxbfcode{jLabels}}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:constructors}}
+
+\subparagraph{NodePanel}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:id1}}\index{NodePanel() (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.NodePanel()}}\pysiglinewithargsret{public \sphinxbfcode{NodePanel}}{}{}
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:methods}}
+
+\subparagraph{addNodeListener}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:addnodelistener}}\index{addNodeListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.addNodeListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addNodeListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForNodeButton}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{getJPanel}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:getjpanel}}\index{getJPanel(Listlabel) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.getJPanel(Listlabel)}}\pysiglinewithargsret{public JPanel \sphinxbfcode{getJPanel}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}]{\sphinxcrossref{NodeData}}}\textgreater{}\sphinxstyleemphasis{ nodeList}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{paintComponent}
+\label{\detokenize{com/linuxluigi/edu/view/NodePanel:paintcomponent}}\index{paintComponent(Graphics) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.paintComponent(Graphics)}}\pysiglinewithargsret{protected void \sphinxbfcode{paintComponent}}{Graphics\sphinxstyleemphasis{ g}}{}
+\end{fulllineitems}
+
+
+
+\subsubsection{View}
+\label{\detokenize{com/linuxluigi/edu/view/View::doc}}\label{\detokenize{com/linuxluigi/edu/view/View:view}}\index{View (Java class)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View}}\pysigline{public class \sphinxbfcode{View} extends JFrame}
+Main View, innerhalb dieser View wird das Hauptmenü und Knoten Zeichnung dargestellt.
+
+\end{fulllineitems}
+
+
+
+\paragraph{Fields}
+\label{\detokenize{com/linuxluigi/edu/view/View:fields}}
+
+\subparagraph{jScrollPane}
+\label{\detokenize{com/linuxluigi/edu/view/View:jscrollpane}}\index{jScrollPane (Java field)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.jScrollPane}}\pysigline{ JScrollPane \sphinxbfcode{jScrollPane}}
+\end{fulllineitems}
+
+
+
+\paragraph{Constructors}
+\label{\detokenize{com/linuxluigi/edu/view/View:constructors}}
+
+\subparagraph{View}
+\label{\detokenize{com/linuxluigi/edu/view/View:id1}}\index{View(int, int) (Java constructor)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.View(int, int)}}\pysiglinewithargsret{public \sphinxbfcode{View}}{int\sphinxstyleemphasis{ with}, int\sphinxstyleemphasis{ height}}{}
+Konstruktor der View
+\begin{itemize}
+\item {} 
+Setz den Titel der View
+
+\item {} 
+Erstellt die Menü Bar
+
+\item {} 
+Schaltet sich selbst sichtbar
+
+\end{itemize}
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{with} -- Breite des View Fensters in Pixel
+
+\item {} 
+\sphinxstyleliteralstrong{height} -- Höhe des View Fensters in Pixel
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+
+
+\paragraph{Methods}
+\label{\detokenize{com/linuxluigi/edu/view/View:methods}}
+
+\subparagraph{addMenuExitListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addmenuexitlistener}}\index{addMenuExitListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuExitListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuExitListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuExit}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addMenuLoadListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addmenuloadlistener}}\index{addMenuLoadListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuLoadListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuLoadListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuLoad}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addMenuNewListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addmenunewlistener}}\index{addMenuNewListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuNewListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuNewListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuNew}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addMenuSaveListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addmenusavelistener}}\index{addMenuSaveListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuSaveListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuSaveListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addNodeListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addnodelistener}}\index{addNodeListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addNodeListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addNodeListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForNodeButton}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addSortAcsListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addsortacslistener}}\index{addSortAcsListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortAcsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortAcsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{addSortDecsListener}
+\label{\detokenize{com/linuxluigi/edu/view/View:addsortdecslistener}}\index{addSortDecsListener(ActionListener) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortDecsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortDecsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
+\end{fulllineitems}
+
+
+
+\subparagraph{createMenuBar}
+\label{\detokenize{com/linuxluigi/edu/view/View:createmenubar}}\index{createMenuBar() (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.createMenuBar()}}\pysiglinewithargsret{public void \sphinxbfcode{createMenuBar}}{}{}
+Erstellt eine JMenuBar
+\begin{itemize}
+\item {} 
+File
+
+\end{itemize}
+
+\end{fulllineitems}
+
+
+
+\subparagraph{setBinaryTree}
+\label{\detokenize{com/linuxluigi/edu/view/View:setbinarytree}}\index{setBinaryTree(Listlabel) (Java method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.setBinaryTree(Listlabel)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTree}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}]{\sphinxcrossref{NodeData}}}\textgreater{}\sphinxstyleemphasis{ nodeList}}{}
+\end{fulllineitems}
+
+
+
 \chapter{Indices and tables}
-\label{\detokenize{index:welcome-to-managementbinarytrees-s-documentation}}\label{\detokenize{index:indices-and-tables}}\begin{itemize}
+\label{\detokenize{index:indices-and-tables}}\begin{itemize}
 \item {} 
 \DUrole{xref,std,std-ref}{genindex}
 

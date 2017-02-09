@@ -2,7 +2,7 @@
 <ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
   <head>
     <meta name="dtb:uid" content="unknown"/>
-    <meta name="dtb:depth" content="1"/>
+    <meta name="dtb:depth" content="3"/>
     <meta name="dtb:totalPageCount" content="0"/>
     <meta name="dtb:maxPageNumber" content="0"/>
   </head>
@@ -10,11 +10,221 @@
     <text>ManagementBinaryTrees</text>
   </docTitle>
   <navMap>
-    <navPoint id="navPoint2" playOrder="1">
+    <navPoint id="navPoint32" playOrder="1">
       <navLabel>
         <text>Welcome to ManagementBinaryTrees&#39;s documentation!</text>
       </navLabel>
       <content src="index.xhtml" />
+    </navPoint>
+    <navPoint id="navPoint33" playOrder="2">
+      <navLabel>
+        <text>ManagementBinaryTress</text>
+      </navLabel>
+      <content src="packages.xhtml" />
+      <navPoint id="navPoint34" playOrder="2">
+        <navLabel>
+          <text>ManagementBinaryTress</text>
+        </navLabel>
+        <content src="packages.xhtml" />
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="3">
+        <navLabel>
+          <text>com.linuxluigi.edu</text>
+        </navLabel>
+        <content src="com/linuxluigi/edu/package-index.xhtml" />
+        <navPoint id="navPoint36" playOrder="3">
+          <navLabel>
+            <text>com.linuxluigi.edu</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/package-index.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint37" playOrder="4">
+          <navLabel>
+            <text>Controller</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint38" playOrder="5">
+          <navLabel>
+            <text>Controller.DialogAddListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-DialogAddListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint39" playOrder="6">
+          <navLabel>
+            <text>Controller.DialogRemoveListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-DialogRemoveListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint40" playOrder="7">
+          <navLabel>
+            <text>Controller.DialogRenameListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-DialogRenameListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint41" playOrder="8">
+          <navLabel>
+            <text>Controller.MenuExitListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuExitListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint42" playOrder="9">
+          <navLabel>
+            <text>Controller.MenuLoadListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuLoadListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint43" playOrder="10">
+          <navLabel>
+            <text>Controller.MenuNewListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuNewListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint44" playOrder="11">
+          <navLabel>
+            <text>Controller.MenuSaveListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuSaveListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint45" playOrder="12">
+          <navLabel>
+            <text>Controller.MenuSortAcsListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuSortAcsListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint46" playOrder="13">
+          <navLabel>
+            <text>Controller.MenuSortDecsListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-MenuSortDecsListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint47" playOrder="14">
+          <navLabel>
+            <text>Controller.NodeListener</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Controller-NodeListener.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint48" playOrder="15">
+          <navLabel>
+            <text>Load</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Load.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint49" playOrder="16">
+          <navLabel>
+            <text>Main</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Main.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint50" playOrder="17">
+          <navLabel>
+            <text>Save</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/Save.xhtml" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="18">
+        <navLabel>
+          <text>com.linuxluigi.edu.data</text>
+        </navLabel>
+        <content src="com/linuxluigi/edu/data/package-index.xhtml" />
+        <navPoint id="navPoint52" playOrder="18">
+          <navLabel>
+            <text>com.linuxluigi.edu.data</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/data/package-index.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint53" playOrder="19">
+          <navLabel>
+            <text>DrawnLines</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/data/DrawnLines.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint54" playOrder="20">
+          <navLabel>
+            <text>NodeData</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/data/NodeData.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint55" playOrder="21">
+          <navLabel>
+            <text>ViewPosition</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/data/ViewPosition.xhtml" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint56" playOrder="22">
+        <navLabel>
+          <text>com.linuxluigi.edu.list</text>
+        </navLabel>
+        <content src="com/linuxluigi/edu/list/package-index.xhtml" />
+        <navPoint id="navPoint57" playOrder="22">
+          <navLabel>
+            <text>com.linuxluigi.edu.list</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/package-index.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint58" playOrder="23">
+          <navLabel>
+            <text>BinaryLinkedList</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/BinaryLinkedList.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint59" playOrder="24">
+          <navLabel>
+            <text>Listlabel</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/Listlabel.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint60" playOrder="25">
+          <navLabel>
+            <text>OrderBy</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/OrderBy.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint61" playOrder="26">
+          <navLabel>
+            <text>PrevNodeDirection</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/PrevNodeDirection.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint62" playOrder="27">
+          <navLabel>
+            <text>SinglyLinkedList</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/list/SinglyLinkedList.xhtml" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint63" playOrder="28">
+        <navLabel>
+          <text>com.linuxluigi.edu.view</text>
+        </navLabel>
+        <content src="com/linuxluigi/edu/view/package-index.xhtml" />
+        <navPoint id="navPoint64" playOrder="28">
+          <navLabel>
+            <text>com.linuxluigi.edu.view</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/view/package-index.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint65" playOrder="29">
+          <navLabel>
+            <text>DialogWindow</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/view/DialogWindow.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint66" playOrder="30">
+          <navLabel>
+            <text>NodePanel</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/view/NodePanel.xhtml" />
+        </navPoint>
+        <navPoint id="navPoint67" playOrder="31">
+          <navLabel>
+            <text>View</text>
+          </navLabel>
+          <content src="com/linuxluigi/edu/view/View.xhtml" />
+        </navPoint>
+      </navPoint>
     </navPoint>
   </navMap>
 </ncx>

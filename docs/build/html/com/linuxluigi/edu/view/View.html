@@ -152,43 +152,129 @@
             
   <div class="section" id="view">
 <h1>View<a class="headerlink" href="#view" title="Link zu dieser Überschrift">¶</a></h1>
+<dl class="type">
+<dt id="com.linuxluigi.edu.view.View">
+public class <code class="descname">View</code> extends JFrame<a class="headerlink" href="#com.linuxluigi.edu.view.View" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Main View, innerhalb dieser View wird das Hauptmenü und Knoten Zeichnung dargestellt.</p>
+</dd></dl>
+
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="jscrollpane">
 <h3>jScrollPane<a class="headerlink" href="#jscrollpane" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="field">
+<dt id="com.linuxluigi.edu.view.View.jScrollPane">
+ JScrollPane <code class="descname">jScrollPane</code><a class="headerlink" href="#com.linuxluigi.edu.view.View.jScrollPane" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 <div class="section" id="constructors">
 <h2>Constructors<a class="headerlink" href="#constructors" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="id1">
 <h3>View<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="constructor">
+<dt id="com.linuxluigi.edu.view.View.View(int, int)">
+public <code class="descname">View</code><span class="sig-paren">(</span>int<em> with</em>, int<em> height</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.View(int, int)" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Konstruktor der View</p>
+<ul class="simple">
+<li>Setz den Titel der View</li>
+<li>Erstellt die Menü Bar</li>
+<li>Schaltet sich selbst sichtbar</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>with</strong> &#8211; Breite des View Fensters in Pixel</li>
+<li><strong>height</strong> &#8211; Höhe des View Fensters in Pixel</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods<a class="headerlink" href="#methods" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="addmenuexitlistener">
 <h3>addMenuExitListener<a class="headerlink" href="#addmenuexitlistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addMenuExitListener(ActionListener)">
+public void <code class="descname">addMenuExitListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuExit</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addMenuExitListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addmenuloadlistener">
 <h3>addMenuLoadListener<a class="headerlink" href="#addmenuloadlistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addMenuLoadListener(ActionListener)">
+public void <code class="descname">addMenuLoadListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuLoad</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addMenuLoadListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addmenunewlistener">
 <h3>addMenuNewListener<a class="headerlink" href="#addmenunewlistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addMenuNewListener(ActionListener)">
+public void <code class="descname">addMenuNewListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuNew</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addMenuNewListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addmenusavelistener">
 <h3>addMenuSaveListener<a class="headerlink" href="#addmenusavelistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addMenuSaveListener(ActionListener)">
+public void <code class="descname">addMenuSaveListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuSave</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addMenuSaveListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addnodelistener">
 <h3>addNodeListener<a class="headerlink" href="#addnodelistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addNodeListener(ActionListener)">
+public void <code class="descname">addNodeListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForNodeButton</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addNodeListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addsortacslistener">
 <h3>addSortAcsListener<a class="headerlink" href="#addsortacslistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addSortAcsListener(ActionListener)">
+public void <code class="descname">addSortAcsListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuSave</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addSortAcsListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="addsortdecslistener">
 <h3>addSortDecsListener<a class="headerlink" href="#addsortdecslistener" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.addSortDecsListener(ActionListener)">
+public void <code class="descname">addSortDecsListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForMenuSave</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.addSortDecsListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="createmenubar">
+<h3>createMenuBar<a class="headerlink" href="#createmenubar" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.createMenuBar()">
+public void <code class="descname">createMenuBar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.createMenuBar()" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Erstellt eine JMenuBar</p>
+<ul class="simple">
+<li>File</li>
+</ul>
+</dd></dl>
+
 </div>
 <div class="section" id="setbinarytree">
 <h3>setBinaryTree<a class="headerlink" href="#setbinarytree" title="Link zu dieser Überschrift">¶</a></h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.View.setBinaryTree(Listlabel)">
+public void <code class="descname">setBinaryTree</code><span class="sig-paren">(</span><a class="reference internal" href="../list/Listlabel.html#com.linuxluigi.edu.list.Listlabel" title="com.linuxluigi.edu.list.Listlabel">Listlabel</a>&lt;<a class="reference internal" href="../data/NodeData.html#com.linuxluigi.edu.data.NodeData" title="com.linuxluigi.edu.data.NodeData">NodeData</a>&gt;<em> nodeList</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.View.setBinaryTree(Listlabel)" title="Link zu dieser Definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 </div>

@@ -8,7 +8,7 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.linuxluigi.edu.data;
+package com.linuxluigi.edu;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,10 +19,17 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
+/**
+ * Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+ */
 public class Load {
     private File file;
     private String[][] BinaryListArray;
 
+    /**
+     * Lädt eine Json Datei und wandelt den Inhalt in ein Binärbaum um
+     * @param file Datei die geladen werden soll
+     */
     public Load(File file) {
         this.file = file;
 

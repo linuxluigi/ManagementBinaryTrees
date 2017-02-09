@@ -11,7 +11,6 @@
 package com.linuxluigi.edu.data;
 
 
-
 public class NodeData {
     private String content;
 

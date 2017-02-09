@@ -18,16 +18,106 @@
             
   <div class="section" id="controller">
 <h1>Controller</h1>
+<dl class="type">
+<dt id="com.linuxluigi.edu.Controller">
+public class <code class="descname">Controller</code></dt>
+<dd><p>Der Controller der für die Steuerung der Software verantworlicch ist Enthalten sind:</p>
+<ul class="simple">
+<li>Verwaltung der View</li>
+<li>Verwaltung des Dialog Fenster zum ändern, hinzufügen und löschen eines Knoten</li>
+<li>Verwalten des Binärbaumes</li>
+<li>Action Listener</li>
+</ul>
+</dd></dl>
+
 <div class="section" id="constructors">
 <h2>Constructors</h2>
 <div class="section" id="id1">
 <h3>Controller</h3>
+<dl class="constructor">
+<dt id="com.linuxluigi.edu.Controller.Controller(View)">
+public <code class="descname">Controller</code><span class="sig-paren">(</span><a class="reference internal" href="view/View.xhtml#com.linuxluigi.edu.view.View" title="com.linuxluigi.edu.view.View">View</a><em> view</em><span class="sig-paren">)</span></dt>
+<dd><p>Konstruktor des Controllers</p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>Erstellt ein Demo Binärbaum</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="2">
+<li>Übergibt die Binärbaum informationen der View</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="3">
+<li>Fügt die Actionen Listener für jeden Button hinzu</li>
+</ol>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>view</strong> &#8211; Die View für das haupt Fenster</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods</h2>
 <div class="section" id="updateview">
 <h3>updateView</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.Controller.updateView()">
+ void <code class="descname">updateView</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Führt ein update der View aus</p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>Binärbaum der View übergeben</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="2">
+<li>Actionlistener einfügen</li>
+</ol>
+</li>
+</ul>
+</dd></dl>
+
+</div>
+<div class="section" id="updateviewinnewwindow">
+<h3>updateViewInNewWindow</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.Controller.updateViewInNewWindow()">
+ void <code class="descname">updateViewInNewWindow</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Führt ein update der View in ein neues Fenster aus und schließt das vorherige</p>
+<ul class="simple">
+<li><ol class="first arabic">
+<li>Position der alten View sichern</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="2">
+<li>Alte View unsichbar schalten</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="3">
+<li>Neue View an gleicher Stelle und gleicher Dimension der alten View erstellen</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="4">
+<li>Binärbaum der View übergeben</li>
+</ol>
+</li>
+<li><ol class="first arabic" start="5">
+<li>Actionlistener einfügen</li>
+</ol>
+</li>
+</ul>
+</dd></dl>
+
 </div>
 </div>
 </div>

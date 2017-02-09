@@ -1,5 +1,3 @@
-.. java:import:: com.linuxluigi.edu.data Load
-
 .. java:import:: com.linuxluigi.edu.data NodeData
 
 .. java:import:: com.linuxluigi.edu.list BinaryLinkedList
@@ -28,6 +26,8 @@ Controller.MenuNewListener
 
 .. java:type::  class MenuNewListener implements ActionListener
    :outertype: Controller
+
+   Actionelistener für Menü Button: neuen Baum anlegen
 
 Methods
 -------

@@ -20,8 +20,6 @@ NodePanel
 
 .. java:type:: public class NodePanel extends JPanel
 
-   Created by fubu on 05.02.17.
-
 Fields
 ------
 jButtons

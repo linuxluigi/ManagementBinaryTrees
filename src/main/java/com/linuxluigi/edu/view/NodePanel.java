@@ -22,7 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
 
 /**
- * Created by fubu on 05.02.17.
+ * Ein JPanel welches die Binärbaumknoten als Button zeichnet und mit Strichen verbindet.
  */
 public class NodePanel extends JPanel {
 
@@ -32,17 +32,29 @@ public class NodePanel extends JPanel {
     public JLabel[] jLabels;
     private ImageIcon nodeIcon = new ImageIcon(this.getClass().getResource("/Node.png"));
 
+    /**
+     * Konstruktor, setz das Layout zu null
+     */
     public NodePanel() {
-        //this.jPanel = new JPanel();
         this.setLayout(null);
     }
 
+    /**
+     * Aktuallesiert das JPanel mithilfe des neuen Binärbaumes
+     *
+     * @param nodeList  neuer Binärbaum
+     * @return          Gibt das aktuallesierte JPanel zurück
+     */
     public JPanel getJPanel(Listlabel<NodeData> nodeList) {
         this.nodeList = nodeList;
         update();
         return this;
     }
 
+    /**
+     * Fügt ein neuen Knoten als Button mit ID Label hinzu
+     * @param id
+     */
     private void addButton(int id) {
         NodeData nodeData = nodeList.get(id);
 
@@ -91,6 +103,9 @@ public class NodePanel extends JPanel {
         this.add(this.jButtons[id]);
     }
 
+    /**
+     * Aktualesiert das JPanel
+     */
     private void update() {
         this.removeAll();
         this.jButtons = new JButton[nodeList.getSize()];
@@ -102,6 +117,10 @@ public class NodePanel extends JPanel {
         }
     }
 
+    /**
+     * Zeichnet alle Linien
+     * @param g
+     */
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -118,6 +137,10 @@ public class NodePanel extends JPanel {
 
     ;
 
+    /**
+     * Actionlistener für alle Knoten
+     * @param listenerForNodeButton
+     */
     public void addNodeListener(ActionListener listenerForNodeButton) {
         for (int i = 0; i < nodeList.getSize(); i++) {
             this.jButtons[i].addActionListener(listenerForNodeButton);

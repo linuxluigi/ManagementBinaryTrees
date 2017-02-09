@@ -14,9 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-/**
- * Created by fubu on 08.02.17.
- */
+
 public class DialogWindow extends JFrame {
     private int nodeId;
     private String nodeContent;

@@ -10,7 +10,6 @@
 
 package com.linuxluigi.edu;
 
-import com.linuxluigi.edu.data.Load;
 import com.linuxluigi.edu.data.NodeData;
 import com.linuxluigi.edu.list.BinaryLinkedList;
 import com.linuxluigi.edu.list.Listlabel;
@@ -25,7 +24,14 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
- * Created by fubu on 06.02.17.
+ * Der Controller der für die Steuerung der Software verantworlicch ist
+ * Enthalten sind:
+ * <ul>
+ * <li>Verwaltung der View</li>
+ * <li>Verwaltung des Dialog Fenster zum ändern, hinzufügen und löschen eines Knoten</li>
+ * <li>Verwalten des Binärbaumes</li>
+ * <li>Action Listener</li>
+ * </ul>
  */
 public class Controller {
     private Listlabel<NodeData> nodeList;
@@ -33,6 +39,16 @@ public class Controller {
 
     private DialogWindow dialogWindow;
 
+    /**
+     * Konstruktor des Controllers
+     * <ul>
+     * <li>1. Erstellt ein Demo Binärbaum</li>
+     * <li>2. Übergibt die Binärbaum informationen der View</li>
+     * <li>3. Fügt die Actionen Listener für jeden Button hinzu</li>
+     * </ul>
+     *
+     * @param view Die View für das haupt Fenster
+     */
     public Controller(View view) {
         this.view = view;
         this.nodeList = new BinaryLinkedList<NodeData>();
@@ -40,6 +56,13 @@ public class Controller {
         initDefaultTree();
         view.setBinaryTree(nodeList);
 
+        addActionListener();
+    }
+
+    /**
+     * Fügt der view alle Button Actionlistener hinzu
+     */
+    private void addActionListener() {
         this.view.addNodeListener(new NodeListener());
         this.view.addMenuNewListener(new MenuNewListener());
         this.view.addMenuLoadListener(new MenuLoadListener());
@@ -49,6 +72,9 @@ public class Controller {
         this.view.addMenuExitListener(new MenuExitListener());
     }
 
+    /**
+     * Erstellt ein Demo Binärbaum, der anschließend nach DESC sortiert wird
+     */
     private void initDefaultTree() {
         this.nodeList.add(new NodeData("A"));
         this.nodeList.add(new NodeData("K"));
@@ -67,7 +93,30 @@ public class Controller {
         this.nodeList.sort(OrderBy.DESC);
     }
 
+    /**
+     * Führt ein update der View aus
+     * <ul>
+     * <li>1. Binärbaum der View übergeben</li>
+     * <li>2. Actionlistener einfügen</li>
+     * </ul>
+     */
     void updateView() {
+        this.view.setBinaryTree(nodeList);
+
+        addActionListener();
+    }
+
+    /**
+     * Führt ein update der View in ein neues Fenster aus und schließt das vorherige
+     * <ul>
+     *     <li>1. Position der alten View sichern</li>
+     *     <li>2. Alte View unsichbar schalten</li>
+     *     <li>3. Neue View an gleicher Stelle und gleicher Dimension der alten View erstellen</li>
+     *     <li>4. Binärbaum der View übergeben</li>
+     *     <li>5. Actionlistener einfügen</li>
+     * </ul>
+     */
+    void updateViewInNewWindow() {
         int sizeWith = view.getSize().width;
         int sizeHeight = view.getSize().height;
         int locationX = view.getX();
@@ -78,19 +127,15 @@ public class Controller {
         this.view = new View(sizeWith, sizeHeight);
         this.view.setLocation(locationX, locationY);
 
-        this.view.setBinaryTree(nodeList);
-
-        this.view.addNodeListener(new NodeListener());
-        this.view.addMenuNewListener(new MenuNewListener());
-        this.view.addMenuLoadListener(new MenuLoadListener());
-        this.view.addMenuSaveListener(new MenuSaveListener());
-        this.view.addSortAcsListener(new MenuSortAcsListener());
-        this.view.addSortDecsListener(new MenuSortDecsListener());
-        this.view.addMenuExitListener(new MenuExitListener());
+        updateView();
     }
 
-    //INNER CLASS
 
+    //INNER CLASS - Action Listener
+
+    /**
+     * Actionelistener für alle Binärbaum Knoten
+     */
     class NodeListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             JButton jButton = (JButton) arg0.getSource();
@@ -108,15 +153,21 @@ public class Controller {
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: neuen Baum anlegen
+     */
     class MenuNewListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             nodeList.clearAll();
-            nodeList.add(new NodeData("WWW"));
+            nodeList.add(new NodeData("AAA"));
 
             updateView();
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: Binärbaum aus Json Datei laden
+     */
     class MenuLoadListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             JFileChooser chooser = new JFileChooser();
@@ -134,10 +185,13 @@ public class Controller {
                 nodeList.setBinaryTreeFromList(load.getBinaryListArray());
             }
 
-            updateView();
+            updateViewInNewWindow();
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: Binärbaum in Json Datei speicher
+     */
     class MenuSaveListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
 
@@ -155,9 +209,14 @@ public class Controller {
                 Save save = new Save(chooser.getSelectedFile(), nodeList);
             }
 
+            updateView();
+
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: Binärbaum nach ACS sortieren
+     */
     class MenuSortAcsListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             nodeList.sort(OrderBy.ASC);
@@ -165,6 +224,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: Binärbaum nach DECS sortieren
+     */
     class MenuSortDecsListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             nodeList.sort(OrderBy.DESC);
@@ -172,13 +234,21 @@ public class Controller {
         }
     }
 
+    /**
+     * Actionelistener für Menü Button: Exit
+     */
     class MenuExitListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             System.exit(0);
         }
     }
 
-    // Dialog Window
+    /**
+     * Actionelistener für Dialog Window:
+     * <ul>
+     * <li>ändern eines vorhandenen Knoten</li>
+     * </ul>
+     */
     class DialogRenameListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             NodeData nodeData = new NodeData(dialogWindow.getText());
@@ -190,6 +260,12 @@ public class Controller {
         }
     }
 
+    /**
+     * Actionelistener für Dialog Window:
+     * <ul>
+     * <li>Hinzufügen von neuen Knoten</li>
+     * </ul>
+     */
     class DialogAddListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             nodeList.add(dialogWindow.getNodeId(), new NodeData(dialogWindow.getText()));
@@ -200,7 +276,12 @@ public class Controller {
         }
     }
 
-    // Dialog Window
+    /**
+     * Actionelistener für Dialog Window:
+     * <ul>
+     * <li>löschen eines Knotens</li>
+     * </ul>
+     */
     class DialogRemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent arg0) {
             nodeList.remove(dialogWindow.getNodeId());
