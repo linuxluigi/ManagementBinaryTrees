@@ -11,33 +11,64 @@
 package com.linuxluigi.edu.data;
 
 
+/**
+ * Object um die Position der Knoten zu sichern
+ */
 public class ViewPosition {
     private int x;
     private int y;
     private int iconSize;
 
+    /**
+     * Konstruktor um die Position der Knoten zu sichern
+     * @param x         Startwert auf der X-Achse
+     * @param y         Startwert auf der Y-Achse
+     * @param IconSize  Größe des verwendeten Icons
+     */
     public ViewPosition(int x, int y, int IconSize) {
         this.x = x;
         this.y = y;
         this.iconSize = IconSize;
     }
 
+    /**
+     * Gibt den Startwert der X-Achse zurück
+     * @return  Startwert der X-Achse
+     */
     public int getX() {
         return this.x;
     }
 
+    /**
+     * Gibt den Startwert der Y-Achse zurück
+     * @return  Startwert der Y-Achse
+     */
     public int getY() {
         return this.y;
     }
 
-    public int getMiddelX() {
+
+    /**
+     * Gibt die Mitte des Objektes auf der X-Achse zurück
+     * @return  Mitte des Objektes auf der X-Achse
+     */
+    public int getMiddleX() {
         return this.x + this.iconSize / 2;
     }
 
+    /**
+     * Gibt den Endwert der Y-Achse zurück
+     * @return  Endwert der Y-Achse
+     */
     public int getY2() {
         return this.y + this.iconSize;
     }
 
+
+    /**
+     * Gibt die Pixel Größe des Icons zurück
+     * @return  Pixel Größe des Icons als INT
+     */
     public int getIconSize() {
         return this.iconSize;
     }

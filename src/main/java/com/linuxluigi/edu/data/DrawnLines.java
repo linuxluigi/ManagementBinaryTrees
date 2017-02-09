@@ -11,12 +11,22 @@
 package com.linuxluigi.edu.data;
 
 
+/**
+ * Daten für das Zeichnen von Linien zwischen den Knoten
+ */
 public class DrawnLines {
     private int x1;
     private int x2;
     private int y1;
     private int y2;
 
+    /**
+     * Konstruktor: Daten für das Zeichnen von Linien zwischen den Knoten
+     * @param x1    Start auf X-Achse
+     * @param x2    Ende auf X-Achse
+     * @param y1    Start auf Y-Achse
+     * @param y2    Ende auf Y-Achse
+     */
     public DrawnLines(int x1, int x2, int y1, int y2) {
         this.x1 = x1;
         this.x2 = x2;

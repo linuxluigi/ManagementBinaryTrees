@@ -16,8 +16,10 @@ import com.linuxluigi.edu.data.ViewPosition;
 
 import java.util.Arrays;
 
+
 /**
- * Created by fubu on 01.02.17.
+ * Binärbaum Liste
+ * @param <T>
  */
 public class BinaryLinkedList<T> implements Listlabel<T> {
     private Node head;
@@ -37,7 +39,36 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         public ViewPosition viewPosition;
     }
 
+    /**
+     * Eine Klasse die ausgibt wo der Knoten herkommt
+     * <ul>
+     *     <li>Erste Knoten</li>
+     *     <li>von Oben Links</li>
+     *     <li>von Oben Rechts</li>
+     *     <li>von Unten Links</li>
+     *     <li>von Unten Rechts</li>
+     * </ul>
+     */
     private class PrevNode {
+        /**
+         * Ausgabe wo der Knoten herkommt
+         * <ul>
+         *     <li>Erste Knoten</li>
+         *     <li>von Oben Links</li>
+         *     <li>von Oben Rechts</li>
+         *     <li>von Unten Links</li>
+         *     <li>von Unten Rechts</li>
+         * </ul>
+         * @param currentNode   Aktueller Knoten
+         * @param prevNode      Vorheriger Knoten
+         * @return              <ul>
+         *                          <li>PrevNodeDirection.NULL</li>
+         *                          <li>PrevNodeDirection.DOWN_LEFT</li>
+         *                          <li>PrevNodeDirection.DOWN_RIGHT</li>
+         *                          <li>PrevNodeDirection.UP_LEFT</li>
+         *                          <li>PrevNodeDirection.UP_RIGHT</li>
+         *                      </ul>
+         */
         PrevNodeDirection getPrevNode(Node currentNode, Node prevNode) {
 
             // starting node
@@ -69,10 +100,19 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         }
     }
 
+    /**
+     * Fügt ein neuen Knoten ein
+     * @param data Datenobject
+     */
     public void add(T data) {
         add(0, data);
     }
 
+    /**
+     * Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+     * @param index Index des Knotens
+     * @param data Datenobject
+     */
     public void add(int index, T data) {
         Node newNode = new Node();
         newNode.data = data;
@@ -81,6 +121,11 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         add(index, newNode);
     }
 
+    /**
+     * Fügt ein neuen Knoten hinzu nach Knoten mit dem Index index
+     * @param index     Index des vorherigen Knoten
+     * @param newNode   Zu speichernden Knoten
+     */
     private void add(int index, Node newNode) {
         Node tempCurrent;
 
@@ -151,6 +196,10 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         setId();
     }
 
+    /**
+     * Löscht ein Knoten mit dem Index index
+     * @param index     Index des zu löschenden Knotens
+     */
     public void remove(int index) {
         Node getNode = this.getNode(index);
 
@@ -228,6 +277,9 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
     }
 
+    /**
+     * Löscht alle Knoten aus der Liste
+     */
     public void clearAll() {
         this.head = null;
         this.drawnLines.clearAll();
@@ -235,6 +287,11 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         this.treeDepth = 0;
     }
 
+    /**
+     * Gibt zurück ob die Liste leer ist
+     * @return  True  == Liste ohne Knoten
+     *          False == in der Liste sind Knoten enthalten
+     */
     public boolean isEmpty() {
         if (head != null) {
             return false;
@@ -244,6 +301,11 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     }
 
 
+    /**
+     * Gibt den gesamten Knoten mit dem Index index zurück
+     * @param index Index des Knoten der zurück gegeben werden soll
+     * @return      Knoten
+     */
     private Node getNode(int index) {
         if (index >= this.size || index < 0) {
             throw new ArrayIndexOutOfBoundsException();
@@ -303,18 +365,35 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         return getNode;
     }
 
+    /**
+     * Gibt den Wert vom Knoten mit dem Index index
+     * @param index     Index des Knotens
+     * @return      Daten Objekt
+     */
     public T get(int index) {
         return getNode(index).data;
     }
 
+    /**
+     * Gibt die Anzahl von Knoten zurück
+     * @return  Anzahl von Knoten
+     */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * Sichert ein Objekt in den Knoten mit den Index index
+     * @param index     Index des Knotens
+     * @param data      zu sicherendes Objekt
+     */
     public void set(int index, T data) {
         getNode(index).data = data;
     }
 
+    /**
+     * Weiß jeden Knoten eine eindeutige ID zu
+     */
     private void setId() {
         this.treeDepth = 0;
 
@@ -439,6 +518,9 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         setPosition();
     }
 
+    /**
+     * Berechnet für jeden Knoten eine genaue Position für die View
+     */
     private void setPosition() {
         int maxWith = (int) Math.pow(2, this.treeDepth) * iconSize;
 
@@ -459,19 +541,19 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
                 if (getNode == getNode.prev.nextLeft) {
                     // location for Button
-                    blockStartX = getNode.prev.viewPosition.getMiddelX() - (blockSize / 2) - (iconSize / 2);
+                    blockStartX = getNode.prev.viewPosition.getMiddleX() - (blockSize / 2) - (iconSize / 2);
                     getNode.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
                 } else {
                     // location for Button
-                    blockStartX = getNode.prev.viewPosition.getMiddelX() + (blockSize / 2) - (iconSize / 2);
+                    blockStartX = getNode.prev.viewPosition.getMiddleX() + (blockSize / 2) - (iconSize / 2);
                     getNode.viewPosition = new ViewPosition(blockStartX, blockStartY, this.iconSize);
                 }
 
                 if (getNode.prev != null) {
                     // location for DrawnLines
-                    int x1 = getNode.prev.viewPosition.getMiddelX();
+                    int x1 = getNode.prev.viewPosition.getMiddleX();
                     int y1 = getNode.prev.viewPosition.getY2();
-                    int x2 = getNode.viewPosition.getMiddelX();
+                    int x2 = getNode.viewPosition.getMiddleX();
                     int y2 = getNode.viewPosition.getY();
 
                     this.drawnLines.add(new DrawnLines(x1, x2, y1, y2));
@@ -481,6 +563,11 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         }
     }
 
+    /**
+     * Sortiert den Baum nach ASC order DECS
+     * @param orderBy   OrderBy.ASC == Sortieren nach ASC
+     *                  OrderBy.DESC == Sortieren nach DESC
+     */
     public void sort(OrderBy orderBy) {
         String[] sortArray = new String[this.size];
 
@@ -507,22 +594,43 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
 
     }
 
+    /**
+     * Gibt die Liste DrawnLines zurück
+     * @return  Liste DrawnLines
+     */
     public Listlabel<DrawnLines> getDrawnLines() {
         return this.drawnLines;
     }
 
+    /**
+     * Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+     * @param index     Index des Knotens
+     * @return          ViewPosition objekt des Knoten mit dem Index
+     */
     public ViewPosition getViewPosition(int index) {
         return getNode(index).viewPosition;
     }
 
+    /**
+     * Gibt die breite des Baumes in Pixel zurück
+     * @return  breite des Baumes
+     */
     public int getWith() {
         return (int) Math.pow(2, this.treeDepth) * iconSize;
     }
 
+    /**
+     * Gibt die höhe des Baumes in Pixel zurück
+     * @return  höhe des Baumes
+     */
     public int getHigh() {
         return treeDepth * iconSize * 2;
     }
 
+    /**
+     * Konvertiert ein String[][] in ein Binärbaum
+     * @param binaryTreeArray       zu konvertierendendes String[][]
+     */
     public void setBinaryTreeFromList(String[][] binaryTreeArray) {
         clearAll();
 
@@ -565,6 +673,10 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         setId();
     }
 
+    /**
+     * Konvertiert ein Binärbaum in ein String[][]
+     * @return  konvertierter Binärbaum als String[][]
+     */
     public String[][] getBinaryList() {
         String[][] binaryTreeArray = new String[this.size][2];
 

@@ -13,8 +13,10 @@ package com.linuxluigi.edu.list;
 import com.linuxluigi.edu.data.DrawnLines;
 import com.linuxluigi.edu.data.ViewPosition;
 
+
 /**
- * Created by fubu on 06.02.17.
+ * Simple Liste
+ * @param <T>
  */
 public class SinglyLinkedList<T> implements Listlabel<T> {
     private Node head;
@@ -25,6 +27,10 @@ public class SinglyLinkedList<T> implements Listlabel<T> {
         public Node next;
     }
 
+    /**
+     * Fügt ein neuen Knoten ein
+     * @param data Datenobject
+     */
     public void add(T data) {
         Node newNode = new Node();
         newNode.data = data;
@@ -46,11 +52,19 @@ public class SinglyLinkedList<T> implements Listlabel<T> {
     }
 
 
+    /**
+     * Löscht alle Knoten aus der Liste
+     */
     public void clearAll() {
         this.head = null;
         this.size = 0;
     }
 
+    /**
+     * Gibt zurück ob die Liste leer ist
+     * @return  True  == Liste ohne Knoten
+     *          False == in der Liste sind Knoten enthalten
+     */
     public boolean isEmpty() {
         if (head == null) {
             return true;
@@ -59,6 +73,11 @@ public class SinglyLinkedList<T> implements Listlabel<T> {
         }
     }
 
+    /**
+     * Gibt den Wert vom Knoten mit dem Index index
+     * @param index     Index des Knotens
+     * @return      Daten Objekt
+     */
     public T get(int index) {
         if (index >= 0 && index < this.size) {
             Node temp = this.head;
@@ -74,47 +93,95 @@ public class SinglyLinkedList<T> implements Listlabel<T> {
         }
     }
 
+    /**
+     * Gibt die Anzahl von Knoten zurück
+     * @return  Anzahl von Knoten
+     */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+     * @param index Index des Knotens
+     * @param data Datenobject
+     */
     public void add(int index, T data) {
 
     }
 
+    /**
+     * Löscht ein Knoten mit dem Index index
+     * @param index     Index des zu löschenden Knotens
+     */
     public void remove(int index) {
 
     }
 
 
+    /**
+     * Sichert ein Objekt in den Knoten mit den Index index
+     * @param index     Index des Knotens
+     * @param data      zu sicherendes Objekt
+     */
     public void set(int index, T data) {
 
     }
 
+    /**
+     * Gibt die Liste DrawnLines zurück
+     * @return  Liste DrawnLines
+     */
     public Listlabel<DrawnLines> getDrawnLines() {
         return null;
     }
 
+    /**
+     * Sortiert den Baum nach ASC order DECS
+     * @param orderBy   OrderBy.ASC == Sortieren nach ASC
+     *                  OrderBy.DESC == Sortieren nach DESC
+     */
     public void sort(OrderBy orderBy) {
 
     }
 
+    /**
+     * Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+     * @param index     Index des Knotens
+     * @return          ViewPosition objekt des Knoten mit dem Index
+     */
     public ViewPosition getViewPosition(int index) {
         return null;
     }
 
+    /**
+     * Gibt die breite des Baumes in Pixel zurück
+     * @return  breite des Baumes
+     */
     public int getWith() {
         return 0;
     }
 
+    /**
+     * Gibt die höhe des Baumes in Pixel zurück
+     * @return  höhe des Baumes
+     */
     public int getHigh() {
         return 0;
     }
 
+    /**
+     * Konvertiert ein String[][] in ein Binärbaum
+     * @param binaryTreeArray       zu konvertierendendes String[][]
+     */
     public void setBinaryTreeFromList(String[][] binaryTreeArray) {
 
     }
 
+    /**
+     * Konvertiert ein Binärbaum in ein String[][]
+     * @return  konvertierter Binärbaum als String[][]
+     */
     public String[][] getBinaryList() {
         return new String[0][];
     }

@@ -15,9 +15,17 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
+/**
+ * Dialog Fenster welches erscheint nachdem ein Knoten gedrückt worden ist.
+ * Welches folgenede Optionen liefert.
+ * <ul>
+ *     <li>Knoten hinzufügen</li>
+ *     <li>Knoten ändern</li>
+ *     <li>Knoten löschen</li>
+ * </ul>
+ */
 public class DialogWindow extends JFrame {
     private int nodeId;
-    private String nodeContent;
 
     private JTextPane jTextPane;
     private JButton renameButton = new JButton("RENAME");
@@ -26,7 +34,6 @@ public class DialogWindow extends JFrame {
 
     public DialogWindow(int nodeId, String nodeContent) {
         this.nodeId = nodeId;
-        this.nodeContent = nodeContent;
 
         this.setTitle(Integer.toString(nodeId) + ": " + nodeContent);
 
@@ -45,22 +52,42 @@ public class DialogWindow extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Button Knoten ändern
+     * @param listenerForRenameButton   ActionListener
+     */
     public void addRenameListener(ActionListener listenerForRenameButton) {
         this.renameButton.addActionListener(listenerForRenameButton);
     }
 
+    /**
+     * Button Knoten hinzufügen
+     * @param listenerForAddButton   ActionListener
+     */
     public void addAddListener(ActionListener listenerForAddButton) {
         this.addButton.addActionListener(listenerForAddButton);
     }
 
+    /**
+     * Button Knoten löschen
+     * @param listenerForRemoveButton   ActionListener
+     */
     public void addRemoveListener(ActionListener listenerForRemoveButton) {
         this.removeButton.addActionListener(listenerForRemoveButton);
     }
 
+    /**
+     * Gibt das Textfeld des DialogWindows zurück
+     * @return  Textfeld des Dialogfenster als String
+     */
     public String getText() {
         return this.jTextPane.getText();
     }
 
+    /**
+     * Gibt die Knoten ID des DialogWindow zurück
+     * @return  Knoten ID
+     */
     public int getNodeId() {
         return this.nodeId;
     }

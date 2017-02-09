@@ -13,38 +13,101 @@ package com.linuxluigi.edu.list;
 import com.linuxluigi.edu.data.DrawnLines;
 import com.linuxluigi.edu.data.ViewPosition;
 
-/**
- * Created by fubu on 01.02.17.
- */
+
 public interface Listlabel<T> {
 
-    public void add(T data);
+    /**
+     * Fügt ein neuen Knoten ein
+     * @param data Datenobject
+     */
+    void add(T data);
 
-    public void add(int index, T data);
+    /**
+     * Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+     * @param index Index des Knotens
+     * @param data Datenobject
+     */
+    void add(int index, T data);
 
-    public void remove(int index);
+    /**
+     * Löscht ein Knoten mit dem Index index
+     * @param index     Index des zu löschenden Knotens
+     */
+    void remove(int index);
 
-    public void clearAll();
+    /**
+     * Löscht alle Knoten aus der Liste
+     */
+    void clearAll();
 
-    public boolean isEmpty();
+    /**
+     * Gibt zurück ob die Liste leer ist
+     * @return  True  == Liste ohne Knoten
+     *          False == in der Liste sind Knoten enthalten
+     */
+    boolean isEmpty();
 
-    public T get(int index);
+    /**
+     * Gibt den Wert vom Knoten mit dem Index index
+     * @param index     Index des Knotens
+     * @return      Daten Objekt
+     */
+    T get(int index);
 
-    public int getSize();
+    /**
+     * Gibt die Anzahl von Knoten zurück
+     * @return  Anzahl von Knoten
+     */
+    int getSize();
 
-    public void set(int index, T data);
+    /**
+     * Sichert ein Objekt in den Knoten mit den Index index
+     * @param index     Index des Knotens
+     * @param data      zu sicherendes Objekt
+     */
+    void set(int index, T data);
 
-    public void sort(OrderBy orderBy);
+    /**
+     * Sortiert den Baum nach ASC order DECS
+     * @param orderBy   OrderBy.ASC == Sortieren nach ASC
+     *                  OrderBy.DESC == Sortieren nach DESC
+     */
+    void sort(OrderBy orderBy);
 
-    public int getWith();
+    /**
+     * Gibt die breite des Baumes in Pixel zurück
+     * @return  breite des Baumes
+     */
+    int getWith();
 
-    public int getHigh();
+    /**
+     * Gibt die höhe des Baumes in Pixel zurück
+     * @return  höhe des Baumes
+     */
+    int getHigh();
 
-    public void setBinaryTreeFromList(String[][] binaryTreeArray);
+    /**
+     * Konvertiert ein String[][] in ein Binärbaum
+     * @param binaryTreeArray       zu konvertierendendes String[][]
+     */
+    void setBinaryTreeFromList(String[][] binaryTreeArray);
 
-    public String[][] getBinaryList();
+    /**
+     * Konvertiert ein Binärbaum in ein String[][]
+     * @return  konvertierter Binärbaum als String[][]
+     */
+    String[][] getBinaryList();
 
-    public ViewPosition getViewPosition(int index);
+    /**
+     * Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+     * @param index     Index des Knotens
+     * @return          ViewPosition objekt des Knoten mit dem Index
+     */
+    ViewPosition getViewPosition(int index);
 
-    public Listlabel<DrawnLines> getDrawnLines();
+    /**
+     * Gibt die Liste DrawnLines zurück
+     * @return  Liste DrawnLines
+     */
+    Listlabel<DrawnLines> getDrawnLines();
 }
