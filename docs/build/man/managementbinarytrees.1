@@ -30,6 +30,167 @@ level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
 .in \\n[rst2man-indent\\n[rst2man-indent-level]]u
 ..
+.SH ÜBER DAS PROGRAMM
+.sp
+Das Programm "ManagementBinaryTrees" ist ein grafisches Programm, welches dazu dient Knoten in einem
+Binärbaum ein zu fügen, zu verändern und zu entfernen.
+.sp
+Außerdem bietet es die Möglichkeit die Binärbaume
+in eine Json Datei zu speichern und laden und zu sortieren.
+.sp
+Nach dem Start wird ein generierter Binärbaum angezeigt, der nach belieben bearbeite oder ausgetauscht
+werden kann.
+.sp
+In den Menü welches sich unter den Button "File" verbirgt, ist es möglich Binärbaume zu laden, speicher,
+neu an zu legen, zu sortieren und das Programm zu schließen.
+.sp
+Das Projekt wurde mit JUnit 4 tests getestete und die test Klassen befinden sich bei den Quellcode dabei.
+.INDENT 0.0
+.IP \(bu 2
+Quellcode: \fI\%https://github.com/linuxluigi/ManagementBinaryTrees\fP
+.IP \(bu 2
+Online Dokumentation: \fI\%https://github.com/linuxluigi/ManagementBinaryTrees/blob/master/docs/source/index.rst\fP
+.UNINDENT
+[Bild]
+.SH KOMPILIEREN
+.sp
+Das Projekt wurde via Maven 2 konstruiert und kann mit ein Konsolen Befehl in einer Jar Datei Kompiliert werden, dafür
+muss aber zuerst Maven 2 installiert werden, unter Ubuntu / Debian muss folgendes eingeben werden.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ sudo apt\-get install maven2
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Jetzt wurde Maven 2 installiert und nun kann das Projekt die abhänigkeiten installiert werden, test ausgeführt und
+zur einer ausführbaren Jar ausgeben.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ mvn clean install
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+[Bild]
+.SH ABHÄNIGKEITEN
+.sp
+Das Projekt wurde als Maven 2 Modul geschrieben und verwendet folgende Maven Module.
+.sp
+Maven Projekt Website: \fI\%https://maven.apache.org/\fP
+.SS Google GSON
+.sp
+Gson ist eine Java Bibliothek die es ermöglicht Klassen und Variablen als Json Datei aus zu geben oder
+ein String als Klasse oder Variable zu konvertieren.
+.nf
+Name: google\-gson
+Hersteller: Google Inc.
+Version: 2.7
+Link: \fI\%https://github.com/google/gson\fP
+.fi
+.sp
+.SS JUnit
+.sp
+Junit ist ein unit testing Framework für Java von Erich Gamma und Kent Beck.
+.nf
+Name: JUnit
+Hersteller: Erich Gamma und Kent Beck
+Version: 4.12
+Link: \fI\%http://junit.org/junit4/\fP
+.fi
+.sp
+.SH USER INTERFACE
+.SS Bedienung
+.sp
+Nach dem Start des Programmes wird ein Beispiel Binärbaum erstellt, wobei jeder Knoten ein Button ist.
+Diese Button dienen dazu die Knoten zu bearbeiten, neue ein zu fügen und zu löschen
+[Bild]
+.sp
+Nachdem ein Button gedrück worden ist erscheint ein extra Fenster welches die Optionen besitzt "ADD",
+"RENAME" und "REMOVE". Wohinter sich die Aktionen "ADD" >> Hinzufügen, "RENAME" >> "Name Ändern" und "REMOVE" >>
+Knoten entfernen verbergen.
+.sp
+Das Textfeld gibt den Aktuellen inhalt des Knotens wieder. Wenn dieses geändert wird und auf "RENAME" geklickt wird,
+ändert sich der Inhalt von den Knoten und wenn auf "ADD" geklickt wird, wird ein neuer Knoten mit den Wert der in dem
+Textfeld enthalten ist hinzugefügt.
+[Bild]
+.SS Knoten hinzufügen
+.sp
+Nachdem auf ein Knoten geklickt worden ist, ist es möglich in den Dialog Fenster, welches erscheint.
+Den neuen Knoten ein 3 Stelligen Wert zu zu Ordnen und ihn nach dem angeklickten Knoten ein zu fügen.
+[Bild]
+.sp
+In diesen Beispiel erscheint nun unten Links der neue Knoten.
+[Bild]
+.SS Binärbaum Sortieren
+.sp
+Um ein Binärbaum zu sortieren muss auf geklickt werden auf "FILE" >> "Sort ACS" oder "Sort DECS"
+[Bild]
+.sp
+In diesen Beispiel sieht der Baum danach so aus:
+[Bild]
+.SS Datei Laden und Sichern
+.sp
+Um ein Binärbaum zu sichern oder laden muss auf geklickt werden auf "FILE" >> "Load File" oder "Save File"
+[Bild]
+.sp
+Und in den folgenden Fenster die gewünschte Json Datei auswählen.
+[Bild]
+.sp
+Hier ist eine Beispiel Json Datei.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[
+  ["","L"],
+  ["0","K"],
+  ["00","K"],
+  ["000","G"],
+  ["001","G"],
+  ["01","J"],
+  ["010","F"],
+  ["011","D"],
+  ["1","K"],
+  ["10","I33"],
+  ["100","C"],
+  ["101","AA"],
+  ["11","G22"],
+  ["110","A"]
+]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Konvertiert in ein Binärbaum sieht es folgend aus:
+[Bild]
+.SH INDEXIERUNG DER KNOTEN
+.sp
+Das System für die Indexierung lautet:
+.INDENT 0.0
+.IP 1. 3
+Versuche nach links unten zu gehen.
+.IP 2. 3
+Geht es nicht mehr nach links unten versuche nach rechts unten zu gehen.
+.IP 3. 3
+Komme ich von Links unten, versuche ich nach rechts unten zu gehen.
+.IP 4. 3
+Geht es nicht mehr nach rechts unten, gehe nach oben.
+.IP 5. 3
+Wenn ich von ein Knoten rechts unten komme, gehe nach oben.
+.IP 6. 3
+Wenn ich nicht mehr nach oben gehen kann, bin ich fertig.
+.UNINDENT
+[Bild]
 .SH MANAGEMENTBINARYTRESS
 .SS com.linuxluigi.edu
 .SS Controller
@@ -340,33 +501,28 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 .INDENT 0.0
 .TP
 .B public class DrawnLines
-.UNINDENT
-.SS Fields
-.SS x1
-.INDENT 0.0
-.TP
-.B  int x1
-.UNINDENT
-.SS x2
-.INDENT 0.0
-.TP
-.B  int x2
-.UNINDENT
-.SS y1
-.INDENT 0.0
-.TP
-.B  int y1
-.UNINDENT
-.SS y2
-.INDENT 0.0
-.TP
-.B  int y2
+Daten für das Zeichnen von Linien zwischen den Knoten
 .UNINDENT
 .SS Constructors
 .SS DrawnLines
 .INDENT 0.0
 .TP
 .B public DrawnLines(int\fI x1\fP, int\fI x2\fP, int\fI y1\fP, int\fI y2\fP)
+Konstruktor: Daten für das Zeichnen von Linien zwischen den Knoten
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBx1\fP \-\- Start auf X\-Achse
+.IP \(bu 2
+\fBx2\fP \-\- Ende auf X\-Achse
+.IP \(bu 2
+\fBy1\fP \-\- Start auf Y\-Achse
+.IP \(bu 2
+\fBy2\fP \-\- Ende auf Y\-Achse
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS Methods
 .SS getX1
@@ -393,12 +549,14 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 .INDENT 0.0
 .TP
 .B public class NodeData
+Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
 .UNINDENT
 .SS Constructors
 .SS NodeData
 .INDENT 0.0
 .TP
 .B public NodeData(\fI\%String\fP\fI content\fP)
+Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
 .UNINDENT
 .SS Methods
 .SS getContent
@@ -410,6 +568,15 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 .INDENT 0.0
 .TP
 .B public void setContent(\fI\%String\fP\fI content\fP)
+Speichern eines String mit der Maximalen länge von 3, wenn der String länger ist, wird er automatisch auf 3 gekürtzt.
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBcontent\fP \-\- String der gesichert werden soll.
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS toString
 .INDENT 0.0
@@ -420,209 +587,497 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 .INDENT 0.0
 .TP
 .B public class ViewPosition
+Object um die Position der Knoten zu sichern
 .UNINDENT
 .SS Constructors
 .SS ViewPosition
 .INDENT 0.0
 .TP
 .B public ViewPosition(int\fI x\fP, int\fI y\fP, int\fI IconSize\fP)
+Konstruktor um die Position der Knoten zu sichern
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBx\fP \-\- Startwert auf der X\-Achse
+.IP \(bu 2
+\fBy\fP \-\- Startwert auf der Y\-Achse
+.IP \(bu 2
+\fBIconSize\fP \-\- Größe des verwendeten Icons
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS Methods
 .SS getIconSize
 .INDENT 0.0
 .TP
 .B public int getIconSize()
+Gibt die Pixel Größe des Icons zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Pixel Größe des Icons als INT
 .UNINDENT
-.SS getMiddelX
+.UNINDENT
+.SS getMiddleX
 .INDENT 0.0
 .TP
-.B public int getMiddelX()
+.B public int getMiddleX()
+Gibt die Mitte des Objektes auf der X\-Achse zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Mitte des Objektes auf der X\-Achse
+.UNINDENT
 .UNINDENT
 .SS getX
 .INDENT 0.0
 .TP
 .B public int getX()
+Gibt den Startwert der X\-Achse zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Startwert der X\-Achse
+.UNINDENT
 .UNINDENT
 .SS getY
 .INDENT 0.0
 .TP
 .B public int getY()
+Gibt den Startwert der Y\-Achse zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Startwert der Y\-Achse
+.UNINDENT
 .UNINDENT
 .SS getY2
 .INDENT 0.0
 .TP
 .B public int getY2()
+Gibt den Endwert der Y\-Achse zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Endwert der Y\-Achse
+.UNINDENT
 .UNINDENT
 .SS com.linuxluigi.edu.list
 .SS BinaryLinkedList
 .INDENT 0.0
 .TP
 .B public class BinaryLinkedList<T> implements Listlabel<T>
-Created by fubu on 01.02.17.
+Binärbaum Liste
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fB<T>\fP \-\- 
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS Methods
 .SS add
 .INDENT 0.0
 .TP
 .B public void add(T\fI data\fP)
+Fügt ein neuen Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS add
 .INDENT 0.0
 .TP
 .B public void add(int\fI index\fP, T\fI data\fP)
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS clearAll
 .INDENT 0.0
 .TP
 .B public void clearAll()
+Löscht alle Knoten aus der Liste
 .UNINDENT
 .SS get
 .INDENT 0.0
 .TP
 .B public T get(int\fI index\fP)
+Gibt den Wert vom Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+Daten Objekt
+.UNINDENT
 .UNINDENT
 .SS getBinaryList
 .INDENT 0.0
 .TP
 .B public \fI\%String\fP[][] getBinaryList()
+Konvertiert ein Binärbaum in ein String[][]
+.INDENT 7.0
+.TP
+.B Rückgabe
+konvertierter Binärbaum als String[][]
+.UNINDENT
 .UNINDENT
 .SS getDrawnLines
 .INDENT 0.0
 .TP
 .B public Listlabel<DrawnLines> getDrawnLines()
+Gibt die Liste DrawnLines zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Liste DrawnLines
+.UNINDENT
 .UNINDENT
 .SS getHigh
 .INDENT 0.0
 .TP
 .B public int getHigh()
+Gibt die höhe des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+höhe des Baumes
+.UNINDENT
 .UNINDENT
 .SS getSize
 .INDENT 0.0
 .TP
 .B public int getSize()
+Gibt die Anzahl von Knoten zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Anzahl von Knoten
+.UNINDENT
 .UNINDENT
 .SS getViewPosition
 .INDENT 0.0
 .TP
 .B public ViewPosition getViewPosition(int\fI index\fP)
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+ViewPosition objekt des Knoten mit dem Index
+.UNINDENT
 .UNINDENT
 .SS getWith
 .INDENT 0.0
 .TP
 .B public int getWith()
+Gibt die breite des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+breite des Baumes
+.UNINDENT
 .UNINDENT
 .SS isEmpty
 .INDENT 0.0
 .TP
 .B public boolean isEmpty()
+Gibt zurück ob die Liste leer ist
+.INDENT 7.0
+.TP
+.B Rückgabe
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+.UNINDENT
 .UNINDENT
 .SS remove
 .INDENT 0.0
 .TP
 .B public void remove(int\fI index\fP)
+Löscht ein Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des zu löschenden Knotens
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS set
 .INDENT 0.0
 .TP
 .B public void set(int\fI index\fP, T\fI data\fP)
+Sichert ein Objekt in den Knoten mit den Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- zu sicherendes Objekt
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS setBinaryTreeFromList
 .INDENT 0.0
 .TP
 .B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+Konvertiert ein String[][] in ein Binärbaum
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBbinaryTreeArray\fP \-\- zu konvertierendendes String[][]
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS sort
 .INDENT 0.0
 .TP
 .B public void sort(OrderBy\fI orderBy\fP)
+Sortiert den Baum nach ASC order DECS
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBorderBy\fP \-\- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS Listlabel
 .INDENT 0.0
 .TP
 .B public interface Listlabel<T>
-Created by fubu on 01.02.17.
 .UNINDENT
 .SS Methods
 .SS add
 .INDENT 0.0
 .TP
-.B public void add(T\fI data\fP)
+.B  void add(T\fI data\fP)
+Fügt ein neuen Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS add
 .INDENT 0.0
 .TP
-.B public void add(int\fI index\fP, T\fI data\fP)
+.B  void add(int\fI index\fP, T\fI data\fP)
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS clearAll
 .INDENT 0.0
 .TP
-.B public void clearAll()
+.B  void clearAll()
+Löscht alle Knoten aus der Liste
 .UNINDENT
 .SS get
 .INDENT 0.0
 .TP
-.B public T get(int\fI index\fP)
+.B  T get(int\fI index\fP)
+Gibt den Wert vom Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+Daten Objekt
+.UNINDENT
 .UNINDENT
 .SS getBinaryList
 .INDENT 0.0
 .TP
-.B public \fI\%String\fP[][] getBinaryList()
+.B  \fI\%String\fP[][] getBinaryList()
+Konvertiert ein Binärbaum in ein String[][]
+.INDENT 7.0
+.TP
+.B Rückgabe
+konvertierter Binärbaum als String[][]
+.UNINDENT
 .UNINDENT
 .SS getDrawnLines
 .INDENT 0.0
 .TP
-.B public Listlabel<DrawnLines> getDrawnLines()
+.B  Listlabel<DrawnLines> getDrawnLines()
+Gibt die Liste DrawnLines zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Liste DrawnLines
+.UNINDENT
 .UNINDENT
 .SS getHigh
 .INDENT 0.0
 .TP
-.B public int getHigh()
+.B  int getHigh()
+Gibt die höhe des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+höhe des Baumes
+.UNINDENT
 .UNINDENT
 .SS getSize
 .INDENT 0.0
 .TP
-.B public int getSize()
+.B  int getSize()
+Gibt die Anzahl von Knoten zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Anzahl von Knoten
+.UNINDENT
 .UNINDENT
 .SS getViewPosition
 .INDENT 0.0
 .TP
-.B public ViewPosition getViewPosition(int\fI index\fP)
+.B  ViewPosition getViewPosition(int\fI index\fP)
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+ViewPosition objekt des Knoten mit dem Index
+.UNINDENT
 .UNINDENT
 .SS getWith
 .INDENT 0.0
 .TP
-.B public int getWith()
+.B  int getWith()
+Gibt die breite des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+breite des Baumes
+.UNINDENT
 .UNINDENT
 .SS isEmpty
 .INDENT 0.0
 .TP
-.B public boolean isEmpty()
+.B  boolean isEmpty()
+Gibt zurück ob die Liste leer ist
+.INDENT 7.0
+.TP
+.B Rückgabe
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+.UNINDENT
 .UNINDENT
 .SS remove
 .INDENT 0.0
 .TP
-.B public void remove(int\fI index\fP)
+.B  void remove(int\fI index\fP)
+Löscht ein Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des zu löschenden Knotens
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS set
 .INDENT 0.0
 .TP
-.B public void set(int\fI index\fP, T\fI data\fP)
+.B  void set(int\fI index\fP, T\fI data\fP)
+Sichert ein Objekt in den Knoten mit den Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- zu sicherendes Objekt
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS setBinaryTreeFromList
 .INDENT 0.0
 .TP
-.B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+.B  void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+Konvertiert ein String[][] in ein Binärbaum
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBbinaryTreeArray\fP \-\- zu konvertierendendes String[][]
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS sort
 .INDENT 0.0
 .TP
-.B public void sort(OrderBy\fI orderBy\fP)
+.B  void sort(OrderBy\fI orderBy\fP)
+Sortiert den Baum nach ASC order DECS
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBorderBy\fP \-\- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS OrderBy
 .INDENT 0.0
 .TP
 .B public enum OrderBy
-Created by fubu on 07.02.17.
 .UNINDENT
 .SS Enum Constants
 .SS ASC
@@ -671,89 +1126,225 @@ Created by fubu on 07.02.17.
 .INDENT 0.0
 .TP
 .B public class SinglyLinkedList<T> implements Listlabel<T>
-Created by fubu on 06.02.17.
+Simple Liste
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fB<T>\fP \-\- 
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS Methods
 .SS add
 .INDENT 0.0
 .TP
 .B public void add(T\fI data\fP)
+Fügt ein neuen Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS add
 .INDENT 0.0
 .TP
 .B public void add(int\fI index\fP, T\fI data\fP)
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- Datenobject
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS clearAll
 .INDENT 0.0
 .TP
 .B public void clearAll()
+Löscht alle Knoten aus der Liste
 .UNINDENT
 .SS get
 .INDENT 0.0
 .TP
 .B public T get(int\fI index\fP)
+Gibt den Wert vom Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+Daten Objekt
+.UNINDENT
 .UNINDENT
 .SS getBinaryList
 .INDENT 0.0
 .TP
 .B public \fI\%String\fP[][] getBinaryList()
+Konvertiert ein Binärbaum in ein String[][]
+.INDENT 7.0
+.TP
+.B Rückgabe
+konvertierter Binärbaum als String[][]
+.UNINDENT
 .UNINDENT
 .SS getDrawnLines
 .INDENT 0.0
 .TP
 .B public Listlabel<DrawnLines> getDrawnLines()
+Gibt die Liste DrawnLines zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Liste DrawnLines
+.UNINDENT
 .UNINDENT
 .SS getHigh
 .INDENT 0.0
 .TP
 .B public int getHigh()
+Gibt die höhe des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+höhe des Baumes
+.UNINDENT
 .UNINDENT
 .SS getSize
 .INDENT 0.0
 .TP
 .B public int getSize()
+Gibt die Anzahl von Knoten zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Anzahl von Knoten
+.UNINDENT
 .UNINDENT
 .SS getViewPosition
 .INDENT 0.0
 .TP
 .B public ViewPosition getViewPosition(int\fI index\fP)
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.UNINDENT
+.TP
+.B Rückgabe
+ViewPosition objekt des Knoten mit dem Index
+.UNINDENT
 .UNINDENT
 .SS getWith
 .INDENT 0.0
 .TP
 .B public int getWith()
+Gibt die breite des Baumes in Pixel zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+breite des Baumes
+.UNINDENT
 .UNINDENT
 .SS isEmpty
 .INDENT 0.0
 .TP
 .B public boolean isEmpty()
+Gibt zurück ob die Liste leer ist
+.INDENT 7.0
+.TP
+.B Rückgabe
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+.UNINDENT
 .UNINDENT
 .SS remove
 .INDENT 0.0
 .TP
 .B public void remove(int\fI index\fP)
+Löscht ein Knoten mit dem Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des zu löschenden Knotens
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS set
 .INDENT 0.0
 .TP
 .B public void set(int\fI index\fP, T\fI data\fP)
+Sichert ein Objekt in den Knoten mit den Index index
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBindex\fP \-\- Index des Knotens
+.IP \(bu 2
+\fBdata\fP \-\- zu sicherendes Objekt
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS setBinaryTreeFromList
 .INDENT 0.0
 .TP
 .B public void setBinaryTreeFromList(\fI\%String\fP[][]\fI binaryTreeArray\fP)
+Konvertiert ein String[][] in ein Binärbaum
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBbinaryTreeArray\fP \-\- zu konvertierendendes String[][]
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS sort
 .INDENT 0.0
 .TP
 .B public void sort(OrderBy\fI orderBy\fP)
+Sortiert den Baum nach ASC order DECS
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBorderBy\fP \-\- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS com.linuxluigi.edu.view
 .SS DialogWindow
 .INDENT 0.0
 .TP
 .B public class DialogWindow extends JFrame
+Dialog Fenster welches erscheint nachdem ein Knoten gedrückt worden ist. Welches folgenede Optionen liefert.
+.INDENT 7.0
+.IP \(bu 2
+Knoten hinzufügen
+.IP \(bu 2
+Knoten ändern
+.IP \(bu 2
+Knoten löschen
+.UNINDENT
 .UNINDENT
 .SS Constructors
 .SS DialogWindow
@@ -766,31 +1357,71 @@ Created by fubu on 06.02.17.
 .INDENT 0.0
 .TP
 .B public void addAddListener(\fI\%ActionListener\fP\fI listenerForAddButton\fP)
+Button Knoten hinzufügen
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForAddButton\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addRemoveListener
 .INDENT 0.0
 .TP
 .B public void addRemoveListener(\fI\%ActionListener\fP\fI listenerForRemoveButton\fP)
+Button Knoten löschen
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForRemoveButton\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addRenameListener
 .INDENT 0.0
 .TP
 .B public void addRenameListener(\fI\%ActionListener\fP\fI listenerForRenameButton\fP)
+Button Knoten ändern
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForRenameButton\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS getNodeId
 .INDENT 0.0
 .TP
 .B public int getNodeId()
+Gibt die Knoten ID des DialogWindow zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Knoten ID
+.UNINDENT
 .UNINDENT
 .SS getText
 .INDENT 0.0
 .TP
 .B public \fI\%String\fP getText()
+Gibt das Textfeld des DialogWindows zurück
+.INDENT 7.0
+.TP
+.B Rückgabe
+Textfeld des Dialogfenster als String
+.UNINDENT
 .UNINDENT
 .SS NodePanel
 .INDENT 0.0
 .TP
 .B public class NodePanel extends JPanel
+Ein JPanel welches die Binärbaumknoten als Button zeichnet und mit Strichen verbindet.
 .UNINDENT
 .SS Fields
 .SS jButtons
@@ -808,22 +1439,53 @@ Created by fubu on 06.02.17.
 .INDENT 0.0
 .TP
 .B public NodePanel()
+Konstruktor, setz das Layout zu null
 .UNINDENT
 .SS Methods
 .SS addNodeListener
 .INDENT 0.0
 .TP
 .B public void addNodeListener(\fI\%ActionListener\fP\fI listenerForNodeButton\fP)
+Actionlistener für alle Knoten
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForNodeButton\fP \-\- 
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS getJPanel
 .INDENT 0.0
 .TP
 .B public JPanel getJPanel(Listlabel<NodeData>\fI nodeList\fP)
+Aktuallesiert das JPanel mithilfe des neuen Binärbaumes
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBnodeList\fP \-\- neuer Binärbaum
+.UNINDENT
+.TP
+.B Rückgabe
+Gibt das aktuallesierte JPanel zurück
+.UNINDENT
 .UNINDENT
 .SS paintComponent
 .INDENT 0.0
 .TP
 .B protected void paintComponent(Graphics\fI g\fP)
+Zeichnet alle Linien
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBg\fP \-\- 
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS View
 .INDENT 0.0
@@ -867,52 +1529,131 @@ Schaltet sich selbst sichtbar
 .INDENT 0.0
 .TP
 .B public void addMenuExitListener(\fI\%ActionListener\fP\fI listenerForMenuExit\fP)
+Erstellt den Actionlistener für: Exit
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForMenuExit\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addMenuLoadListener
 .INDENT 0.0
 .TP
 .B public void addMenuLoadListener(\fI\%ActionListener\fP\fI listenerForMenuLoad\fP)
+Erstellt den Actionlistener für: Menu \- Binärbaum von Json laden
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForMenuLoad\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addMenuNewListener
 .INDENT 0.0
 .TP
 .B public void addMenuNewListener(\fI\%ActionListener\fP\fI listenerForMenuNew\fP)
+Erstellt den Actionlistener für: Menu \- Neuen Binärbaum anlegen
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForMenuNew\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addMenuSaveListener
 .INDENT 0.0
 .TP
 .B public void addMenuSaveListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
+Erstellt den Actionlistener für: Menu \- Binärbaum in Json speichern
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForMenuSave\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addNodeListener
 .INDENT 0.0
 .TP
 .B public void addNodeListener(\fI\%ActionListener\fP\fI listenerForNodeButton\fP)
+Erstellt den Actionlistener für: Alle Knoten im Binärbaum.
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForNodeButton\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addSortAcsListener
 .INDENT 0.0
 .TP
-.B public void addSortAcsListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
+.B public void addSortAcsListener(\fI\%ActionListener\fP\fI listenerForSortAcs\fP)
+Erstellt den Actionlistener für: Menu \- Binärbaum nach ACS sortieren
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBlistenerForSortAcs\fP \-\- ActionListener
+.UNINDENT
+.UNINDENT
 .UNINDENT
 .SS addSortDecsListener
 .INDENT 0.0
 .TP
-.B public void addSortDecsListener(\fI\%ActionListener\fP\fI listenerForMenuSave\fP)
-.UNINDENT
-.SS createMenuBar
-.INDENT 0.0
+.B public void addSortDecsListener(\fI\%ActionListener\fP\fI listenerForSortDecs\fP)
+Erstellt den Actionlistener für: Menu \- Binärbaum nach DECS sortieren
+.INDENT 7.0
 .TP
-.B public void createMenuBar()
-Erstellt eine JMenuBar
+.B Parameter
 .INDENT 7.0
 .IP \(bu 2
-File
+\fBlistenerForSortDecs\fP \-\- ActionListener
+.UNINDENT
 .UNINDENT
 .UNINDENT
 .SS setBinaryTree
 .INDENT 0.0
 .TP
 .B public void setBinaryTree(Listlabel<NodeData>\fI nodeList\fP)
+Den Binärbaum updaten und anschließend wird diese View neu gezeichnet.
+.INDENT 7.0
+.TP
+.B Parameter
+.INDENT 7.0
+.IP \(bu 2
+\fBnodeList\fP \-\- Binärbaum im Listenformat
 .UNINDENT
+.UNINDENT
+.UNINDENT
+.SH LIZENZ
+.sp
+MIT License
+.sp
+Copyright (c) 2017 Steffen Exler
+.sp
+Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationen (die "Software") erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, inklusive und ohne Ausnahme mit dem Recht, sie zu verwenden, zu kopieren, zu verändern, zusammenzufügen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen diese Software überlassen wird, diese Rechte zu verschaffen, unter den folgenden Bedingungen:
+.sp
+Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk sind in allen Kopien oder Teilkopien der Software beizulegen.
+.sp
+DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTELLT, EINSCHLIEßLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT. IN KEINEM FALL SIND DIE AUTOREN ODER COPYRIGHTINHABER FÜR JEGLICHEN SCHADEN ODER SONSTIGE ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER ERFÜLLUNG EINES VERTRAGES, EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.
+.SH KONTAKT
+.sp
+Fragen? Kontaktieren sie \fI\%Steffen.Exler@gmail.com\fP
+.SH HILFE
+.sp
+Wenn Sie hilfe brauchen email \fI\%Steffen.Exler@gmail.com\fP
 .INDENT 0.0
 .IP \(bu 2
 genindex

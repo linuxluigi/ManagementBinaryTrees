@@ -28,7 +28,6 @@
 \usepackage{hypcap}% it must be loaded after hyperref.
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
-\addto\captionsngerman{\renewcommand{\contentsname}{Contents:}}
 
 \addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
 \addto\captionsngerman{\renewcommand{\tablename}{Tab.}}
@@ -56,14 +55,216 @@
 
 
 
+\chapter{Einleitung}
+\label{\detokenize{index:einleitung}}\label{\detokenize{index:managementbinarytrees-s-handbuch}}
+
+\section{Über das Programm}
+\label{\detokenize{intro:uber-das-programm}}\label{\detokenize{intro::doc}}
+Das Programm ``ManagementBinaryTrees'' ist ein grafisches Programm, welches dazu dient Knoten in einem
+Binärbaum ein zu fügen, zu verändern und zu entfernen.
+
+Außerdem bietet es die Möglichkeit die Binärbaume
+in eine Json Datei zu speichern und laden und zu sortieren.
+
+Nach dem Start wird ein generierter Binärbaum angezeigt, der nach belieben bearbeite oder ausgetauscht
+werden kann.
+
+In den Menü welches sich unter den Button ``File'' verbirgt, ist es möglich Binärbaume zu laden, speicher,
+neu an zu legen, zu sortieren und das Programm zu schließen.
+
+Das Projekt wurde mit JUnit 4 tests getestete und die test Klassen befinden sich bei den Quellcode dabei.
+\begin{itemize}
+\item {} 
+Quellcode: \url{https://github.com/linuxluigi/ManagementBinaryTrees}
+
+\item {} 
+Online Dokumentation: \url{https://github.com/linuxluigi/ManagementBinaryTrees/blob/master/docs/source/index.rst}
+
+\end{itemize}
+
+\index{Git}
+\index{Quellcode}
+\index{Online Dokumentation}
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_01}.png}
+
+
+\section{Kompilieren}
+\label{\detokenize{intro:kompilieren}}
+\index{Kompilieren}
+\index{Build}
+\index{Build Artifacts}
+\index{Maven}
+Das Projekt wurde via Maven 2 konstruiert und kann mit ein Konsolen Befehl in einer Jar Datei Kompiliert werden, dafür
+muss aber zuerst Maven 2 installiert werden, unter Ubuntu / Debian muss folgendes eingeben werden.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{} sudo apt\PYGZhy{}get install maven2
+\end{sphinxVerbatim}
+
+Jetzt wurde Maven 2 installiert und nun kann das Projekt die abhänigkeiten installiert werden, test ausgeführt und
+zur einer ausführbaren Jar ausgeben.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZdl{} mvn clean install
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_02}.png}
+
+
+\section{Abhänigkeiten}
+\label{\detokenize{intro:abhanigkeiten}}
+\index{Abhänigkeiten}
+Das Projekt wurde als Maven 2 Modul geschrieben und verwendet folgende Maven Module.
+
+Maven Projekt Website: \url{https://maven.apache.org/}
+
+
+\subsection{Google GSON}
+\label{\detokenize{intro:google-gson}}
+\index{Google GSON}
+Gson ist eine Java Bibliothek die es ermöglicht Klassen und Variablen als Json Datei aus zu geben oder
+ein String als Klasse oder Variable zu konvertieren.
+
+\begin{DUlineblock}{0em}
+\item[] Name: google-gson
+\item[] Hersteller: Google Inc.
+\item[] Version: 2.7
+\item[] Link: \url{https://github.com/google/gson}
+\end{DUlineblock}
+
+
+\subsection{JUnit}
+\label{\detokenize{intro:junit}}
+\index{JUnit}
+Junit ist ein unit testing Framework für Java von Erich Gamma und Kent Beck.
+
+\begin{DUlineblock}{0em}
+\item[] Name: JUnit
+\item[] Hersteller: Erich Gamma und Kent Beck
+\item[] Version: 4.12
+\item[] Link: \url{http://junit.org/junit4/}
+\end{DUlineblock}
+
+
+\chapter{Bedienung}
+\label{\detokenize{index:bedienung}}
+
+\section{User Interface}
+\label{\detokenize{interface::doc}}\label{\detokenize{interface:user-interface}}
+
+\subsection{Bedienung}
+\label{\detokenize{interface:bedienung}}
+Nach dem Start des Programmes wird ein Beispiel Binärbaum erstellt, wobei jeder Knoten ein Button ist.
+Diese Button dienen dazu die Knoten zu bearbeiten, neue ein zu fügen und zu löschen
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_03}.png}
+
+Nachdem ein Button gedrück worden ist erscheint ein extra Fenster welches die Optionen besitzt ``ADD'',
+``RENAME'' und ``REMOVE''. Wohinter sich die Aktionen ``ADD'' \textgreater{}\textgreater{} Hinzufügen, ``RENAME'' \textgreater{}\textgreater{} ``Name Ändern'' und ``REMOVE'' \textgreater{}\textgreater{}
+Knoten entfernen verbergen.
+
+Das Textfeld gibt den Aktuellen inhalt des Knotens wieder. Wenn dieses geändert wird und auf ``RENAME'' geklickt wird,
+ändert sich der Inhalt von den Knoten und wenn auf ``ADD'' geklickt wird, wird ein neuer Knoten mit den Wert der in dem
+Textfeld enthalten ist hinzugefügt.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_04}.png}
+
+
+\subsection{Knoten hinzufügen}
+\label{\detokenize{interface:knoten-hinzufugen}}
+Nachdem auf ein Knoten geklickt worden ist, ist es möglich in den Dialog Fenster, welches erscheint.
+Den neuen Knoten ein 3 Stelligen Wert zu zu Ordnen und ihn nach dem angeklickten Knoten ein zu fügen.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_05}.png}
+
+In diesen Beispiel erscheint nun unten Links der neue Knoten.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_06}.png}
+
+
+\subsection{Binärbaum Sortieren}
+\label{\detokenize{interface:binarbaum-sortieren}}
+Um ein Binärbaum zu sortieren muss auf geklickt werden auf ``FILE'' \textgreater{}\textgreater{} ``Sort ACS'' oder ``Sort DECS''
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_07}.png}
+
+In diesen Beispiel sieht der Baum danach so aus:
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_08}.png}
+
+
+\subsection{Datei Laden und Sichern}
+\label{\detokenize{interface:datei-laden-und-sichern}}
+\index{Json Laden und Sichern}
+Um ein Binärbaum zu sichern oder laden muss auf geklickt werden auf ``FILE'' \textgreater{}\textgreater{} ``Load File'' oder ``Save File''
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_09}.png}
+
+Und in den folgenden Fenster die gewünschte Json Datei auswählen.
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_10}.png}
+
+Hier ist eine Beispiel Json Datei.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}L\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}00\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}000\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}001\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}01\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}J\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}010\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}F\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}011\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}D\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}K\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}10\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}I33\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}100\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}C\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}101\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}AA\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}11\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}G22\PYGZdq{}}\PYG{p}{]}\PYG{p}{,}
+  \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}110\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}A\PYGZdq{}}\PYG{p}{]}
+\PYG{p}{]}
+\end{sphinxVerbatim}
+
+Konvertiert in ein Binärbaum sieht es folgend aus:
+
+\noindent\sphinxincludegraphics{{ManagementBinaryTrees_11}.png}
+
+
 \chapter{Klassenbeschreibung}
-\label{\detokenize{index:welcome-to-managementbinarytrees-s-documentation}}\label{\detokenize{index:klassenbeschreibung}}
+\label{\detokenize{index:klassenbeschreibung}}
+
+\section{Indexierung der Knoten}
+\label{\detokenize{aboutIndex::doc}}\label{\detokenize{aboutIndex:indexierung-der-knoten}}
+Das System für die Indexierung lautet:
+\begin{enumerate}
+\item {} 
+Versuche nach links unten zu gehen.
+
+\item {} 
+Geht es nicht mehr nach links unten versuche nach rechts unten zu gehen.
+
+\item {} 
+Komme ich von Links unten, versuche ich nach rechts unten zu gehen.
+
+\item {} 
+Geht es nicht mehr nach rechts unten, gehe nach oben.
+
+\item {} 
+Wenn ich von ein Knoten rechts unten komme, gehe nach oben.
+
+\item {} 
+Wenn ich nicht mehr nach oben gehen kann, bin ich fertig.
+
+\end{enumerate}
+
+\noindent\sphinxincludegraphics{{BinaryTree}.png}
+
 
 \section{ManagementBinaryTress}
 \label{\detokenize{packages::doc}}\label{\detokenize{packages:managementbinarytress}}
 
 \subsection{com.linuxluigi.edu}
-\label{\detokenize{com/linuxluigi/edu/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/package-index:package-com.linuxluigi.edu}}\label{\detokenize{com/linuxluigi/edu/package-index:com-linuxluigi-edu}}\index{com.linuxluigi.edu (package)}
+\label{\detokenize{com/linuxluigi/edu/package-index:com-linuxluigi-edu}}\label{\detokenize{com/linuxluigi/edu/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/package-index:package-com.linuxluigi.edu}}\index{com.linuxluigi.edu (package)}
 
 \subsubsection{Controller}
 \label{\detokenize{com/linuxluigi/edu/Controller::doc}}\label{\detokenize{com/linuxluigi/edu/Controller:controller}}\index{Controller (Java class)}
@@ -570,52 +771,15 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 
 \subsection{com.linuxluigi.edu.data}
-\label{\detokenize{com/linuxluigi/edu/data/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/data/package-index:com-linuxluigi-edu-data}}\label{\detokenize{com/linuxluigi/edu/data/package-index:package-com.linuxluigi.edu.data}}\index{com.linuxluigi.edu.data (package)}
+\label{\detokenize{com/linuxluigi/edu/data/package-index:com-linuxluigi-edu-data}}\label{\detokenize{com/linuxluigi/edu/data/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/data/package-index:package-com.linuxluigi.edu.data}}\index{com.linuxluigi.edu.data (package)}
 
 \subsubsection{DrawnLines}
 \label{\detokenize{com/linuxluigi/edu/data/DrawnLines::doc}}\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:drawnlines}}\index{DrawnLines (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}}\pysigline{public class \sphinxbfcode{DrawnLines}}
-\end{fulllineitems}
+Daten für das Zeichnen von Linien zwischen den Knoten
 
-
-
-\paragraph{Fields}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:fields}}
-
-\subparagraph{x1}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:x1}}\index{x1 (Java field)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.x1}}\pysigline{ int \sphinxbfcode{x1}}
-\end{fulllineitems}
-
-
-
-\subparagraph{x2}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:x2}}\index{x2 (Java field)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.x2}}\pysigline{ int \sphinxbfcode{x2}}
-\end{fulllineitems}
-
-
-
-\subparagraph{y1}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:y1}}\index{y1 (Java field)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.y1}}\pysigline{ int \sphinxbfcode{y1}}
-\end{fulllineitems}
-
-
-
-\subparagraph{y2}
-\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:y2}}\index{y2 (Java field)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.y2}}\pysigline{ int \sphinxbfcode{y2}}
 \end{fulllineitems}
 
 
@@ -628,6 +792,25 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines.DrawnLines(int, int, int, int)}}\pysiglinewithargsret{public \sphinxbfcode{DrawnLines}}{int\sphinxstyleemphasis{ x1}, int\sphinxstyleemphasis{ x2}, int\sphinxstyleemphasis{ y1}, int\sphinxstyleemphasis{ y2}}{}
+Konstruktor: Daten für das Zeichnen von Linien zwischen den Knoten
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{x1} -- Start auf X-Achse
+
+\item {} 
+\sphinxstyleliteralstrong{x2} -- Ende auf X-Achse
+
+\item {} 
+\sphinxstyleliteralstrong{y1} -- Start auf Y-Achse
+
+\item {} 
+\sphinxstyleliteralstrong{y2} -- Ende auf Y-Achse
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -676,6 +859,8 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}}\pysigline{public class \sphinxbfcode{NodeData}}
+Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
+
 \end{fulllineitems}
 
 
@@ -688,6 +873,8 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.NodeData(String)}}\pysiglinewithargsret{public \sphinxbfcode{NodeData}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ content}}{}
+Daten Objekt für die Knoten Gespeichert wird ein String mit der Maximalen länge von 3
+
 \end{fulllineitems}
 
 
@@ -709,6 +896,16 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData.setContent(String)}}\pysiglinewithargsret{public void \sphinxbfcode{setContent}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}\sphinxstyleemphasis{ content}}{}
+Speichern eines String mit der Maximalen länge von 3, wenn der String länger ist, wird er automatisch auf 3 gekürtzt.
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{content} -- String der gesichert werden soll.
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -727,6 +924,8 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}}\pysigline{public class \sphinxbfcode{ViewPosition}}
+Object um die Position der Knoten zu sichern
+
 \end{fulllineitems}
 
 
@@ -739,6 +938,22 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.ViewPosition(int, int, int)}}\pysiglinewithargsret{public \sphinxbfcode{ViewPosition}}{int\sphinxstyleemphasis{ x}, int\sphinxstyleemphasis{ y}, int\sphinxstyleemphasis{ IconSize}}{}
+Konstruktor um die Position der Knoten zu sichern
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{x} -- Startwert auf der X-Achse
+
+\item {} 
+\sphinxstyleliteralstrong{y} -- Startwert auf der Y-Achse
+
+\item {} 
+\sphinxstyleliteralstrong{IconSize} -- Größe des verwendeten Icons
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -751,15 +966,29 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getIconSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getIconSize}}{}{}
+Gibt die Pixel Größe des Icons zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Pixel Größe des Icons als INT
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
 
-\subparagraph{getMiddelX}
-\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:getmiddelx}}\index{getMiddelX() (Java method)}
+\subparagraph{getMiddleX}
+\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:getmiddlex}}\index{getMiddleX() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:getMiddleX()}}\pysiglinewithargsret{public int \sphinxbfcode{getMiddelX}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getMiddleX()}}\pysiglinewithargsret{public int \sphinxbfcode{getMiddleX}}{}{}
+Gibt die Mitte des Objektes auf der X-Achse zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Mitte des Objektes auf der X-Achse
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -769,6 +998,13 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getX()}}\pysiglinewithargsret{public int \sphinxbfcode{getX}}{}{}
+Gibt den Startwert der X-Achse zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Startwert der X-Achse
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -778,6 +1014,13 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getY()}}\pysiglinewithargsret{public int \sphinxbfcode{getY}}{}{}
+Gibt den Startwert der Y-Achse zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Startwert der Y-Achse
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -787,19 +1030,34 @@ Speichert den Binärbaum in eine Json Datei Dabei wird der Binärbaum in 2 Dimen
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition.getY2()}}\pysiglinewithargsret{public int \sphinxbfcode{getY2}}{}{}
+Gibt den Endwert der Y-Achse zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Endwert der Y-Achse
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
 
 \subsection{com.linuxluigi.edu.list}
-\label{\detokenize{com/linuxluigi/edu/list/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/list/package-index:com-linuxluigi-edu-list}}\label{\detokenize{com/linuxluigi/edu/list/package-index:package-com.linuxluigi.edu.list}}\index{com.linuxluigi.edu.list (package)}
+\label{\detokenize{com/linuxluigi/edu/list/package-index::doc}}\label{\detokenize{com/linuxluigi/edu/list/package-index:package-com.linuxluigi.edu.list}}\label{\detokenize{com/linuxluigi/edu/list/package-index:com-linuxluigi-edu-list}}\index{com.linuxluigi.edu.list (package)}
 
 \subsubsection{BinaryLinkedList}
 \label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList::doc}}\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:binarylinkedlist}}\index{BinaryLinkedList (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList}}\pysigline{public class \sphinxbfcode{BinaryLinkedList}\textless{}T\textgreater{} implements {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}T\textgreater{}}
-Created by fubu on 01.02.17.
+Binärbaum Liste
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\textless{}T\textgreater{}} -- 
+
+\end{itemize}
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -813,6 +1071,16 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -822,6 +1090,19 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -831,6 +1112,8 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+Löscht alle Knoten aus der Liste
+
 \end{fulllineitems}
 
 
@@ -840,6 +1123,19 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+Gibt den Wert vom Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+Daten Objekt
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -849,6 +1145,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+Konvertiert ein Binärbaum in ein String{[}{]}{[}{]}
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+konvertierter Binärbaum als String{[}{]}{[}{]}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -858,6 +1161,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+Gibt die Liste DrawnLines zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Liste DrawnLines
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -867,6 +1177,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+Gibt die höhe des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+höhe des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -876,6 +1193,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+Gibt die Anzahl von Knoten zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Anzahl von Knoten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -885,6 +1209,19 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+ViewPosition objekt des Knoten mit dem Index
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -894,6 +1231,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+Gibt die breite des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+breite des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -903,6 +1247,13 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+Gibt zurück ob die Liste leer ist
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -912,6 +1263,16 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+Löscht ein Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des zu löschenden Knotens
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -921,6 +1282,19 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Sichert ein Objekt in den Knoten mit den Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- zu sicherendes Objekt
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -930,6 +1304,16 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+Konvertiert ein String{[}{]}{[}{]} in ein Binärbaum
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{binaryTreeArray} -- zu konvertierendendes String{[}{]}{[}{]}
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -939,17 +1323,25 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/BinaryLinkedList:com.linuxluigi.edu.list.BinaryLinkedList.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+Sortiert den Baum nach ASC order DECS
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{orderBy} -- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
 
 \subsubsection{Listlabel}
-\label{\detokenize{com/linuxluigi/edu/list/Listlabel::doc}}\label{\detokenize{com/linuxluigi/edu/list/Listlabel:listlabel}}\index{Listlabel (Java interface)}
+\label{\detokenize{com/linuxluigi/edu/list/Listlabel:listlabel}}\label{\detokenize{com/linuxluigi/edu/list/Listlabel::doc}}\index{Listlabel (Java interface)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}}\pysigline{public interface \sphinxbfcode{Listlabel}\textless{}T\textgreater{}}
-Created by fubu on 01.02.17.
-
 \end{fulllineitems}
 
 
@@ -961,7 +1353,17 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:add}}\index{add(T) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(T)}}\pysiglinewithargsret{ void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -970,7 +1372,20 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:id1}}\index{add(int, T) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.add(int, T)}}\pysiglinewithargsret{ void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -979,7 +1394,9 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:clearall}}\index{clearAll() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.clearAll()}}\pysiglinewithargsret{ void \sphinxbfcode{clearAll}}{}{}
+Löscht alle Knoten aus der Liste
+
 \end{fulllineitems}
 
 
@@ -988,7 +1405,20 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:get}}\index{get(int) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.get(int)}}\pysiglinewithargsret{ T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+Gibt den Wert vom Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+Daten Objekt
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -997,7 +1427,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:getbinarylist}}\index{getBinaryList() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getBinaryList()}}\pysiglinewithargsret{ \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+Konvertiert ein Binärbaum in ein String{[}{]}{[}{]}
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+konvertierter Binärbaum als String{[}{]}{[}{]}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1006,7 +1443,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:getdrawnlines}}\index{getDrawnLines() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getDrawnLines()}}\pysiglinewithargsret{ {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+Gibt die Liste DrawnLines zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Liste DrawnLines
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1015,7 +1459,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:gethigh}}\index{getHigh() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getHigh()}}\pysiglinewithargsret{ int \sphinxbfcode{getHigh}}{}{}
+Gibt die höhe des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+höhe des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1024,7 +1475,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:getsize}}\index{getSize() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getSize()}}\pysiglinewithargsret{ int \sphinxbfcode{getSize}}{}{}
+Gibt die Anzahl von Knoten zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Anzahl von Knoten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1033,7 +1491,20 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:getviewposition}}\index{getViewPosition(int) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getViewPosition(int)}}\pysiglinewithargsret{ {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+ViewPosition objekt des Knoten mit dem Index
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1042,7 +1513,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:getwith}}\index{getWith() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.getWith()}}\pysiglinewithargsret{ int \sphinxbfcode{getWith}}{}{}
+Gibt die breite des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+breite des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1051,7 +1529,14 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:isempty}}\index{isEmpty() (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.isEmpty()}}\pysiglinewithargsret{ boolean \sphinxbfcode{isEmpty}}{}{}
+Gibt zurück ob die Liste leer ist
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1060,7 +1545,17 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:remove}}\index{remove(int) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.remove(int)}}\pysiglinewithargsret{ void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+Löscht ein Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des zu löschenden Knotens
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1069,7 +1564,20 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:set}}\index{set(int, T) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.set(int, T)}}\pysiglinewithargsret{ void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Sichert ein Objekt in den Knoten mit den Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- zu sicherendes Objekt
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1078,7 +1586,17 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:setbinarytreefromlist}}\index{setBinaryTreeFromList(String{[}{]}{[}{]}) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{ void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+Konvertiert ein String{[}{]}{[}{]} in ein Binärbaum
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{binaryTreeArray} -- zu konvertierendendes String{[}{]}{[}{]}
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1087,7 +1605,17 @@ Created by fubu on 01.02.17.
 \label{\detokenize{com/linuxluigi/edu/list/Listlabel:sort}}\index{sort(OrderBy) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel.sort(OrderBy)}}\pysiglinewithargsret{ void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+Sortiert den Baum nach ASC order DECS
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{orderBy} -- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1097,8 +1625,6 @@ Created by fubu on 01.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}}\pysigline{public enum \sphinxbfcode{OrderBy}}
-Created by fubu on 07.02.17.
-
 \end{fulllineitems}
 
 
@@ -1188,7 +1714,15 @@ Created by fubu on 07.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList}}\pysigline{public class \sphinxbfcode{SinglyLinkedList}\textless{}T\textgreater{} implements {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}T\textgreater{}}
-Created by fubu on 06.02.17.
+Simple Liste
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\textless{}T\textgreater{}} -- 
+
+\end{itemize}
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -1202,6 +1736,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.add(T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1211,6 +1755,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.add(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{add}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Fügt ein neuen nach dem Knoten mit der ID index ein Knoten ein
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- Datenobject
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1220,6 +1777,8 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.clearAll()}}\pysiglinewithargsret{public void \sphinxbfcode{clearAll}}{}{}
+Löscht alle Knoten aus der Liste
+
 \end{fulllineitems}
 
 
@@ -1229,6 +1788,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.get(int)}}\pysiglinewithargsret{public T \sphinxbfcode{get}}{int\sphinxstyleemphasis{ index}}{}
+Gibt den Wert vom Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+Daten Objekt
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1238,6 +1810,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getBinaryList()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]} \sphinxbfcode{getBinaryList}}{}{}
+Konvertiert ein Binärbaum in ein String{[}{]}{[}{]}
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+konvertierter Binärbaum als String{[}{]}{[}{]}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1247,6 +1826,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getDrawnLines()}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/DrawnLines:com.linuxluigi.edu.data.DrawnLines}]{\sphinxcrossref{DrawnLines}}}\textgreater{} \sphinxbfcode{getDrawnLines}}{}{}
+Gibt die Liste DrawnLines zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Liste DrawnLines
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1256,6 +1842,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getHigh()}}\pysiglinewithargsret{public int \sphinxbfcode{getHigh}}{}{}
+Gibt die höhe des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+höhe des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1265,6 +1858,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getSize()}}\pysiglinewithargsret{public int \sphinxbfcode{getSize}}{}{}
+Gibt die Anzahl von Knoten zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Anzahl von Knoten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1274,6 +1874,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getViewPosition(int)}}\pysiglinewithargsret{public {\hyperref[\detokenize{com/linuxluigi/edu/data/ViewPosition:com.linuxluigi.edu.data.ViewPosition}]{\sphinxcrossref{ViewPosition}}} \sphinxbfcode{getViewPosition}}{int\sphinxstyleemphasis{ index}}{}
+Gibt das ViewPosition objekt des Knoten mit dem Index index zurück
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+ViewPosition objekt des Knoten mit dem Index
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1283,6 +1896,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.getWith()}}\pysiglinewithargsret{public int \sphinxbfcode{getWith}}{}{}
+Gibt die breite des Baumes in Pixel zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+breite des Baumes
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1292,6 +1912,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.isEmpty()}}\pysiglinewithargsret{public boolean \sphinxbfcode{isEmpty}}{}{}
+Gibt zurück ob die Liste leer ist
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+True == Liste ohne Knoten False == in der Liste sind Knoten enthalten
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1301,6 +1928,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.remove(int)}}\pysiglinewithargsret{public void \sphinxbfcode{remove}}{int\sphinxstyleemphasis{ index}}{}
+Löscht ein Knoten mit dem Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des zu löschenden Knotens
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1310,6 +1947,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.set(int, T)}}\pysiglinewithargsret{public void \sphinxbfcode{set}}{int\sphinxstyleemphasis{ index}, T\sphinxstyleemphasis{ data}}{}
+Sichert ein Objekt in den Knoten mit den Index index
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{index} -- Index des Knotens
+
+\item {} 
+\sphinxstyleliteralstrong{data} -- zu sicherendes Objekt
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1319,6 +1969,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.setBinaryTreeFromList(String____)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTreeFromList}}{\href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String}{[}{]}{[}{]}\sphinxstyleemphasis{ binaryTreeArray}}{}
+Konvertiert ein String{[}{]}{[}{]} in ein Binärbaum
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{binaryTreeArray} -- zu konvertierendendes String{[}{]}{[}{]}
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1328,6 +1988,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/list/SinglyLinkedList:com.linuxluigi.edu.list.SinglyLinkedList.sort(OrderBy)}}\pysiglinewithargsret{public void \sphinxbfcode{sort}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/OrderBy:com.linuxluigi.edu.list.OrderBy}]{\sphinxcrossref{OrderBy}}}\sphinxstyleemphasis{ orderBy}}{}
+Sortiert den Baum nach ASC order DECS
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{orderBy} -- OrderBy.ASC == Sortieren nach ASC OrderBy.DESC == Sortieren nach DESC
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1340,6 +2010,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow}}\pysigline{public class \sphinxbfcode{DialogWindow} extends JFrame}
+Dialog Fenster welches erscheint nachdem ein Knoten gedrückt worden ist. Welches folgenede Optionen liefert.
+\begin{itemize}
+\item {} 
+Knoten hinzufügen
+
+\item {} 
+Knoten ändern
+
+\item {} 
+Knoten löschen
+
+\end{itemize}
+
 \end{fulllineitems}
 
 
@@ -1364,6 +2047,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addAddListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addAddListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForAddButton}}{}
+Button Knoten hinzufügen
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForAddButton} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1373,6 +2066,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addRemoveListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addRemoveListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForRemoveButton}}{}
+Button Knoten löschen
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForRemoveButton} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1382,6 +2085,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.addRenameListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addRenameListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForRenameButton}}{}
+Button Knoten ändern
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForRenameButton} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1391,6 +2104,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.getNodeId()}}\pysiglinewithargsret{public int \sphinxbfcode{getNodeId}}{}{}
+Gibt die Knoten ID des DialogWindow zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Knoten ID
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1400,6 +2120,13 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/DialogWindow:com.linuxluigi.edu.view.DialogWindow.getText()}}\pysiglinewithargsret{public \href{http://docs.oracle.com/javase/8/docs/api/java/lang/String.html}{String} \sphinxbfcode{getText}}{}{}
+Gibt das Textfeld des DialogWindows zurück
+\begin{quote}\begin{description}
+\item[{Rückgabe}] \leavevmode
+Textfeld des Dialogfenster als String
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1409,6 +2136,8 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel}}\pysigline{public class \sphinxbfcode{NodePanel} extends JPanel}
+Ein JPanel welches die Binärbaumknoten als Button zeichnet und mit Strichen verbindet.
+
 \end{fulllineitems}
 
 
@@ -1442,6 +2171,8 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.NodePanel()}}\pysiglinewithargsret{public \sphinxbfcode{NodePanel}}{}{}
+Konstruktor, setz das Layout zu null
+
 \end{fulllineitems}
 
 
@@ -1454,6 +2185,16 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.addNodeListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addNodeListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForNodeButton}}{}
+Actionlistener für alle Knoten
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForNodeButton} -- 
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1463,6 +2204,19 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.getJPanel(Listlabel)}}\pysiglinewithargsret{public JPanel \sphinxbfcode{getJPanel}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}]{\sphinxcrossref{NodeData}}}\textgreater{}\sphinxstyleemphasis{ nodeList}}{}
+Aktuallesiert das JPanel mithilfe des neuen Binärbaumes
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{nodeList} -- neuer Binärbaum
+
+\end{itemize}
+
+\item[{Rückgabe}] \leavevmode
+Gibt das aktuallesierte JPanel zurück
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1472,12 +2226,22 @@ Created by fubu on 06.02.17.
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/NodePanel:com.linuxluigi.edu.view.NodePanel.paintComponent(Graphics)}}\pysiglinewithargsret{protected void \sphinxbfcode{paintComponent}}{Graphics\sphinxstyleemphasis{ g}}{}
+Zeichnet alle Linien
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{g} -- 
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
 
 \subsubsection{View}
-\label{\detokenize{com/linuxluigi/edu/view/View::doc}}\label{\detokenize{com/linuxluigi/edu/view/View:view}}\index{View (Java class)}
+\label{\detokenize{com/linuxluigi/edu/view/View:view}}\label{\detokenize{com/linuxluigi/edu/view/View::doc}}\index{View (Java class)}
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View}}\pysigline{public class \sphinxbfcode{View} extends JFrame}
@@ -1543,6 +2307,16 @@ Schaltet sich selbst sichtbar
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuExitListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuExitListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuExit}}{}
+Erstellt den Actionlistener für: Exit
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForMenuExit} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1552,6 +2326,16 @@ Schaltet sich selbst sichtbar
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuLoadListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuLoadListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuLoad}}{}
+Erstellt den Actionlistener für: Menu - Binärbaum von Json laden
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForMenuLoad} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1561,6 +2345,16 @@ Schaltet sich selbst sichtbar
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuNewListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuNewListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuNew}}{}
+Erstellt den Actionlistener für: Menu - Neuen Binärbaum anlegen
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForMenuNew} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1570,6 +2364,16 @@ Schaltet sich selbst sichtbar
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addMenuSaveListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addMenuSaveListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
+Erstellt den Actionlistener für: Menu - Binärbaum in Json speichern
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForMenuSave} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1579,6 +2383,16 @@ Schaltet sich selbst sichtbar
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addNodeListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addNodeListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForNodeButton}}{}
+Erstellt den Actionlistener für: Alle Knoten im Binärbaum.
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForNodeButton} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1587,7 +2401,17 @@ Schaltet sich selbst sichtbar
 \label{\detokenize{com/linuxluigi/edu/view/View:addsortacslistener}}\index{addSortAcsListener(ActionListener) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortAcsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortAcsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortAcsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortAcsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForSortAcs}}{}
+Erstellt den Actionlistener für: Menu - Binärbaum nach ACS sortieren
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{listenerForSortAcs} -- ActionListener
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
 
@@ -1596,22 +2420,16 @@ Schaltet sich selbst sichtbar
 \label{\detokenize{com/linuxluigi/edu/view/View:addsortdecslistener}}\index{addSortDecsListener(ActionListener) (Java method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortDecsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortDecsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForMenuSave}}{}
-\end{fulllineitems}
-
-
-
-\subparagraph{createMenuBar}
-\label{\detokenize{com/linuxluigi/edu/view/View:createmenubar}}\index{createMenuBar() (Java method)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.createMenuBar()}}\pysiglinewithargsret{public void \sphinxbfcode{createMenuBar}}{}{}
-Erstellt eine JMenuBar
-\begin{itemize}
+\phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.addSortDecsListener(ActionListener)}}\pysiglinewithargsret{public void \sphinxbfcode{addSortDecsListener}}{\href{http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html}{ActionListener}\sphinxstyleemphasis{ listenerForSortDecs}}{}
+Erstellt den Actionlistener für: Menu - Binärbaum nach DECS sortieren
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
 \item {} 
-File
+\sphinxstyleliteralstrong{listenerForSortDecs} -- ActionListener
 
 \end{itemize}
+
+\end{description}\end{quote}
 
 \end{fulllineitems}
 
@@ -1622,8 +2440,47 @@ File
 
 \begin{fulllineitems}
 \phantomsection\label{\detokenize{com/linuxluigi/edu/view/View:com.linuxluigi.edu.view.View.setBinaryTree(Listlabel)}}\pysiglinewithargsret{public void \sphinxbfcode{setBinaryTree}}{{\hyperref[\detokenize{com/linuxluigi/edu/list/Listlabel:com.linuxluigi.edu.list.Listlabel}]{\sphinxcrossref{Listlabel}}}\textless{}{\hyperref[\detokenize{com/linuxluigi/edu/data/NodeData:com.linuxluigi.edu.data.NodeData}]{\sphinxcrossref{NodeData}}}\textgreater{}\sphinxstyleemphasis{ nodeList}}{}
+Den Binärbaum updaten und anschließend wird diese View neu gezeichnet.
+\begin{quote}\begin{description}
+\item[{Parameter}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{nodeList} -- Binärbaum im Listenformat
+
+\end{itemize}
+
+\end{description}\end{quote}
+
 \end{fulllineitems}
 
+
+
+\chapter{Sonstiges}
+\label{\detokenize{index:sonstiges}}
+
+\section{Lizenz}
+\label{\detokenize{license::doc}}\label{\detokenize{license:lizenz}}
+\index{Lizenz}
+MIT License
+
+Copyright (c) 2017 Steffen Exler
+
+Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationen (die ``Software'') erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, inklusive und ohne Ausnahme mit dem Recht, sie zu verwenden, zu kopieren, zu verändern, zusammenzufügen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen diese Software überlassen wird, diese Rechte zu verschaffen, unter den folgenden Bedingungen:
+
+Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk sind in allen Kopien oder Teilkopien der Software beizulegen.
+
+DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTELLT, EINSCHLIEßLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN ODER EINEM BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT. IN KEINEM FALL SIND DIE AUTOREN ODER COPYRIGHTINHABER FÜR JEGLICHEN SCHADEN ODER SONSTIGE ANSPRÜCHE HAFTBAR ZU MACHEN, OB INFOLGE DER ERFÜLLUNG EINES VERTRAGES, EINES DELIKTES ODER ANDERS IM ZUSAMMENHANG MIT DER SOFTWARE ODER SONSTIGER VERWENDUNG DER SOFTWARE ENTSTANDEN.
+
+
+\section{Kontakt}
+\label{\detokenize{license:kontakt}}
+\index{Kontakt}
+Fragen? Kontaktieren sie \href{mailto:Steffen.Exler@gmail.com}{Steffen.Exler@gmail.com}
+
+
+\section{Hilfe}
+\label{\detokenize{help::doc}}\label{\detokenize{help:hilfe}}
+\index{Support}
+Wenn Sie hilfe brauchen email \href{mailto:Steffen.Exler@gmail.com}{Steffen.Exler@gmail.com}
 
 
 \chapter{Indices and tables}

@@ -35,6 +35,8 @@ public class DialogWindow extends JFrame {
     public DialogWindow(int nodeId, String nodeContent) {
         this.nodeId = nodeId;
 
+        this.setLocationRelativeTo(null);
+
         this.setTitle(Integer.toString(nodeId) + ": " + nodeContent);
 
         this.setSize(400, 100);

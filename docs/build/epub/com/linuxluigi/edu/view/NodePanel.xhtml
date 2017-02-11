@@ -18,31 +18,107 @@
             
   <div class="section" id="nodepanel">
 <h1>NodePanel</h1>
+<dl class="type">
+<dt id="com.linuxluigi.edu.view.NodePanel">
+public class <code class="descname">NodePanel</code> extends JPanel</dt>
+<dd><p>Ein JPanel welches die Binärbaumknoten als Button zeichnet und mit Strichen verbindet.</p>
+</dd></dl>
+
 <div class="section" id="fields">
 <h2>Fields</h2>
 <div class="section" id="jbuttons">
 <h3>jButtons</h3>
+<dl class="field">
+<dt id="com.linuxluigi.edu.view.NodePanel.jButtons">
+public JButton[] <code class="descname">jButtons</code></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="jlabels">
 <h3>jLabels</h3>
+<dl class="field">
+<dt id="com.linuxluigi.edu.view.NodePanel.jLabels">
+public JLabel[] <code class="descname">jLabels</code></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 <div class="section" id="constructors">
 <h2>Constructors</h2>
 <div class="section" id="id1">
 <h3>NodePanel</h3>
+<dl class="constructor">
+<dt id="com.linuxluigi.edu.view.NodePanel.NodePanel()">
+public <code class="descname">NodePanel</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Konstruktor, setz das Layout zu null</p>
+</dd></dl>
+
 </div>
 </div>
 <div class="section" id="methods">
 <h2>Methods</h2>
 <div class="section" id="addnodelistener">
 <h3>addNodeListener</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.NodePanel.addNodeListener(ActionListener)">
+public void <code class="descname">addNodeListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><span class="link-target"> [http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html]</span><em> listenerForNodeButton</em><span class="sig-paren">)</span></dt>
+<dd><p>Actionlistener für alle Knoten</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>listenerForNodeButton</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="getjpanel">
 <h3>getJPanel</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.NodePanel.getJPanel(Listlabel)">
+public JPanel <code class="descname">getJPanel</code><span class="sig-paren">(</span><a class="reference internal" href="../list/Listlabel.xhtml#com.linuxluigi.edu.list.Listlabel" title="com.linuxluigi.edu.list.Listlabel">Listlabel</a>&lt;<a class="reference internal" href="../data/NodeData.xhtml#com.linuxluigi.edu.data.NodeData" title="com.linuxluigi.edu.data.NodeData">NodeData</a>&gt;<em> nodeList</em><span class="sig-paren">)</span></dt>
+<dd><p>Aktuallesiert das JPanel mithilfe des neuen Binärbaumes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<li><strong>nodeList</strong> &#8211; neuer Binärbaum</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last">Gibt das aktuallesierte JPanel zurück</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 <div class="section" id="paintcomponent">
 <h3>paintComponent</h3>
+<dl class="method">
+<dt id="com.linuxluigi.edu.view.NodePanel.paintComponent(Graphics)">
+protected void <code class="descname">paintComponent</code><span class="sig-paren">(</span>Graphics<em> g</em><span class="sig-paren">)</span></dt>
+<dd><p>Zeichnet alle Linien</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>g</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 </div>

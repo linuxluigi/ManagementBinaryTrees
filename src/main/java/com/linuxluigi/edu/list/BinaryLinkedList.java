@@ -203,8 +203,6 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
     public void remove(int index) {
         Node getNode = this.getNode(index);
 
-        PrevNode prevNode = new PrevNode();
-
         if (getNode.nextLeft == null && getNode.nextRight == null) {
             // no next node
 

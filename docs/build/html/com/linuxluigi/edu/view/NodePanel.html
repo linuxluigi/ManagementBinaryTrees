@@ -156,7 +156,8 @@
 <dl class="type">
 <dt id="com.linuxluigi.edu.view.NodePanel">
 public class <code class="descname">NodePanel</code> extends JPanel<a class="headerlink" href="#com.linuxluigi.edu.view.NodePanel" title="Link zu dieser Definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Ein JPanel welches die Binärbaumknoten als Button zeichnet und mit Strichen verbindet.</p>
+</dd></dl>
 
 <div class="section" id="fields">
 <h2>Fields<a class="headerlink" href="#fields" title="Link zu dieser Überschrift">¶</a></h2>
@@ -184,7 +185,8 @@ public JLabel[] <code class="descname">jLabels</code><a class="headerlink" href=
 <dl class="constructor">
 <dt id="com.linuxluigi.edu.view.NodePanel.NodePanel()">
 public <code class="descname">NodePanel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.NodePanel.NodePanel()" title="Link zu dieser Definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Konstruktor, setz das Layout zu null</p>
+</dd></dl>
 
 </div>
 </div>
@@ -195,7 +197,19 @@ public <code class="descname">NodePanel</code><span class="sig-paren">(</span><s
 <dl class="method">
 <dt id="com.linuxluigi.edu.view.NodePanel.addNodeListener(ActionListener)">
 public void <code class="descname">addNodeListener</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/awt/event/ActionListener.html" title="java.awt.event.ActionListener">ActionListener</a><em> listenerForNodeButton</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.NodePanel.addNodeListener(ActionListener)" title="Link zu dieser Definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Actionlistener für alle Knoten</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>listenerForNodeButton</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="getjpanel">
@@ -203,7 +217,22 @@ public void <code class="descname">addNodeListener</code><span class="sig-paren"
 <dl class="method">
 <dt id="com.linuxluigi.edu.view.NodePanel.getJPanel(Listlabel)">
 public JPanel <code class="descname">getJPanel</code><span class="sig-paren">(</span><a class="reference internal" href="../list/Listlabel.html#com.linuxluigi.edu.list.Listlabel" title="com.linuxluigi.edu.list.Listlabel">Listlabel</a>&lt;<a class="reference internal" href="../data/NodeData.html#com.linuxluigi.edu.data.NodeData" title="com.linuxluigi.edu.data.NodeData">NodeData</a>&gt;<em> nodeList</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.NodePanel.getJPanel(Listlabel)" title="Link zu dieser Definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Aktuallesiert das JPanel mithilfe des neuen Binärbaumes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<li><strong>nodeList</strong> &#8211; neuer Binärbaum</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last">Gibt das aktuallesierte JPanel zurück</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="paintcomponent">
@@ -211,7 +240,19 @@ public JPanel <code class="descname">getJPanel</code><span class="sig-paren">(</
 <dl class="method">
 <dt id="com.linuxluigi.edu.view.NodePanel.paintComponent(Graphics)">
 protected void <code class="descname">paintComponent</code><span class="sig-paren">(</span>Graphics<em> g</em><span class="sig-paren">)</span><a class="headerlink" href="#com.linuxluigi.edu.view.NodePanel.paintComponent(Graphics)" title="Link zu dieser Definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Zeichnet alle Linien</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>g</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 </div>
