@@ -114,11 +114,20 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
      * @param data Datenobject
      */
     public void add(int index, T data) {
+        add(index, createNewNode(data));
+    }
+
+    /**
+     * Erstelt ein neuen Knoten
+     * @param data  Datenobjekt
+     * @return      Neuer Knoten als Node
+     */
+    private Node createNewNode(T data) {
         Node newNode = new Node();
         newNode.data = data;
         newNode.nextLeft = null;
         newNode.nextRight = null;
-        add(index, newNode);
+        return newNode;
     }
 
     /**
@@ -127,6 +136,64 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
      * @param newNode   Zu speichernden Knoten
      */
     private void add(int index, Node newNode) {
+        Node tempCurrent;
+
+        if (index >= this.size || index < 0) {
+            if (index != 0) {
+                throw new ArrayIndexOutOfBoundsException();
+            }
+        }
+
+        if (index == 0 && head == null) {
+            newNode.prev = null;
+            head = newNode;
+        } else {
+            tempCurrent = getNode(index);
+
+            boolean setNewNode = false;
+
+            while (setNewNode == false) {
+
+                // convert generics to NodeData
+                NodeData currentNodeData = (NodeData) tempCurrent.data;
+                String currentNodeDataString = currentNodeData.getContent();
+                NodeData newNodeData = (NodeData) newNode.data;
+                String newNodeDataString = newNodeData.getContent();
+
+                if (newNodeDataString.compareTo(currentNodeDataString) < 0) {
+                    // smaller
+                    if (tempCurrent.nextLeft == null) {
+                        tempCurrent.nextLeft = newNode;
+                        setNewNode = true;
+                    } else {
+                        tempCurrent = tempCurrent.nextLeft;
+                    }
+                } else {
+                    // bigger
+                    if (tempCurrent.nextRight == null) {
+                        tempCurrent.nextRight = newNode;
+                        setNewNode = true;
+                    } else {
+                        tempCurrent = tempCurrent.nextRight;
+                    }
+                }
+
+            }
+
+            newNode.prev = tempCurrent;
+
+        }
+
+        setId();
+    }
+
+    /**
+     * Fügt ein neuen Knoten hinzu nach Knoten mit dem Index index,
+     * Knoten wird in der nächst möglichen ID eingefügt
+     * @param index     Index des vorherigen Knoten
+     * @param newNode   Zu speichernden Knoten
+     */
+    private void addHeap(int index, Node newNode) {
         Node tempCurrent;
 
         if (index >= this.size || index < 0) {
@@ -202,6 +269,8 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
      */
     public void remove(int index) {
         Node getNode = this.getNode(index);
+
+        PrevNode prevNode = new PrevNode();
 
         if (getNode.nextLeft == null && getNode.nextRight == null) {
             // no next node
@@ -587,7 +656,7 @@ public class BinaryLinkedList<T> implements Listlabel<T> {
         clearAll();
 
         for (int i = 0; i < sortArray.length; i++) {
-            add((T) new NodeData(sortArray[i]));
+            addHeap(0, createNewNode((T) new NodeData(sortArray[i])));
         }
 
     }

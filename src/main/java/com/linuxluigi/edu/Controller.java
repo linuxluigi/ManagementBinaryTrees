@@ -76,21 +76,16 @@ public class Controller {
      * Erstellt ein Demo Binärbaum, der anschließend nach DESC sortiert wird
      */
     private void initDefaultTree() {
+        this.nodeList.add(new NodeData("D"));
         this.nodeList.add(new NodeData("A"));
         this.nodeList.add(new NodeData("K"));
         this.nodeList.add(new NodeData("G22"));
         this.nodeList.add(new NodeData("C"));
-        this.nodeList.add(new NodeData("D"));
-        this.nodeList.add(new NodeData("G"));
+        this.nodeList.add(new NodeData("c1"));
+        this.nodeList.add(new NodeData("77"));
         this.nodeList.add(new NodeData("F"));
-        this.nodeList.add(new NodeData("G"));
+        this.nodeList.add(new NodeData("17"));
         this.nodeList.add(new NodeData("K"));
-        this.nodeList.add(new NodeData("I33"));
-        this.nodeList.add(new NodeData("J"));
-        this.nodeList.add(new NodeData("K"));
-        this.nodeList.add(new NodeData("L"));
-        this.nodeList.add(new NodeData("AA"));
-        this.nodeList.sort(OrderBy.DESC);
     }
 
     /**
@@ -185,7 +180,15 @@ public class Controller {
                 nodeList.setBinaryTreeFromList(load.getBinaryListArray());
             }
 
-            updateViewInNewWindow();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            updateView();
+
+            //updateViewInNewWindow();
         }
     }
 
@@ -207,6 +210,12 @@ public class Controller {
 
             if (chooseFile == JFileChooser.APPROVE_OPTION) {
                 Save save = new Save(chooser.getSelectedFile(), nodeList);
+            }
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
             updateView();

@@ -11,3 +11,4 @@ Das System für die Indexierung lautet:
 6. Wenn ich nicht mehr nach oben gehen kann, bin ich fertig.
 
 .. image:: _static/img/BinaryTree.gif
+
